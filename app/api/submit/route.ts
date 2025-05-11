@@ -47,8 +47,8 @@ const sendConfirmationEmail = (email: string, name: string) => {
           <p><strong>I/E nderuar${name ? ` ${name}` : ""},</strong></p>
           <p>Faleminderit për kohën dhe gatishmërinë për të ndarë historinë tuaj. Ajo tashmë është ruajtur dhe do të bëhet pjesë e një narrative që do të jetojë, duke siguruar që kujtimet dhe përvojat që ndatë të mos harrohen kurrë.</p>
           <br>
-          <p>Me respekt,</p>
-          <p>Arita Dreshaj</p>
+          <p>Me respekt,
+          <p>Arita Dreshaj
           <p><a href="https://www.aritadreshaj.com/">www.aritadreshaj.com</a></p>
         </body>
       </html>
@@ -74,6 +74,9 @@ export async function POST(req: Request) {
       videos = [],
       audio = null
     } = data;
+
+    // Debug: Log the value of emri and email to verify what is received
+    console.log('Received submission:', { emri, email });
 
     // Compose a safe folder name based on vendlindja and emri
     const safe = (str: string) => (str || "anon").toLowerCase().replace(/[^a-z0-9]/gi, "_");
