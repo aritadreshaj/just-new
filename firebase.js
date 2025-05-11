@@ -5,12 +5,12 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 // ✅ Your actual Firebase project config
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: "answers-5945c.firebaseapp.com",
-  projectId: "answers-5945c",
-  storageBucket: "answers-5945c.appspot.com", // FIXED: correct bucket name
-  messagingSenderId: "266101131235",
-  appId: "1:266101131235:web:4fb2809ee4578e362c42d6",
-  measurementId: "G-G7LZ2EHPGQ"
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
