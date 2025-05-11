@@ -54,10 +54,13 @@ export default function ShareYourStory() {
   const [isRecording, setIsRecording] = useState(false);
   const [recordingSeconds, setRecordingSeconds] = useState(0);
   const [audioFiles, setAudioFiles] = useState<File[]>([]);
-  const [audioSuccess, setAudioSuccess] = useState(false);
 
   // New state to handle title hover/click
   const [titleActive, setTitleActive] = useState(false);
+
+  // State for consent and inclusion
+  const [consent, setConsent] = useState(false);
+  const [inclusion, setInclusion] = useState<'anonim' | 'emer'>('emer');
 
   // Start/stop recording
   const startRecording = async () => {
@@ -71,12 +74,10 @@ export default function ShareYourStory() {
       const file = new File([blob], `recording_${Date.now()}.webm`, { type: "audio/webm" });
       setAudioFiles((prev) => [...prev, file]);
       setRecordingSeconds(0);
-      setAudioSuccess(true);
     };
     mediaRecorder.start();
     setIsRecording(true);
     setRecordingSeconds(0);
-    setAudioSuccess(false);
   };
   const stopRecording = () => {
     mediaRecorderRef.current?.stop();
@@ -135,12 +136,29 @@ export default function ShareYourStory() {
   // Handle form submit
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('handleSubmit called'); // DEBUG: Check if submit is triggered
-    // Check for pointer-events:none on parent overlays
-    const modal = document.activeElement?.closest('.z-40');
-    if (modal && getComputedStyle(modal).pointerEvents === 'none') {
-      console.warn('Modal overlay has pointer-events:none, which will block clicks.');
+    // Validation: All questions mandatory, but for each, either text or audio required
+    let valid = true;
+    for (const field of QUESTIONNAIRE_FIELDS) {
+      if (field.type === 'textarea') {
+        const text = formData[field.name];
+        const hasAudio = audioFiles.length > 0;
+        if (!text && !hasAudio) {
+          valid = false;
+          alert('Ju lutemi përgjigjuni çdo pyetjeje me shkrim ose zë.');
+          break;
+        }
+      } else if (!formData[field.name]) {
+        valid = false;
+        alert('Ju lutemi plotësoni të gjitha fushat e detyrueshme.');
+        break;
+      }
     }
+    if (!consent) {
+      alert('Ju lutemi jepni pëlqimin tuaj për përdorimin e materialeve.');
+      return;
+    }
+    if (!valid) return;
+
     // 1. Upload files to Firebase Storage and get URLs
     let imageUrls: string[] = [];
     let videoUrls: string[] = [];
@@ -224,8 +242,121 @@ export default function ShareYourStory() {
           className="w-full border border-gray-300 p-2 rounded-lg"
         />
       )}
+      {/* Place audio recorder directly under email field */}
+      {field.name === "email" && (
+        <div className="mb-4 mt-2">
+          <label className="block mb-1 font-medium text-gray-700">Regjistro një mesazh zanor:</label>
+          <div className="flex items-center gap-3">
+            {!isRecording ? (
+              <button
+                type="button"
+                onClick={startRecording}
+                aria-label="Fillo regjistrimin"
+                className="record-btn flex items-center justify-center"
+              >
+                <span className="record-circle" />
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={stopRecording}
+                aria-label="Përfundo regjistrimin"
+                className="record-btn flex items-center justify-center"
+              >
+                <span className="record-circle recording" />
+              </button>
+            )}
+            {isRecording && (
+              <span className="text-sm text-gray-700">{recordingSeconds}s</span>
+            )}
+          </div>
+          {audioFiles.length > 0 && (
+            <ul className="mt-2 text-sm text-gray-600">
+              {audioFiles.map((file, idx) => (
+                <li key={idx} className="flex items-center gap-2">
+                  {file.name}
+                  <button type="button" className="text-red-600 ml-2" onClick={() => removeAudio(idx)}>X</button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
     </div>
   );
+
+  // Custom circular checkbox and radio CSS (lighter, simpler)
+  const customInputStyles = `
+    .record-btn {
+      width: 50px;
+      height: 50px;
+      padding: 0;
+      border: none;
+      background: none;
+      outline: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .record-circle {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: #fff;
+      border: 3px solid #22c55e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: all 0.2s cubic-bezier(.4,2,.6,1);
+    }
+    .record-circle::after {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 28px;
+      background: #22c55e;
+      border-radius: 50%;
+      transition: all 0.2s cubic-bezier(.4,2,.6,1);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .record-circle.recording::after {
+      width: 20px;
+      height: 20px;
+      background: #22c55e;
+      border-radius: 7px;
+      transition: all 0.2s cubic-bezier(.4,2,.6,1);
+    }
+    /* Confirmation/inclusion/consent circles */
+    input[type='checkbox'], input[type='radio'] {
+      appearance: none;
+      -webkit-appearance: none;
+      background-color: #fff;
+      margin: 0;
+      font: inherit;
+      color: #333;
+      width: 1.25em;
+      height: 1.25em;
+      border: 2px solid #bbb;
+      border-radius: 50%;
+      display: grid;
+      place-content: center;
+      transition: border-color 0.2s, background 0.2s;
+      box-shadow: none;
+    }
+    input[type='checkbox']:checked, input[type='radio']:checked {
+      background-color:rgb(158, 163, 174);
+      border-color:rgb(158, 163, 174);
+    }
+    /* Remove white dot for checked state */
+    input[type='checkbox']:checked::before, input[type='radio']:checked::before {
+      display: none;
+    }
+  `;
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden flex flex-col">
@@ -283,6 +414,7 @@ export default function ShareYourStory() {
           .animate-blink {
             animation: blink 0.7s steps(1) infinite;
           }
+          ${customInputStyles}
         `}</style>
         {/* Overlay only the background image area */}
         {showForm && (
@@ -305,10 +437,6 @@ export default function ShareYourStory() {
                   borderRadius: "1rem",
                   width: "85%",
                   maxWidth: "100vw",
-                  // --- Height control for phone modal ---
-                  // Uncomment and set as needed:
-                  // height: "80vh",
-                  // maxHeight: "90vh",
                   boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
                   marginTop: "1rem",
                   marginBottom: "4rem",
@@ -326,7 +454,12 @@ export default function ShareYourStory() {
                   {/* Modal content for phone */}
                   {!submitted ? (
                     <form onSubmit={handleSubmit} encType="multipart/form-data">
-                      <h2 className="text-3xl font-bold mb-6 text-center text-gray-900">Ndaje historinë tënde</h2>
+                      <h2 className="text-3xl font-bold mb-2 text-center text-gray-900">Ndaje historinë tënde</h2>
+                      <p className="mb-6 text-center text-gray-700 text-base">
+                        Më poshtë do të gjeni një formular me disa pyetje rreth jush dhe kujtimeve tuaja. Mund t’i përgjigjeni me shkrim ose duke regjistruar zë përmes butonit "Regjistro".<br/>
+                        Jeni të lirë të tregoni historinë tuaj ashtu siç e ndjeni, pa u ndikuar nga vetë pyetjet.<br/>
+                        Nëse hasni ndonjë problem gjatë dorëzimit, na kontaktoni në e-mail: info@aritadreshaj.com
+                      </p>
                       {renderField(QUESTIONNAIRE_FIELDS.find(f => f.name === "emri")!)}
                       {renderField(QUESTIONNAIRE_FIELDS.find(f => f.name === "ditelindja")!)}
                       <div className="mb-4 flex flex-row gap-4">
@@ -361,34 +494,8 @@ export default function ShareYourStory() {
                           f.name !== "vendbanimiAktual"
                       ).map(renderField)}
                       <div className="mb-6">
-                        <label className="block mb-1 font-medium text-gray-700">Në vend që ta shkruash, mund ta tregosh me zë. Regjistro një mesazh zanor.</label>
-                        <div className="flex items-center gap-3">
-                          {!isRecording ? (
-                            <Button type="button" onClick={startRecording} className="mr-2 bg-green-600 text-white">Fillo regjistrimin</Button>
-                          ) : (
-                            <Button type="button" onClick={stopRecording} className="bg-red-600 text-white">Përfundo regjistrimin</Button>
-                          )}
-                          {isRecording && (
-                            <span className="text-sm text-gray-700">
-                              {recordingSeconds}s
-                            </span>
-                          )}
-                        </div>
-                        {audioSuccess && <p className="text-green-700 mt-2">Audio u regjistrua me sukses!</p>}
-                        {audioFiles.length > 0 && (
-                          <ul className="mt-2 text-sm text-gray-600">
-                            {audioFiles.map((file, idx) => (
-                              <li key={idx} className="flex items-center gap-2">
-                                {file.name}
-                                <button type="button" className="text-red-600 ml-2" onClick={() => removeAudio(idx)}>X</button>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </div>
-                      <div className="mb-6">
                         <label className="block mb-1 font-medium text-gray-700">
-                          A dëshironi të ndani fotografi ose video për të shoqëruar rrëfimin tuaj?
+                          Përfshini foto ose video që pasqyrojnë rrëfimin tuaj
                         </label>
                         <div className="flex flex-row gap-4">
                           <label className="cursor-pointer">
@@ -456,6 +563,25 @@ export default function ShareYourStory() {
                             ))}
                           </ul>
                         )}
+                      </div>
+                      <div className="mb-4 mt-6">
+                        <label className="flex items-center gap-2 font-medium text-gray-700">
+                          <input type="checkbox" checked={consent} onChange={e => setConsent(e.target.checked)} required />
+                          Ju lutemi, jepni pëlqimin tuaj që materialet e mbledhura të përdoren për qëllime studimore dhe hulumtime të mëtejshme.
+                        </label>
+                      </div>
+                      <div className="mb-6">
+                        <label className="block mb-1 font-medium text-gray-700">Zgjedhje e përfshirjes:</label>
+                        <div className="flex gap-4">
+                          <label className="flex items-center gap-1 font-medium text-gray-700">
+                            <input type="radio" name="inclusion" value="emer" checked={inclusion === 'emer'} onChange={() => setInclusion('emer')} />
+                            me emer
+                          </label>
+                          <label className="flex items-center gap-1 font-medium text-gray-700">
+                            <input type="radio" name="inclusion" value="anonim" checked={inclusion === 'anonim'} onChange={() => setInclusion('anonim')} />
+                            anonim
+                          </label>
+                        </div>
                       </div>
                       <div className="flex justify-end mt-6">
                         <Button type="submit" className="bg-black text-white px-8 py-2 rounded-lg shadow">Dërgo</Button>
@@ -493,10 +619,6 @@ export default function ShareYourStory() {
                   borderRadius: "1rem",
                   width: "75%",
                   maxWidth: "90vw",
-                  // --- Height control for desktop modal ---
-                  // Uncomment and set as needed:
-                  // height: "700px",
-                  // maxHeight: "90vh",
                   boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
                   marginTop: "10rem",
                   marginBottom: "14rem",
@@ -514,7 +636,12 @@ export default function ShareYourStory() {
                   {/* Modal content for desktop */}
                   {!submitted ? (
                     <form onSubmit={handleSubmit} encType="multipart/form-data">
-                      <h2 className="text-3xl font-bold mb-6 text-center text-gray-900">Ndaje historinë tënde</h2>
+                      <h2 className="text-3xl font-bold mb-2 text-center text-gray-900">Ndaje historinë tënde</h2>
+                      <p className="mb-6 text-center text-gray-700 text-base">
+                        Më poshtë do të gjeni një formular me disa pyetje rreth jush dhe kujtimeve tuaja. Mund t’i përgjigjeni me shkrim ose duke regjistruar zë përmes butonit "Regjistro".<br/>
+                        Jeni të lirë të tregoni historinë tuaj ashtu siç e ndjeni, pa u ndikuar nga vetë pyetjet.<br/>
+                        Nëse hasni ndonjë problem gjatë dorëzimit, na kontaktoni në e-mail: info@aritadreshaj.com
+                      </p>
                       {renderField(QUESTIONNAIRE_FIELDS.find(f => f.name === "emri")!)}
                       {renderField(QUESTIONNAIRE_FIELDS.find(f => f.name === "ditelindja")!)}
                       <div className="mb-4 flex flex-row gap-4">
@@ -549,34 +676,8 @@ export default function ShareYourStory() {
                           f.name !== "vendbanimiAktual"
                       ).map(renderField)}
                       <div className="mb-6">
-                        <label className="block mb-1 font-medium text-gray-700">Në vend që ta shkruash, mund ta tregosh me zë. Regjistro një mesazh zanor.</label>
-                        <div className="flex items-center gap-3">
-                          {!isRecording ? (
-                            <Button type="button" onClick={startRecording} className="mr-2 bg-green-600 text-white">Fillo regjistrimin</Button>
-                          ) : (
-                            <Button type="button" onClick={stopRecording} className="bg-red-600 text-white">Përfundo regjistrimin</Button>
-                          )}
-                          {isRecording && (
-                            <span className="text-sm text-gray-700">
-                              {recordingSeconds}s
-                            </span>
-                          )}
-                        </div>
-                        {audioSuccess && <p className="text-green-700 mt-2">Audio u regjistrua me sukses!</p>}
-                        {audioFiles.length > 0 && (
-                          <ul className="mt-2 text-sm text-gray-600">
-                            {audioFiles.map((file, idx) => (
-                              <li key={idx} className="flex items-center gap-2">
-                                {file.name}
-                                <button type="button" className="text-red-600 ml-2" onClick={() => removeAudio(idx)}>X</button>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </div>
-                      <div className="mb-6">
                         <label className="block mb-1 font-medium text-gray-700">
-                          A dëshironi të ndani fotografi ose video për të shoqëruar rrëfimin tuaj?
+                          Përfshini foto ose video që pasqyrojnë rrëfimin tuaj.
                         </label>
                         <div className="flex flex-row gap-4">
                           <label className="cursor-pointer">
@@ -644,6 +745,25 @@ export default function ShareYourStory() {
                             ))}
                           </ul>
                         )}
+                      </div>
+                      <div className="mb-4 mt-6">
+                        <label className="flex items-center gap-2 font-medium text-gray-700">
+                          <input type="checkbox" checked={consent} onChange={e => setConsent(e.target.checked)} required />
+                          Ju lutemi, jepni pëlqimin tuaj që materialet e mbledhura të përdoren për qëllime studimore dhe hulumtime të mëtejshme.
+                        </label>
+                      </div>
+                      <div className="mb-6">
+                        <label className="block mb-1 font-medium text-gray-700">Zgjedhje e përfshirjes:</label>
+                        <div className="flex gap-4">
+                          <label className="flex items-center gap-1 font-medium text-gray-700">
+                            <input type="radio" name="inclusion" value="emer" checked={inclusion === 'emer'} onChange={() => setInclusion('emer')} />
+                            me emer
+                          </label>
+                          <label className="flex items-center gap-1 font-medium text-gray-700">
+                            <input type="radio" name="inclusion" value="anonim" checked={inclusion === 'anonim'} onChange={() => setInclusion('anonim')} />
+                            anonim
+                          </label>
+                        </div>
                       </div>
                       <div className="flex justify-end mt-6">
                         <Button type="submit" className="bg-black text-white px-8 py-2 rounded-lg shadow">Dërgo</Button>

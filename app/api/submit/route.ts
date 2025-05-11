@@ -28,7 +28,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const sendConfirmationEmail = (email: string) => {
+const sendConfirmationEmail = (email: string, name: string) => {
   const mailOptions = {
     from: process.env.ZOHO_DOMAIN,
     to: email,
@@ -39,11 +39,12 @@ const sendConfirmationEmail = (email: string) => {
           <style>
             body {
               font-family: 'Poppins', sans-serif;
+              font-size: 15px;
             }
           </style>
         </head>
         <body>
-          <p><strong>I/e nderuar,</strong></p>
+          <p><strong>I/E nderuar${name ? ` ${name}` : ""},</strong></p>
           <p>Faleminderit për kohën dhe gatishmërinë për të ndarë historinë tuaj. Ajo tashmë është ruajtur dhe do të bëhet pjesë e një narrative që do të jetojë, duke siguruar që kujtimet dhe përvojat që ndatë të mos harrohen kurrë.</p>
           <br>
           <p>Me respekt,</p>
@@ -107,7 +108,7 @@ export async function POST(req: Request) {
     );
 
     if (email) {
-      await sendConfirmationEmail(email);
+      await sendConfirmationEmail(email, emri);
     }
 
     return new Response(JSON.stringify({ success: true }), {
