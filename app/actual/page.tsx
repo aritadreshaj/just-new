@@ -159,6 +159,7 @@ export default function ShareYourStory() {
         audioUrls = await Promise.all(audioFiles.map(file => uploadFile(file, folderName)));
       }
     } catch (err) {
+      console.error('File upload error:', err);
       alert('Ngarkimi i skedarëve dështoi. Ju lutemi provoni përsëri.');
       return;
     }
@@ -185,6 +186,7 @@ export default function ShareYourStory() {
         alert(data?.error || 'Submission failed. Please try again.');
       }
     } catch (error) {
+      console.error('Submission error:', error);
       alert('An error occurred. Please try again.');
     }
   };
