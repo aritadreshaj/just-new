@@ -30,7 +30,7 @@ const transporter = nodemailer.createTransport({
 
 const sendConfirmationEmail = (email: string) => {
   const mailOptions = {
-    from: process.env.EMAIL_USER,
+    from: process.env.ZOHO_DOMAIN,
     to: email,
     subject: "Faleminderit që ndatë historinë tuaj!",
     html: `
