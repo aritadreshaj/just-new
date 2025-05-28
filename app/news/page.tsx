@@ -40,6 +40,14 @@ const newsItems = [
 		projectLink: "https://blogs.brighton.ac.uk/domesticityundersiege/",
 		place: "Brighton, United Kingdom",
 	},
+    	{
+		date: "2023-06-10",
+		title: "International Workshop on Cultural Resilience at Institute X",
+		summary:
+			"Selected and fully funded by Trans Europe Halles to participate in Rebuilding to Last: Becoming a Forest, a workshop held at Institute X in Aarhus. The program brought together practitioners across Europe to explore long-term strategies for sustainable cultural infrastructure and spatial resilience.",
+		projectLink: "https://www.teh.net/inititatives/rebuilding-to-last/",
+		place: "Aarhus, Denmark",
+	},
 	{
 		date: "2024-09-07",
 		title: "On War and Avant-Garde at the 9th Biennial Conference of the European Architectural History Network",
