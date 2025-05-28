@@ -42,7 +42,7 @@
     "description": "",
     "budget": "15 000 EUR",
     "phase": "LPH 01-09",
-    "private": false
+    "private": true
   },
   {
     "title": "Leverkusen Mitte Quartier",

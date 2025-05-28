@@ -24,7 +24,7 @@ export default function Header() {
         <div className="w-full flex justify-between items-center py-6">
           <Link
             href="/"
-            className={`${typography.sizes.lg} ${typography.weights.medium} tracking-wide ${typography.colors.orange} pl-8`}
+            className={`${typography.sizes.xl} ${typography.weights.medium} tracking-wide ${typography.colors.orange} pl-8`}
             style={{ fontFamily: "'Poppins', sans-serif" }}
           >
             a r i t a d r e s h a j
@@ -58,19 +58,25 @@ export default function Header() {
         <div className="flex flex-col items-start p-6">
         <Link
             href="/research"
-            className={`${typography.sizes.lg} ${typography.weights.medium} mb-4 hover:${typography.colors.orange}`}
+            className={`${typography.sizes.xl} ${typography.weights.medium} mb-4 hover:${typography.colors.orange}`}
           >
             Research
           </Link>
           <Link
             href="/architecture"
-            className={`${typography.sizes.lg} ${typography.weights.medium} mb-4 hover:${typography.colors.orange}`}
+            className={`${typography.sizes.xl} ${typography.weights.medium} mb-4 hover:${typography.colors.orange}`}
           >
             Architecture
           </Link>
           <Link
+            href="/news"
+            className={`${typography.sizes.xl} ${typography.weights.medium} mb-4 hover:${typography.colors.orange}`}
+          >
+            News
+          </Link>
+          <Link
             href="/about"
-            className={`${typography.sizes.lg} ${typography.weights.medium} hover:${typography.colors.orange}`}
+            className={`${typography.sizes.xl} ${typography.weights.medium} hover:${typography.colors.orange}`}
           >
             About
           </Link>

@@ -14,7 +14,6 @@ import "../styles/globals.css";
 import "@fontsource/poppins"; // Ensure the font is imported globally
 
 export default function Home() {
-  const [showCookieBar, setShowCookieBar] = useState(true); // State for cookie bar
   const [isInverted, setIsInverted] = useState(false); // State for toggling the image
 
   // Effect to toggle the image between normal and inverted
@@ -51,7 +50,7 @@ export default function Home() {
           {/* Text Below the Image */}
           <div className="mt-8 text-center">
             <h1
-              className={`${typography.colors.orange} ${typography.sizes.xs} font-light`}
+              className={`${typography.colors.orange} ${typography.sizes.md} font-light`}
             >
               <Typewriter
                 words={["a way forward, a way back."]}
@@ -66,7 +65,7 @@ export default function Home() {
 
             {/* Significant Space */}
             <p
-              className={`mt-[250px] ${typography.colors.darkGray} italic ${typography.sizes.xs}`}
+              className={`mt-[250px] ${typography.colors.darkGray} italic ${typography.sizes.md}`}
             >
               More to unfold. Come back soon.
             </p>
@@ -99,7 +98,7 @@ export default function Home() {
               <h2
                 className={`${typography.sizes.xl} ${typography.weights.light} ${typography.colors.black} mb-6`}
               >
-                Projects
+                Categories
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Link Research to app/research */}
@@ -117,9 +116,12 @@ export default function Home() {
                 >
                   Architecture
                 </Link>
-                <div className="border border-neutral-200 p-4">
-                  Philosophy
-                </div>
+                <Link
+                  href="/news"
+                  className="border border-neutral-200 p-4 hover:bg-neutral-50 transition-colors"
+                >
+                  News
+                </Link>
                 <Link
                   href="/actual"
                   className="border border-neutral-200 p-4 hover:bg-neutral-50 transition-colors"
@@ -134,30 +136,6 @@ export default function Home() {
 
       {/* Footer */}
       <Footer />
-
-      {showCookieBar && (
-        <div className="fixed bottom-0 left-0 right-0 bg-neutral-800 text-white p-4 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className={`${typography.sizes.xs} ${typography.weights.light} ${typography.colors.white}`}>
-            To use the website to its full extent, the activation of cookies,
-            external media, and visitor statistics is required.
-          </p>
-          <div className="flex gap-2">
-            <Button
-              variant="outline"
-              className="text-white border-white hover:bg-white/10"
-              onClick={() => setShowCookieBar(false)}
-            >
-              Decline
-            </Button>
-            <Button
-              className="bg-white text-neutral-900 hover:bg-neutral-200"
-              onClick={() => setShowCookieBar(false)}
-            >
-              OK
-            </Button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
