@@ -25,11 +25,12 @@ const aboutSections = [
 		content: (
 			<>
 				<p>
-					Arita Dreshaj holds a Master of Science from the
+					She holds a Master of Science from the
 					Technical University of Berlin and a Bachelor's degree
-					from the University of Prishtina. Her academic path also includes an Erasmus+
-					exchange at the Dessau Institute of Architecture, where she deepened her
-					engagement with conceptual and international design approaches. She has worked on numerous public and
+					from the University of Prishtina. Her academic path includes an Erasmus+ exchange at the Dessau Institute 
+          of Architecture, where she deepened her engagement with conceptual and international design approaches, 
+          and several scholarships, including the Deutschlandstipendium, awarded by the German Federal Ministry of 
+          Education (BMBF) to high-achieving students. She has worked on numerous public and
 					private projects in Germany, France, and Kosova, both independently and
 					in collaboration with architecture and planning offices.
 				</p>
@@ -41,11 +42,10 @@ const aboutSections = [
 		content: (
 			<>
 				<p>
-					The work is developed across different scales, from concept and research
-					to detailed design. The practice engages in public competitions, private
-					commissions, and research-driven studies. Current work includes housing
-					concepts, adaptive reuse strategies, and spatial studies on urban
-					peripheries.
+					The practice works across housing, adaptive reuse, and urban-scale studies, with a focus 
+          on edge conditions, residual spaces, and the transformation of the built environment. 
+          Projects span from early conceptual frameworks to detailed architectural design, and are developed 
+          through competitions, collaborations, and independent research.
 				</p>
 				<p className="mt-4">
 					Several awards and academic contributions reflect an ongoing
@@ -62,7 +62,10 @@ const aboutSections = [
 				<p>
 					Arita Dreshaj
 					<br />
-					Berlin, Deutschland
+					Between Berlin & Prishtina
+				</p>
+				<p className="mt-4">
+					For project inquiries, or collaborations, please get in touch via email:
 					<br />
 					<a
 						href="mailto:info@aritadreshaj.com"
@@ -70,7 +73,6 @@ const aboutSections = [
 					>
 						info@aritadreshaj.com
 					</a>
-					<br />
 				</p>
 			</>
 		),
