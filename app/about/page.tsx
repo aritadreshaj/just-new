@@ -9,21 +9,13 @@ import "@/styles/globals.css";
 // Category data and content
 const aboutSections = [
 	{
-		label: "Profile",
+		label: "Philosophy",
 		content: (
 			<>
 				<p>
-					After years of professional experience in France, Germany, and across
-          Europe, Arita Dreshaj develops a body of work situated between
-					architecture and urbanism. Operating independently from Berlin, the
-					practice focuses on housing, public space, to commercial spaces, with
-					particular attention to reuse, material economy, and social context.
-				</p>
-				<p className="mt-4">
-					The approach is grounded in spatial clarity and typological precision,
-					often informed by broader urban and ecological frameworks. Each project
-					seeks to engage with its existing conditions, spatial, historical, or
-					territorial, not as constraints, but as starting points for design.
+					The work of Arita Dreshaj moves between architecture and research, grounded in an exploration of space,
+           identity, and memory. Each project begins with an observation: of the physical, historical, and social
+            context, not as constraint, but as material. This approach translates into careful attention to reuse, spatial structure, and the tactility of construction, bridging conceptual thinking with grounded intervention.
 				</p>
 			</>
 		),
