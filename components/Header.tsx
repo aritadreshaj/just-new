@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image"; // Importing next/image for optimized image handling
 import typography from "@/styles/typography"; // Import the typography configuration
+import "@/styles/globals.css";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -25,7 +26,6 @@ export default function Header() {
           <Link
             href="/"
             className={`${typography.sizes.xl} ${typography.weights.medium} tracking-wide ${typography.colors.orange} pl-8`}
-            style={{ fontFamily: "'Poppins', sans-serif" }}
           >
             a r i t a d r e s h a j
           </Link>

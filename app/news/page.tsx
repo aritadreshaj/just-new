@@ -10,7 +10,7 @@ import "@/styles/globals.css";
 const newsItems = [
 	{
 		date: "2025-04-17",
-		title: "Unbounded Spaces part of the Atlantis Magazine at TU Delft",
+		title: "“Unbounded Spaces” part of the Atlantis Magazine at TU Delft",
 		summary:
 			"Looking through windows, real or imagined, to ask what belonging might mean when identity is fluid, unfinished, and alive.",
 		projectLink: "https://drive.google.com/file/d/1CG-Da1FQmou52bolnD_uVE7un5ciL1Ip/view",
@@ -34,14 +34,22 @@ const newsItems = [
 	},
 	{
 		date: "2025-04-03",
-		title: "Dreshaj's Estrangement at the International Architectural Conference 25 at University of Brighton",
+		title: "Dreshaj's “Estrangement” at the International Architectural Conference 25 at University of Brighton",
 		summary:
 			"Arita Dreshaj’s latest research on the concept of estrangement, exploring the theme of home, then and now.",
 		projectLink: "https://blogs.brighton.ac.uk/domesticityundersiege/",
 		place: "Brighton, United Kingdom",
 	},
+		{
+		date: "2022-10-25",
+		title: "1st Recognition for “New Archipelago” in Schöneweide",
+		summary:
+			"Inspired by O. M. Ungers’ concept of the city within the city, the proposal reimagines the post-industrial site as a fragmented archipelago of autonomous landscape islands. The typology responds to contaminated ground conditions with a thin, elevated layer of social housing, dormitories, and family houses, while integrating a plant-based remediation strategy to restore the soil over time.",
+		projectLink: "https://www.wettbewerbe-aktuell.de/ergebnis/stadt-im-wandel-stadt-der-ideen-2022-berlin-brandenburg-206834",
+		place: "Berlin, Germany",
+	},
     	{
-		date: "2023-06-10",
+		date: "2024-06-10",
 		title: "International Workshop on Cultural Resilience at Institute X",
 		summary:
 			"Selected and fully funded by Trans Europe Halles to participate in Rebuilding to Last: Becoming a Forest, a workshop held at Institute X in Aarhus. The program brought together practitioners across Europe to explore long-term strategies for sustainable cultural infrastructure and spatial resilience.",
