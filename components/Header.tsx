@@ -21,7 +21,7 @@ export default function Header() {
   return (
     <>
       {/* Header */}
-      <header className="border-b border-neutral-200 sticky top-0 bg-white z-40">
+      <header className="border-b border-neutral-200 fixed top-0 left-0 right-0 bg-white z-50">
         <div className="w-full flex justify-between items-center py-6">
           <Link
             href="/"
@@ -52,10 +52,10 @@ export default function Header() {
         className={`fixed top-0 right-0 h-full bg-white shadow-lg transition-transform duration-300 z-50 ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
-        style={{ width: "20%" }} // 1/5 of the screen width
+        style={{ width: typeof window !== 'undefined' && window.innerWidth <= 640 ? '50%' : '20%' }} // Responsive width
         onMouseLeave={handleMenuClose} // Close the menu when the cursor leaves the menu area
       >
-        <div className="flex flex-col items-start p-6">
+        <div className="flex flex-col items-start pl-8 pr-6 pt-6 pb-6 mt-2">
         <Link
             href="/research"
             className={`${typography.sizes.xl} ${typography.weights.medium} mb-4 hover:${typography.colors.orange}`}

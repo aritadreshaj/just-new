@@ -11,7 +11,6 @@ import NavigationArrows from '@/components/NavigationArrows';
 import '@/styles/typography.js';
 import '@/styles/arch-project-page.css';
 import "../../../styles/globals.css";
-import "../../../styles/arch-project-page.css";
 
 // Update the Project type to match the JSON data structure
 interface Project {
@@ -76,95 +75,97 @@ export default function ProjectPage() {
   };
 
   return (
-    <div>
+    <div className="min-h-screen flex flex-col relative bg-white">
       <CustomCursor />
       <Header />
-      <div className="arch-project-page">
-        <div className="arch-project-page-main">
-          <div className="flex justify-between mb-12">
-            {/* Left: Project Name */}
-            <div className="w-[30%]">
-              <h1 className="text-3xl font-bold mb-2">{project.title}</h1>
-              <p className="text-gray-500 italic">{project.location}</p>
+      <div className="margin-rule flex-1 flex flex-col w-full">
+        <main className="flex-1 w-full py-24 px-4" style={{ minHeight: 0, overflowY: "auto" }}>
+          <div className="arch-project-page-main">
+            <div className="flex justify-between mb-12">
+              {/* Left: Project Name */}
+              <div className="w-[30%]">
+                <h1 className="text-3xl font-bold mb-2">{project.title}</h1>
+                <p className="text-gray-500 italic">{project.location}</p>
+              </div>
+
+              {/* Right: Project Description */}
+              <div className="w-[70%]">
+                <p className="text-lg leading-relaxed mb-8">{project.description || "No description available."}</p>
+
+                {/* Add space before the buttons */}
+                <div className="flex justify-start gap-4">
+                  <button
+                    className={`text-black font-medium ${activeTab === "images" ? "border-b-2 border-black" : ""}`}
+                    onClick={() => handleTabSwitch("images")}
+                  >
+                    Images
+                  </button>
+                  <button
+                    className={`text-black font-medium ${activeTab === "info" ? "border-b-2 border-black" : ""}`}
+                    onClick={() => handleTabSwitch("info")}
+                  >
+                    Project Information
+                  </button>
+                </div>
+              </div>
             </div>
 
-            {/* Right: Project Description */}
-            <div className="w-[70%]">
-              <p className="text-lg leading-relaxed mb-8">{project.description || "No description available."}</p>
+            {/* Add the main image and sliding effect */}
+            <div className="relative overflow-hidden mt-4">
+              {/* Main Image */}
+              <div
+                className={`transition-transform duration-500 ${activeTab === "info" ? "-translate-x-[30%]" : "translate-x-0"}`}
+              >
+                <img
+                  src={project.images[0]}
+                  alt="Main Project Image"
+                  className="w-full h-auto shadow-md"
+                />
+              </div>
 
-              {/* Add space before the buttons */}
-              <div className="flex justify-start gap-4">
-                <button
-                  className={`text-black font-medium ${activeTab === "images" ? "border-b-2 border-black" : ""}`}
-                  onClick={() => handleTabSwitch("images")}
-                >
-                  Images
-                </button>
-                <button
-                  className={`text-black font-medium ${activeTab === "info" ? "border-b-2 border-black" : ""}`}
-                  onClick={() => handleTabSwitch("info")}
-                >
-                  Project Information
-                </button>
+              {/* Project Information Layer */}
+              <div
+                className={`absolute top-0 right-0 h-full bg-white p-6 pt-6 transition-transform duration-500 ease-in-out ${
+                  activeTab === "info" ? "translate-x-0" : "translate-x-full"
+                }`}
+                style={{ width: '70%', boxSizing: 'border-box', zIndex: 10 }}
+              >
+                <table className="w-full text-left text-sm border-t border-gray-300">
+                  <tbody>
+                    <tr className="border-b border-gray-300">
+                      <th className="pr-4 font-medium py-2">TYPE</th>
+                      <td className="py-2">{project.type}</td>
+                    </tr>
+                    <tr className="border-b border-gray-300">
+                      <th className="pr-4 font-medium py-2">CLIENT</th>
+                      <td className="py-2">{project.client || "N/A"}</td>
+                    </tr>
+                    <tr className="border-b border-gray-300">
+                      <th className="pr-4 font-medium py-2">DATE</th>
+                      <td className="py-2">{project.date}</td>
+                    </tr>
+                    <tr className="border-b border-gray-300">
+                      <th className="pr-4 font-medium py-2">STATUS</th>
+                      <td className="py-2">{project.status || "Completed"}</td>
+                    </tr>
+                    <tr className="border-b border-gray-300">
+                      <th className="pr-4 font-medium py-2">COLLABORATORS</th>
+                      <td className="py-2">{project.collaborator || "N/A"}</td>
+                    </tr>
+                    <tr className="border-b border-gray-300">
+                      <th className="pr-4 font-medium py-2">BUDGET</th>
+                      <td className="py-2">{project.budget || "N/A"}</td>
+                    </tr>
+                    <tr className="border-b border-gray-300">
+                      <th className="pr-4 font-medium py-2">PHASE</th>
+                      <td className="py-2">{project.phase || "N/A"}</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
-
-          {/* Add the main image and sliding effect */}
-          <div className="relative overflow-hidden mt-4">
-            {/* Main Image */}
-            <div
-              className={`transition-transform duration-500 ${activeTab === "info" ? "-translate-x-[30%]" : "translate-x-0"}`}
-            >
-              <img
-                src={project.images[0]}
-                alt="Main Project Image"
-                className="w-full h-auto shadow-md"
-              />
-            </div>
-
-            {/* Project Information Layer */}
-            <div
-              className={`absolute top-0 right-0 h-full bg-white p-6 pt-6 transition-transform duration-500 ease-in-out ${
-                activeTab === "info" ? "translate-x-0" : "translate-x-full"
-              }`}
-              style={{ width: '70%', boxSizing: 'border-box', zIndex: 10 }}
-            >
-              <table className="w-full text-left text-sm border-t border-gray-300">
-                <tbody>
-                  <tr className="border-b border-gray-300">
-                    <th className="pr-4 font-medium py-2">TYPE</th>
-                    <td className="py-2">{project.type}</td>
-                  </tr>
-                  <tr className="border-b border-gray-300">
-                    <th className="pr-4 font-medium py-2">CLIENT</th>
-                    <td className="py-2">{project.client || "N/A"}</td>
-                  </tr>
-                  <tr className="border-b border-gray-300">
-                    <th className="pr-4 font-medium py-2">DATE</th>
-                    <td className="py-2">{project.date}</td>
-                  </tr>
-                  <tr className="border-b border-gray-300">
-                    <th className="pr-4 font-medium py-2">STATUS</th>
-                    <td className="py-2">{project.status || "Completed"}</td>
-                  </tr>
-                  <tr className="border-b border-gray-300">
-                    <th className="pr-4 font-medium py-2">COLLABORATORS</th>
-                    <td className="py-2">{project.collaborator || "N/A"}</td>
-                  </tr>
-                  <tr className="border-b border-gray-300">
-                    <th className="pr-4 font-medium py-2">BUDGET</th>
-                    <td className="py-2">{project.budget || "N/A"}</td>
-                  </tr>
-                  <tr className="border-b border-gray-300">
-                    <th className="pr-4 font-medium py-2">PHASE</th>
-                    <td className="py-2">{project.phase || "N/A"}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+        </main>
       </div>
       <NavigationArrows
         prevProjectUrl={prevProject ? `/architecture/${prevProject.slug}` : null}

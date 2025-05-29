@@ -88,62 +88,57 @@ export default function ProjectPage() {
       : sortedProjects[sortedProjects.length - 1];
 
   return (
-    // Main container for the page
-    <div className="min-h-screen flex flex-col"> {/* Vertical rule: Full height of the screen, column layout */}
-      <CustomCursor /> {/* Custom cursor component */}
-      <Header /> {/* Header component */}
-      <div className="flex-1 flex"> {/* Vertical rule: Main content grows to fill available space */}
-        <div className="margin-rule flex gap-[2%] overflow-hidden"> {/* Horizontal rule: Gap between columns, no vertical scrolling */}
-          <div className="w-1/2 flex items-start" style={{ marginTop: '2%', marginBottom: '2%' }}> {/* Horizontal rule: Left column (50% width) */}
-            <div className="project-page-left w-full text-justify"> {/* Horizontal rule: Full width for text content */}
-              <h1 className="project-page-title"> {/* Project title */}
-                {project.title.split('').map((char: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined, index: React.Key | null | undefined) => (
-                  <span
-                    key={index}
-                    className={`inline-block ${char === ' ' ? 'w-2' : ''}`}
-                  >
-                    {char}
-                  </span>
-                ))}
-              </h1>
-              <p className="project-page-category">Publisher: {project.publisher || 'N/A'}</p> {/* Publisher info */}
-              <p className="project-page-category">Institute: {project.institute || 'N/A'}</p> {/* Institute info */}
-              <p className="project-page-category">Location: {project.location}</p> {/* Location info */}
-              <p className="project-page-category">Date: {project.date}</p> {/* Date info */}
-              <p className="project-page-theme">Theme: {project.theme || 'N/A'}</p> {/* Theme info */}
-              <p className="project-page-content">{project.content}</p> {/* Project content */}
-              {/* Conditionally render linkCategory if active */}
+    <div className="min-h-screen flex flex-col relative bg-white" style={{ overflowX: "hidden" }}>
+      <CustomCursor />
+      <Header />
+      <main className="flex-1 flex flex-col px-0" style={{ minHeight: 0, paddingTop: "6rem", paddingBottom: "5rem", overflowX: "hidden" }}>
+        <div className="margin-rule flex flex-col items-center" style={{ boxSizing: "border-box", marginTop: 0 }}>
+          {/* Centered image and text, both inside margin-rule (60% width) */}
+          <div className="flex flex-col items-center w-full">
+            <div className="aspect-[21/9] bg-gray-200 flex items-center justify-center shadow overflow-hidden w-full max-h-[320px]" style={{ marginTop: 0, borderRadius: 0 }}>
+              <img
+                src={project.images[0]}
+                alt="Main Project Image"
+                className="object-cover w-full h-full"
+                style={{
+                  display: "block",
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                  borderRadius: 0,
+                }}
+              />
+            </div>
+            {/* Text underneath the image */}
+            <div className="w-full mt-8">
+              <h1 className="text-3xl font-bold mb-4">{project.title}</h1>
+              <p className="text-neutral-700 mb-2"><span className="font-semibold">Publisher:</span> {project.publisher || 'N/A'}</p>
+              <p className="text-neutral-700 mb-2"><span className="font-semibold">Institute:</span> {project.institute || 'N/A'}</p>
+              <p className="text-neutral-700 mb-2"><span className="font-semibold">Location:</span> {project.location}</p>
+              <p className="text-neutral-700 mb-2"><span className="font-semibold">Date:</span> {project.date}</p>
+              <p className="text-neutral-700 mb-2"><span className="font-semibold">Theme:</span> {project.theme || 'N/A'}</p>
+              <p className="text-neutral-700 mb-6">{project.content}</p>
               {project.linkCategory && project.linkCategory.active && project.linkCategory.text && project.linkCategory.url && (
                 <div className="mt-8">
                   <Link
                     href={project.linkCategory.url}
-                    className="project-page-theme italic underline"
+                    className="italic underline text-[#ff6000]"
                   >
                     {project.linkCategory.text}
                   </Link>
                 </div>
               )}
-              {project.collaborator && ( /* Conditionally render collaborator info */
-                <p className="project-page-category">Collaborator: {project.collaborator}</p>
+              {project.collaborator && (
+                <p className="text-neutral-700 mt-4"><span className="font-semibold">Collaborator:</span> {project.collaborator}</p>
               )}
             </div>
           </div>
-          <div className="w-1/2 flex flex-col"> {/* Horizontal rule: Right column (50% width) */}
-            <div className="flex-1 bg-gray-200 flex items-center justify-center">
-              <img
-                src={project.images[0]}
-                alt="Main Project Image"
-                className="object-cover w-full h-full"
-              />
-            </div>
-          </div>
         </div>
-      </div>
+      </main>
       <NavigationArrows
         prevProjectUrl={prevProject ? `/research/${prevProject.slug}` : null}
         nextProjectUrl={nextProject ? `/research/${nextProject.slug}` : null}
       />
-      <Footer /> {/* Footer stays at the bottom */}
+      <Footer />
     </div>
   );
 }

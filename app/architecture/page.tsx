@@ -34,9 +34,9 @@ export default function ArchitecturePage() {
     <div className="min-h-screen flex flex-col relative">
       <CustomCursor />
       <Header />
-      <main className="flex-1 flex flex-col py-16">
+      <main className="flex-1 flex flex-col pb-24">
         <div className="margin-rule">
-          <h1 className="text-2xl font-light mb-10 text-left">architecture</h1>
+          <h1 className="text-2xl font-light mb-10 text-left pt-40">architecture</h1>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
             {sortedProjects.slice(0, visibleProjects).map((project) => (
               <div key={project.slug} className="opacity-100 transition-opacity duration-500">

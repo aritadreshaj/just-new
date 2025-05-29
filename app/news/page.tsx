@@ -20,7 +20,7 @@ const newsItems = [
 		date: "2025-01-20",
 		title: "1st Place in Paris Social Housing Competition",
 		summary:
-			"173 apartments and 4 commercial spaces, with an amazing courtyard at Avenue de France. Collaboration between Catherine Trabaljar, LIN, and CSA Architects.",
+			"173 apartments and 4 commercial spaces, with an amazing courtyard at Avenue de France. Contributed to the project as part of the team at LIN, in collaboration with Catherine Trabaljar and CSA Architects.",
 		projectLink: "https://trebeljahr-architecte.net/projet.html?id=6DMdF1Xb5OvSBVqDu0xp",
 		place: "Paris, France",
 	},
@@ -28,7 +28,7 @@ const newsItems = [
 		date: "2024-12-11",
 		title: "Awarded 3rd place for the Bahnhofsquartier Leverkusen Mitte Competition",
 		summary:
-			"Offices, bicycle parking, and public space design for the reimagined district of Leverkusen Mitte. Collaboration between LIN, Werner Sobek AG for structural engineering, and Atelier Miething for landscape.",
+			"Offices, bicycle parking, and public space design for the reimagined district of Leverkusen Mitte. Contributed to the project as part of the team at LIN, in collaboration with Werner Sobek AG for structural engineering, and Atelier Miething for landscape.",
 		projectLink: "https://www.wettbewerbe-aktuell.de/ergebnis/bahnhofsquartier-leverkusen-mitte-338150",
 		place: "Leverkusen, Germany",
 	},
@@ -58,9 +58,9 @@ const newsItems = [
 	},
 	{
 		date: "2024-09-07",
-		title: "On War and Avant-Garde at the 9th Biennial Conference of the European Architectural History Network",
+		title: "On War and Avant-Garde at the 9th Biennial Conference of the European Architectural History Network.",
 		summary:
-			"(Re)searching the (Un)conscious. Artistic and architectural responses to conflict and political shifts.",
+			"(Re)searching the (Un)conscious. Artistic and architectural responses to conflict and political shifts. A research collaboration with Edmond Drenogllava.",
 		projectLink: "https://eam9.confer.uj.edu.pl/about-us1",
 		place: "Krakow, Poland",
 	},
@@ -86,8 +86,8 @@ export default function NewsPage() {
 			<CustomCursor />
 			<Header />
 			<div className="margin-rule">
-				<main className="py-24 px-4">
-					<ul className="space-y-20 mt-10">
+				<main className="pt-40 pb-24" style={{ minHeight: 0, overflowY: "auto" }}>
+					<ul className="space-y-20">
 						{sortedNewsItems.map((item, idx) => (
 							<li key={idx}>
 								<div>
@@ -103,25 +103,32 @@ export default function NewsPage() {
 											fontSize: "2.5rem",
 											lineHeight: "1.1",
 											letterSpacing: "0.01em",
+											fontFamily: "'Poppins', sans-serif",
 										}}
 									>
 										{item.projectLink ? (
 											<Link
 												href={item.projectLink}
 												className="transition-colors"
-												style={{ textDecoration: "none" }}
+												style={{
+													textDecoration: "none",
+													fontFamily: "'Poppins', sans-serif",
+												}}
 												target={item.projectLink.startsWith("http") ? "_blank" : undefined}
 												rel={item.projectLink.startsWith("http") ? "noopener noreferrer" : undefined}
 											>
 												<span
 													className="hover:text-[#ff6000]"
-													style={{ textDecoration: "none" }}
+													style={{
+														textDecoration: "none",
+														fontFamily: "'Poppins', sans-serif",
+													}}
 												>
 													{item.title}
 												</span>
 											</Link>
 										) : (
-											<span>{item.title}</span>
+											<span style={{ fontFamily: "'Poppins', sans-serif" }}>{item.title}</span>
 										)}
 									</h2>
 									{item.place && (
@@ -130,6 +137,7 @@ export default function NewsPage() {
 											style={{
 												fontSize: "1.25rem",
 												fontStyle: "normal",
+												fontFamily: "'Poppins', sans-serif",
 											}}
 										>
 											{item.place}
@@ -137,7 +145,10 @@ export default function NewsPage() {
 									)}
 									<p
 										className="text-neutral-700 mt-4"
-										style={{ fontSize: "1.25rem" }}
+										style={{
+											fontSize: "1.25rem",
+											fontFamily: "'Poppins', sans-serif",
+										}}
 									>
 										{item.summary}
 									</p>
@@ -149,22 +160,6 @@ export default function NewsPage() {
 				</main>
 			</div>
 			<Footer />
-			<style jsx global>{`
-				header {
-					position: fixed;
-					top: 0;
-					left: 0;
-					right: 0;
-					z-index: 50;
-				}
-				footer {
-					position: fixed;
-					bottom: 0;
-					left: 0;
-					right: 0;
-					z-index: 50;
-				}
-			`}</style>
 		</div>
 	);
 }
