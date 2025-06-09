@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -8,10 +8,65 @@ import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer"; // Import the reusable Footer component
 import CustomCursor from "@/components/CustomCursor"; // Import the reusable CustomCursor component
-import { Typewriter } from "react-simple-typewriter";
 import typography from "@/styles/typography"; // Import the typography configuration
 import "../styles/globals.css";
 import "@fontsource/poppins"; // Ensure the font is imported globally
+
+function AnimatedFullMessage() {
+  const [forward, setForward] = useState("");
+  const [back, setBack] = useState("");
+  const forwardText = "a way forward,";
+  const backText = " a way back.";
+  const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    let i = 0;
+    let j = 0;
+    let forwardInterval: NodeJS.Timeout;
+    let backTimeout: NodeJS.Timeout;
+    let backInterval: NodeJS.Timeout;
+
+    forwardInterval = setInterval(() => {
+      setForward(forwardText.slice(0, i + 1));
+      i++;
+      if (i === forwardText.length) {
+        clearInterval(forwardInterval);
+        backTimeout = setTimeout(() => {
+          backInterval = setInterval(() => {
+            setBack(backText.slice(0, j + 1));
+            j++;
+            if (j === backText.length) {
+              clearInterval(backInterval);
+              setDone(true);
+            }
+          }, 70);
+        }, 600);
+      }
+    }, 70);
+
+    return () => {
+      clearInterval(forwardInterval);
+      clearTimeout(backTimeout);
+      clearInterval(backInterval);
+    };
+  }, []);
+
+  return (
+    <span
+      style={{
+        color: "#e5e7eb", // Tailwind gray-200
+        fontWeight: 300,
+        fontSize: "1.5rem",
+        letterSpacing: "0.01em",
+      }}
+      className="md:text-4xl text-xl text-center"
+    >
+      {forward}
+      {back}
+      {!done && <span className="animate-pulse">_</span>}
+    </span>
+  );
+}
 
 export default function Home() {
   const [isInverted, setIsInverted] = useState(false); // State for toggling the image
@@ -32,46 +87,52 @@ export default function Home() {
 
       {/* Header */}
       <Header />
-      <div className="margin-rule">
-        <main className="flex-1">
-          {/* Your existing content */}
-          <section className="flex flex-col items-center justify-center h-screen relative pt-40">
-            {/* Image */}
-            <div className="w-[30%] relative" style={{ aspectRatio: "1 / 1" }}>
-              <Image
-                src={isInverted ? "/headline-invert.jpg" : "/headline.jpg"} // Toggle between images
-                alt="a way forward, a way back"
-                fill
-                className="object-cover transition-all duration-200" // Smooth transition
-                priority
-              />
-            </div>
+      <main className="flex-1">
+        {/* Your existing content */}
+        <section className="relative flex items-end justify-center h-screen w-full">
+          {/* Fullscreen Crossfade Images */}
+          <div className="absolute inset-0">
+            {/* First image */}
+            <Image
+              src="/cover.jpg"
+              alt="a way forward, a way back"
+              fill
+              className={`object-cover object-center transition-opacity duration-[2000ms] ease-in-out ${
+                isInverted ? "opacity-0" : "opacity-100"
+              }`}
+              priority
+            />
+            {/* Second image */}
+            <Image
+              src="/cover-1.jpg"
+              alt="a way forward, a way back (alt)"
+              fill
+              className={`object-cover object-center transition-opacity duration-[2000ms] ease-in-out absolute inset-0 ${
+                isInverted ? "opacity-100" : "opacity-0"
+              }`}
+              priority
+            />
+          </div>
 
-            {/* Text Below the Image */}
-            <div className="mt-8 text-center">
-              <h1
-                className={`${typography.colors.orange} ${typography.sizes.md} font-light`}
-              >
-                <Typewriter
-                  words={["a way forward, a way back."]}
-                  loop={false}
-                  cursor
-                  cursorStyle="_"
-                  typeSpeed={50}
-                  delaySpeed={1000}
-                  onLoopDone={() => {}}
-                />
-              </h1>
+          {/* Text Overlay at Bottom */}
+          <div className="relative z-10 flex flex-col items-center w-full pb-24">
+            <h1 className="font-light text-center select-none">
+              <AnimatedFullMessage />
+            </h1>
+          </div>
+        </section>
 
-              {/* Significant Space */}
-              <p
-                className={`mt-[250px] ${typography.colors.darkGray} italic ${typography.sizes.md}`}
-              >
-                More to unfold. Come back soon.
-              </p>
-            </div>
-          </section>
+        {/* "More to unfold" message directly under the image */}
+        <div className="w-full flex justify-center">
+          <p
+            className={`mt-10 ${typography.colors.darkGray} italic ${typography.sizes.md} text-center`}
+          >
+            Live, but still evolving. More content coming soon...
+          </p>
+        </div>
 
+        {/* Add margin-rule wrapper for content after the image */}
+        <div className="margin-rule">
           <section className="py-16 md:py-24 container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
               <div>
@@ -132,8 +193,8 @@ export default function Home() {
               </div>
             </div>
           </section>
-        </main>
-      </div>
+        </div>
+      </main>
 
       {/* Footer */}
       <Footer />

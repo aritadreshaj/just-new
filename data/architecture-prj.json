@@ -2,196 +2,380 @@
   {
     "title": "Whisperpine",
     "slug": "whisperpine",
-    "date": "2025",
-    "location": "Prishtina, Kosova",
-    "type": "Residential",
-    "client": "Dren Rugova",
-    "status": "On-Going",
-    "collaborator": "Jetoni Comerce",
-    "images": ["/images/whisperpine-1.png", "/images/atlantis-2.jpg", "/images/atlantis-3.jpeg"],
-    "description": "",
-    "budget": "40 000 EUR",
-    "phase": "LPH 01-07",
-    "private": true
+    "theme": "RESIDENTIAL",
+    "sections": [
+      { "type": "hero", "image": "/images/placeholder.jpeg" },
+      {
+        "type": "info",
+        "fields": {
+          "Year": "2025",
+          "Client": "Dren Rugova",
+          "Type": "Residential",
+          "Location": "Prishtina, Kosova",
+          "Status": "On-Going",
+          "Collaborator": "Jetoni Comerce",
+          "Budget": "40 000 EUR",
+          "Phase": "LPH 01-07"
+        },
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum."
+      },
+      { "type": "image", "image": "/images/placeholder.jpeg", "caption": "Placeholder caption for Whisperpine." },
+      { "type": "chapter", "title": "Design Approach", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." },
+      { "type": "text", "text": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam." },
+      { "type": "fullscreenImage", "image": "/images/placeholder.jpeg", "caption": "Fullscreen placeholder image." }
+    ],
+    "visible": false
   },
   {
     "title": "Home Above Rails",
     "slug": "home-above-rails",
-    "date": "2025",
-    "location": "Paris, France",
-    "type": "Social Housing",
-    "client": "Paris Municipality",
-    "status": "On-Going",
-    "collaborator": "LIN Architects and Urbanists, Cathrin Trebeljahr Architecte, Atelier Masse, Bassinet Turquin Paysage",
-    "images": ["/images/atlantis-1.jpg", "/images/atlantis-2.jpg", "/images/atlantis-3.jpeg"],
-    "description": "The project transforms the station district into a vibrant urban gateway, enhancing connectivity and public spaces. By covering SNCF railway tracks, a 3,100 m2 site is unlocked for mixed-use development, combining residential, commercial, office, and park spaces. This densification strengthens the historical and industrial fabric while creating new connections, including to the 13th arrondissement. The design reimagines urban living, balancing privacy and community through diverse housing models. Shared spaces and natural environments promote social interaction. The project emphasizes sustainability with bioclimatic principles, focusing on mobility, resilient architecture, energy efficiency, biodiversity, and adaptable structures.",
-    "budget": "",
-    "phase": "LPH 01-02",
-    "private": true
+    "theme": "SOCIAL HOUSING",
+    "sections": [
+      { "type": "hero", "image": "/images/har-facade.jpg" },
+      {
+        "type": "info",
+        "fields": {
+          "Year": "2025",
+          "Location": "Paris, France",
+          "Client": "Paris Municipality",
+          "Award": "1st Place",
+          "Architecture": "Cathrin Trebeljahr Architecte, Paris, LIN, Berlin, CSA, Geneve",
+          "Structure": "Atelier Masse, Pairs",
+          "Landscape": "Bassinet Turquin Paysage, Paris"
+        },
+        "text": "Located at the southern end of Avenue de France, the project completes a major urban axis within the Masséna-Bruneseau district, part of the ZAC Rive Gauche. Developed on a former railway site above the SNCF tracks, it unlocks a 3,100 m² area for a mixed-use program, reinforcing the existing urban fabric while creating new connections to the 13th arrondissement. <p> Comprising housing, retail, offices, and public space, the project creates a dynamic and inclusive city block. A 13-story high-rise marks the corner of the station square, providing a strong urban signal while integrating with the surrounding scale. The ground level is designed for permeability and openness, offering generous public interfaces and transparent transitions between functions.<p> The architectural language balances structure and lightness, combining timber, steel, and concrete in a hybrid system that supports both environmental and spatial goals. The sustainable design integrates bioclimatic strategies, passive cooling, photovoltaics, and district heating. A resilient landscape featuring native vegetation, shaded areas, and rainwater retention enhances comfort and biodiversity, reinforcing the project's ecological ambition."
+      },
+      { "type": "image", "image": "/images/har-1.jpg", "caption": "View from the garden." },
+      { "type": "chapter", "title": "Typology" },
+      { "type": "image", "image": "/images/har-pl-typical.png", "caption": "Typical floor plan.", "layout": "center","size": "XL" },
+      { "type": "text", "text": "The residential program includes 143 apartments ranging from studios (T1) to four-bedroom units (T4). The housing offer is structured around three main typologies: <p> S-Typology: Compact units with optimized spatial organization. <p> Duplex Typology: Two-level apartments providing spatial variety and vertical connections. <p> Bi-oriented Typology: Dual-aspect units ensuring natural light and cross-ventilation. <p> This diversity promotes social and generational mix, supporting inclusive urban living. Shared spaces and generous loggias encourage interaction while maintaining privacy." },
+      {
+        "type": "imageRow",
+        "images": [
+          { "src": "/images/har-tunel.jpg", "caption": "bi-orientated typology", "size": "M" },
+          { "src": "/images/har-s.jpg", "caption": "s typology", "size": "M" },
+          { "src": "/images/har-duplex.jpg", "caption": "duplex typology", "size": "M" }
+        ]
+      },
+            {
+        "type": "imageRow",
+        "images": [
+          { "src": "/images/har-pl-tunel.png", "size": "M" },
+          { "src": "/images/har-pl-s.png", "size": "M" },
+          { "src": "/images/har-pl-duplex.png", "size": "M" }
+        ]
+      },
+      { "type": "chapter", "title": "Structure" },
+      { "type": "image", "image": "/images/har-3d-structure.png", "caption": "Hybrid construction system." },
+      { "type": "note", "text": "This project is the result of a collaborative design process. All authorship and intellectual property are retained by the credited design teams. Renderings by Onirism." }
+    ],
+    "visible": true
   },
   {
     "title": "Eco Lodge",
     "slug": "eco-lodge",
-    "date": "2024",
-    "location": "Burim, Kosova",
-    "type": "Microhouse",
-    "client": "Burim Dreshaj",
-    "status": "Completed",
-    "collaborator": "Ar Decor SH. P . K.",
-    "images": ["/images/ecolodge-1.jpg", "/images/atlantis-2.jpg", "/images/atlantis-3.jpeg"],
-    "description": "",
-    "budget": "15 000 EUR",
-    "phase": "LPH 01-09",
-    "private": true
+    "theme": "MICROHOUSE",
+    "sections": [
+      { "type": "hero", "image": "/images/placeholder.jpeg" },
+      {
+        "type": "info",
+        "fields": {
+          "Year": "2024",
+          "Client": "Dreshaj Family",
+          "Type": "Microhouse",
+          "Location": "Burim, Kosova",
+          "Status": "Completed",
+          "Collaborator": "Ar Decor SH. P . K.",
+          "Budget": "15 000 EUR",
+          "Phase": "LPH 01-09"
+        },
+        "text": "Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Nulla porttitor accumsan tincidunt."
+      },
+      { "type": "image", "image": "/images/placeholder.jpeg", "caption": "Placeholder caption for Eco Lodge." },
+      { "type": "chapter", "title": "Sustainability", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+      { "type": "text", "text": "Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a." },
+      { "type": "fullscreenImage", "image": "/images/placeholder.jpeg", "caption": "Fullscreen placeholder image." }
+    ],
+    "visible": false
   },
   {
     "title": "Leverkusen Mitte Quartier",
     "slug": "leverkusen-mitte-quartier",
-    "date": "2024",
-    "location": "Leverkusen, Germany",
-    "type": "bike parking, office spaces",
-    "client": "Leverkusen Municipality",
-    "status": "Competition",
-    "collaborator": "LIN Architects and Urbanists, Bohne Ingenieure, Atelier Miething ",
-    "images": ["/images/atlantis-1.jpg", "/images/atlantis-2.jpg", "/images/atlantis-3.jpeg"],
-    "description": "The project transforms the station district into a vibrant urban gateway, leveraging a rare 3,100 m2 site over SNCF tracks for mixed-use densification. It enriches the city’s historic and industrial fabric with housing, commerce, offices, and a park, while reconnecting the 13th arrondissement via Rue Julie Daubié. Designed for evolving urban living, it balances privacy and community through diverse housing typologies and shared spaces that foster social interaction. As a sustainable extension, it follows PLU Bioclimatic principles, prioritizing soft mobility, resilient architecture, energy efficiency, biodiversity, and adaptable design.",
-    "budget": "",
-    "phase": "LPH 01-02",
-    "private": true
+    "theme": "MIXED USE",
+    "sections": [
+      { "type": "hero", "image": "/images/lvq-1.jpg" },
+      {
+        "type": "info",
+        "fields": {
+          "Year": "2024",
+          "Client": "Leverkusen Municipality",
+          "Location": "Leverkusen, Germany",
+          "Award": "3rd Place",
+          "Architecture": "LIN Architects and Urbanists, Berlin",
+          "Structure": "Bohne Ingenieure, Berlin",
+          "Landscape": "Atelier Miething, Paris"
+        },
+        "text": "The project redefines the station district as a vibrant urban gateway, unlocking a rare 3,100 m² site above the SNCF tracks. It introduces a mixed-use ensemble of housing, commerce, offices, and public space, strengthening the link between the 13th arrondissement and the wider urban fabric via Rue Julie Daubié. <p> Urban connectivity and identity are enhanced by a clear volumetric composition, anchored by a 13-story high-rise that frames the station square and mediates between scales. The massing reinforces permeability across the site and creates an active, open ground floor with fluid transitions between public and private realms. <p> The architectural language merges structural clarity with sustainability: a hybrid system of timber, steel, and concrete minimizes the carbon footprint while maintaining flexibility. Landscape and building strategies align with PLU Bioclimatic goals, promoting soft mobility, biodiversity, and environmental performance through rainwater retention, native planting, photovoltaics, passive cooling, and district heating. <p> Diverse housing typologies support social diversity and community life, with shared spaces designed for interaction while preserving privacy. The project envisions a resilient and adaptable model for urban living, embedded in both place and climate."
+      },
+      { "type": "image", "image": "/images/lvq-3d-axo.png", "size": "L", "caption": "Urban composition." },
+      { "type": "chapter", "title": "Landscape Concept" },
+      { "type": "text", "text": "The landscape design transforms the area into a hybrid between park and plaza, reducing sealed surfaces and introducing a flexible, welcoming public space at the heart of the city. <p> Concrete paving is replaced with permeable surfaces and clusters of native trees, whose loose arrangement creates shade and cooler microclimates. Low shrubs support orientation while forming small, resilient ecosystems. Rainwater is collected and filtered through the soil to support sustainable drainage. <p> A continuous, barrier-free ground level allows free pedestrian flow and access for service vehicles. Trees and benches at key points offer shaded gathering spaces, while a planted buffer to the north culminates in a small grove that provides visual and acoustic shelter for the café terrace." },
+      { "type": "image", "image": "/images/lvq-pl-eg.png", "size": "XL", "caption": "Ground floor plan." },
+      { "type": "chapter", "title": "Model" },
+      { "type": "image", "image": "/images/lvq-maquette.jpg", "size": "L", "caption": "© DOWE" },
+      { "type": "note", "text": "This project is the result of a collaborative design process. All authorship and intellectual property are retained by the credited design teams." }
+    ],
+    "visible": true
   },
   {
     "title": "Reckler's",
     "slug": "recklers",
-    "date": "2019",
-    "location": "Hamburg, Germany",
-    "type": "reconstruction",
-    "client": "Private",
-    "status": "Completed",
-    "collaborator": "D&G Sanierung",
-    "images": ["/images/atlantis-1.jpg", "/images/atlantis-2.jpg", "/images/atlantis-3.jpeg"],
-    "description": "",
-    "budget": "25 000 EUR",
-    "phase": "LPH 04-06",
-    "private": true
+    "theme": "RECONSTRUCTION",
+    "sections": [
+      { "type": "hero", "image": "/images/placeholder.jpeg" },
+      {
+        "type": "info",
+        "fields": {
+          "Year": "2019",
+          "Client": "Private",
+          "Type": "Reconstruction",
+          "Location": "Hamburg, Germany",
+          "Status": "Completed",
+          "Collaborator": "D&G Sanierung",
+          "Budget": "25 000 EUR",
+          "Phase": "LPH 04-06"
+        },
+        "text": "Sed porttitor lectus nibh. Pellentesque in ipsum id orci porta dapibus."
+      },
+      { "type": "image", "image": "/images/placeholder.jpeg", "caption": "Placeholder caption for Reckler's." },
+      { "type": "chapter", "title": "Reconstruction Process", "text": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae." },
+      { "type": "text", "text": "Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem." },
+      { "type": "fullscreenImage", "image": "/images/placeholder.jpeg", "caption": "Fullscreen placeholder image." }
+    ],
+    "visible": false
   },
   {
     "title": "U5 Arenen",
     "slug": "u5-arenen",
-    "date": "2024",
-    "location": "Hamburg, Germany",
-    "type": "Urban Mobility",
-    "client": "Hamburg Municipality",
-    "status": "Competition",
-    "collaborator": "LIN Architects and Urbanists, Bollinger and Grohmann",
-    "images": ["/images/atlantis-1.jpg", "/images/atlantis-2.jpg", "/images/atlantis-3.jpeg"],
-    "description": "",
-    "budget": "",
-    "phase": "LPH 01-02",
-    "private": true
+    "theme": "URBAN MOBILITY",
+    "sections": [
+      { "type": "hero", "image": "/images/placeholder.jpeg" },
+      {
+        "type": "info",
+        "fields": {
+          "Year": "2024",
+          "Client": "Hamburg Municipality",
+          "Type": "Urban Mobility",
+          "Location": "Hamburg, Germany",
+          "Status": "Competition",
+          "Collaborator": "LIN Architects and Urbanists, Bollinger and Grohmann",
+          "Budget": "",
+          "Phase": "LPH 01-02"
+        },
+        "text": "Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus."
+      },
+      { "type": "image", "image": "/images/placeholder.jpeg", "caption": "Placeholder caption for U5 Arenen." },
+      { "type": "chapter", "title": "Mobility Solutions", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." },
+      { "type": "text", "text": "Praesent sapien massa, convallis a pellentesque nec, egestas non nisi." },
+      { "type": "fullscreenImage", "image": "/images/placeholder.jpeg", "caption": "Fullscreen placeholder image." }
+    ],
+    "visible": false
   },
   {
     "title": "Theaterwek Rostock",
     "slug": "theaterwerk-rostock",
-    "date": "2024",
-    "location": "Rostock, Germany",
-    "type": "Theater Production Facility",
-    "client": "Hamburg Municipality",
-    "status": "Competition",
-    "collaborator": "LIN Architects and Urbanists, Winter Ingenieure",
-    "images": ["/images/atlantis-1.jpg", "/images/atlantis-2.jpg", "/images/atlantis-3.jpeg"],
-    "description": "",
-    "budget": "",
-    "phase": "LPH 01-02",
-    "private": true
+    "theme": "THEATER PRODUCTION FACILITY",
+    "sections": [
+      { "type": "hero", "image": "/images/placeholder.jpeg" },
+      {
+        "type": "info",
+        "fields": {
+          "Year": "2024",
+          "Client": "Hamburg Municipality",
+          "Type": "Theater Production Facility",
+          "Location": "Rostock, Germany",
+          "Status": "Competition",
+          "Collaborator": "LIN Architects and Urbanists, Winter Ingenieure",
+          "Budget": "",
+          "Phase": "LPH 01-02"
+        },
+        "text": "Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus."
+      },
+      { "type": "image", "image": "/images/placeholder.jpeg", "caption": "Placeholder caption for Theaterwek Rostock." },
+      { "type": "chapter", "title": "Production Design", "text": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam." },
+      { "type": "text", "text": "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui." },
+      { "type": "fullscreenImage", "image": "/images/placeholder.jpeg", "caption": "Fullscreen placeholder image." }
+    ],
+    "visible": false
   },
   {
     "title": "Brickwork Reborn",
     "slug": "brickwork-reborn",
-    "date": "2024",
-    "location": "Burim, Kosova",
-    "type": "Residential",
-    "client": "Private",
-    "status": "Completed",
-    "collaborator": "Arbeni Comerce",
-    "images": ["/images/atlantis-1.jpg", "/images/atlantis-2.jpg", "/images/atlantis-3.jpeg"],
-    "description": "",
-    "budget": "55 000 EUR",
-    "phase": "LPH 01-07",
-    "private": true
+    "theme": "RESIDENTIAL",
+    "sections": [
+      { "type": "hero", "image": "/images/placeholder.jpeg" },
+      {
+        "type": "info",
+        "fields": {
+          "Year": "2024",
+          "Client": "Private",
+          "Type": "Residential",
+          "Location": "Burim, Kosova",
+          "Status": "Completed",
+          "Collaborator": "Arbeni Comerce",
+          "Budget": "55 000 EUR",
+          "Phase": "LPH 01-07"
+        },
+        "text": "Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Nulla quis lorem ut libero malesuada feugiat."
+      },
+      { "type": "image", "image": "/images/placeholder.jpeg", "caption": "Placeholder caption for Brickwork Reborn." },
+      { "type": "chapter", "title": "Materiality", "text": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae." },
+      { "type": "text", "text": "Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem." },
+      { "type": "fullscreenImage", "image": "/images/placeholder.jpeg", "caption": "Fullscreen placeholder image." }
+    ],
+    "visible": false
   },
   {
     "title": "New Archipelago",
     "slug": "new-archipelago",
-    "date": "2022",
-    "location": "Berlin, Germany",
-    "type": "Mixed Use",
-    "client": "TU Berlin",
-    "status": "Competition",
-    "collaborator": " Gloria Schock, Robert Stahlschmidt, Matti Hänsch, Sungdong Lee",
-    "images": ["/images/atlantis-1.jpg", "/images/atlantis-2.jpg", "/images/atlantis-3.jpeg"],
-    "description": "In the 1970s, O. M. Ungers described Berlin as an archipelago of different urban realities. The image of Berlin today is different. The city has grown, linked itself and finds a superordinate reality. Some urban spaces remain vacant for years, only to be exploited by a profit-driven market—an archipelago of voids in contrast to Ungers’ vision.  New Archipelafo fundamentally criticizes typical market visions, giving a voice to voids and testing new approaches. Decades of misuse drived us to propose a radical vision prioritizing free space and protected urban nature. We challenged conventional sustainability, rejecting greenwashing and lifestyle architecture in favor of a framework for true co-existence, both visually and conceptually.",
-    "budget": "",
-    "phase": "LPH 01-02",
-    "private": true
+    "theme": "MIXED USE",
+    "sections": [
+      { "type": "hero", "image": "/images/new-01.jpg" },
+      {
+        "type": "info",
+        "fields": {
+          "Year": "2022",
+          "Location": "Berlin, Germany",
+          "Institution": "TU Berlin",
+          "Status": "Proposal",
+          "Team": "Gloria Schock, Robert Stahlschmidt, Matti Hänsch, Sungdong Lee",
+          "Award": "1st Annerkenung - Plattform Nachwuchsarchitekt*innen 2022"      
+        },
+        "text": "This urban development project addresses a long-vacant site along the Spree River in Schöneweide, left unused since 1991. Due to significant soil contamination from its industrial past, redevelopment was stalled until 2012, when a major developer initiated a market-driven approach. Their strategy, demolishing all existing structures to make way for generic new construction, is critically challenged by this counter-project. <p> In contrast, this alternative proposal advocates for the preservation and integration of the site’s ongoing renaturation. It recognizes open urban land as a vital and finite resource, prioritizing ecological balance over excessive land sealing. By concentrating development along a narrow perimeter and opting for vertical density, the design meets local needs while maintaining flexibility and resilience. <p> Sustainability is redefined in this context, not only through materials and energy but also by reconsidering spatial values and long-term urban health. The project’s evolution includes the development of a manifesto and a deeper theoretical foundation that critiques conventional, consumption-driven urbanism. <p> Inspired by O.M. Ungers’ concept of the Green Urban Archipelago, the design envisions a network of dense built zones interspersed with protected green “islands.” This model promotes ecological diversity and fosters a more conscious urban culture. Like a reef within a lagoon, the project serves as a resilient, living structure, preserving space while encouraging renewal."
+      },
+      { "type": "image", "image": "/images/new-concept-housing.png", "size": "L", "caption": "Housing Concept." },
+      { "type": "image", "image": "/images/new-groundfloor.png", "size": "L", "caption": "Groundfloor plan." },
+      { "type": "chapter", "title": "Urban Voids", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." },
+      { "type": "text", "text": "Praesent sapien massa, convallis a pellentesque nec, egestas non nisi." },
+      { "type": "fullscreenImage", "image": "/images/placeholder.jpeg", "caption": "Fullscreen placeholder image." }
+    ],
+    "visible": false
   },
   {
-    "title": "Microhome",
+    "title": "Home&More",
     "slug": "microhome",
-    "date": "2024",
-    "location": "Plave, Montenegro",
-    "type": "Microhome",
-    "client": "Private",
-    "status": "On-Going",
-    "collaborator": "Private",
-    "images": ["/images/microhome-1.jpg", "/images/atlantis-2.jpg", "/images/atlantis-3.jpeg"],
-    "description": "Microhome addresses the urgent need for sustainable design by revitalizing abandoned heritage sites. This project in Plav, Montenegro, transforms Ms. & Mr. Ndrecaj’s property through two key strategies: reusing existing footprints and reconstructing spaces with individuality. By minimizing CO2 emissions, preserving historical narratives, and engaging local communities, the design fosters social responsibility. Sustainable materials and biodiversity conservation shape a home where furniture, fixtures, and personal artifacts define the space. More than a renovation, this project encodes domestic spaces as cultural expressions, ensuring they reflect both history and the evolving needs of their inhabitants.",
-    "budget": "15 000 EUR",
-    "phase": "LPH 01-05",
-    "private": true
+    "theme": "MICROHOME",
+    "sections": [
+      { "type": "hero", "image": "/images/mic-section.png" },
+      {
+        "type": "info",
+        "fields": {
+          "Year": "2024",
+          "Client": "Ndrecaj Family",
+          "Location": "Plave, Montenegro",
+          "Status": "On-Going",
+          "Budget": "15 000 EUR"
+        },
+        "text": "In an era where recognizing the limits of energy resources and the unsustainable consumption of territory is crucial, Home&More believes refurbishing abandoned historical heritage is a primary challenge. <p> Beyond aesthetics, this project reshapes the design process, anchoring it in a more grounded reality. It advocates for thoughtful study and investment in specific families and sites. Thus, by revitalizing Ms. & Mr. Ndrecaj’s abandoned property in Plave, Montenegro, the project pursues two main objectives: <p> 1. Reusing existing footprints.<p> 2. Reconstructing spaces with individuality.<p>The intention is clear: to reduce CO2 emissions, honor the historical narratives of locations, and create spaces that meet the unique needs and desires of their inhabitants. Engaging local communities, employing sustainable materials, and fostering biodiversity conservation, our project prioritizes social responsibility. <p>Thus, at the peak of a new age of consumerism, this home is defined through its domestic paraphernalia—the furniture, fixtures, and accessories are the main characters of the space. The new social conditions are tied to the ownership and personal value attributed to space, ensuring an individualistic design. <p>Through this approach, Home&More encodes domestic spaces as social and cultural features through which we represent our nature—and live with it."
+      },
+      { "type": "image", "image": "/images/mic-interior.jpg", "caption": "The Art Class. Perspective Section." },
+      { "type": "chapter", "title": "Plan Adaptation" },
+      {
+        "type": "imageRow",
+        "images": [
+          { "src": "/images/mic-pl-00.png", "size": "XL" },
+          { "src": "/images/mic-pl-01.png", "size": "XL" }
+        ]
+      },
+      { "type": "chapter", "title": "Structure and Materials" },
+      { "type": "image", "image": "/images/mic-structure.png", "caption": "Intersection of existing and new materials." },
+      { "type": "text", "text": "Except for a 3% stone work needed for the revitalization of the existing walls (46m² of the facade), the remaining walls will be connected with KINGSPAN insulated walls (30m²), attached to an inner wooden structure, and covered with a KINGSPAN insulated roof (24m² in surface). The rest of the design will also be made of wood elements, all produced in the city of Plave." },
+      { "type": "image", "image": "/images/mic-pl-material-01.png", "caption": "Technical detail." },
+      { "type": "image", "image": "/images/mic-materials.jpg", "caption": "Application." }    ],
+    "visible": true
   },
   {
-    "title": "Adapting a Wedding Hall",
-    "slug": "adapting-a-wedding-hall",
-    "date": "2025",
-    "location": "Burim, Kosova",
-    "type": "Adaptation, Residential",
-    "client": "Private",
-    "status": "On-Going",
-    "collaborator": "Private",
-    "images": ["/images/atlantis-1.jpg", "/images/atlantis-2.jpg", "/images/atlantis-3.jpeg"],
-    "description": "",
-    "budget": "10 000 EUR",
-    "phase": "LPH 01-07",
-    "private": true
+    "title": "A Residential Conversion",
+    "slug": "a-residential-conversion",
+    "theme": "ADAPTATION, RESIDENTIAL",
+    "sections": [
+      { "type": "hero", "image": "/images/placeholder.jpeg" },
+      {
+        "type": "info",
+        "fields": {
+          "Year": "2025",
+          "Client": "Private",
+          "Type": "Adaptation, Residential",
+          "Location": "Burim, Kosova",
+          "Status": "On-Going",
+          "Collaborator": "Private",
+          "Budget": "10 000 EUR",
+          "Phase": "LPH 01-07"
+        },
+        "text": "Sed porttitor lectus nibh. Pellentesque in ipsum id orci porta dapibus."
+      },
+      { "type": "image", "image": "/images/placeholder.jpeg", "caption": "Placeholder caption for Adapting a Wedding Hall." },
+      { "type": "chapter", "title": "Transformation", "text": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae." },
+      { "type": "text", "text": "Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem." },
+      { "type": "fullscreenImage", "image": "/images/placeholder.jpeg", "caption": "Fullscreen placeholder image." }
+    ],
+    "visible": false
   },
   {
     "title": "Island of Angles",
     "slug": "island-of-angles",
-    "date": "2019",
-    "location": "Berlin, Germany",
-    "type": "Library",
-    "client": "DIA Dessau",
-    "status": "Competition",
-    "collaborator": "Private",
-    "images": ["/images/atlantis-1.jpg", "/images/atlantis-2.jpg", "/images/atlantis-3.jpeg"],
-    "description": "",
-    "budget": "",
-    "phase": "LPH 01-02",
-    "private": true
+    "theme": "LIBRARY",
+    "sections": [
+      { "type": "hero", "image": "/images/dia-01.jpg" },
+      {
+        "type": "info",
+        "fields": {
+          "Year": "2019",
+          "Location": "Berlin, Germany",
+          "Status": "Proposal",
+          "Institution": "DIA Dessau",
+          "Award": "1st Place - Class of Piet Apel & Nomination for the DIA Award 2019"
+        },
+        "text": "Pataphysics informs a critical perspective on art and scientific voids, which are placed into angular forms to shape the Learning Center. Each angle corresponds to a specific function and aligns proportionally with the site’s natural topography and lighting conditions. <p> The Learning Center is set amidst mature trees and several surrounding cultural institutions. While the former parking deck hindered connectivity within the site, the new building and its integrated landscape introduce a renewed sense of urban cohesion. The original café located atop the former parking structure, an important social hub for the local community, has been preserved in its original position, maintaining its historical and cultural significance. <p> Comprising both a Public and an Academic Library, the building is elevated on a platform and framed by a porous architectural envelope that unifies the two volumes. These gaps form a shaded corridor that opens toward a green horizon, encouraging visual and physical continuity with the natural surroundings. Upon entry, visitors pass through a front garden lined with large trees and follow a gentle slope leading into the site. <p> To enable free flow of people and views, the design incorporates a structure of irregularly placed concrete cubes, creating the impression that the sloped ground and garden scenery extend into the interior. The intersections of these cubes introduce fluid circulation and spatial flexibility. Glass façades along the library promote transparency and engagement, fostering interaction between different parts of the building and reinforcing its role as a social and educational hub."
+      },
+      { "type": "image", "image": "/images/dia-concept.png", "caption": "Concept in steps." },
+      { "type": "image", "image": "/images/dia-02.jpg", "caption": "View from the backyard." },
+      { "type": "chapter", "title": "Planimetries" },
+      { "type": "image", "image": "/images/dia-siteplan.jpg", "size": "L", "caption": "Siteplan." },
+      { "type": "image", "image": "/images/dia-plans.jpg", "size": "L", "caption": "Plans and Sections." },
+      { "type": "chapter", "title": "Hand Model" },
+      { "type": "image", "image": "/images/dia-hand-model.jpg", "size": "L", "caption": "Hand Model." }
+    ],
+    "visible": true
   },
   {
     "title": "Box Box Box",
     "slug": "box-box-box",
-    "date": "2018",
-    "location": "Prishtina, Kosova",
-    "type": "Housing",
-    "client": "",
-    "status": "Proposal",
-    "collaborator": "Private",
-    "images": ["/images/box-shadow-study.gif"],
-    "description": "This project reimagines a flat, neutral city centre facade into a vibrant architectural landmark that bridges the dynamic urban core and the calm campus behind it. The design introduces bold, modern duplex apartments that offer diverse living experiences through expressive spatial organization, rhythm, and materiality. Serving as a visual mediator between two contrasting urban environments, the building captures the energy of the city across its dual facades. The new design replaces monotony with movement, obliquely arranged balconies in low-impact cementitious material animate the elevation, their textured surfaces softened by warm tones. A geometric play of black metal profiles disrupts the sleek glass, creating a bold, sustainable, and visually dynamic composition.",
-    "budget": "",
-    "phase": "LPH 01-02",
-    "private": false
+    "theme": "HOUSING",
+    "sections": [
+      { "type": "hero", "image": "/images/box-shadow-study.gif" },
+      {
+        "type": "info",
+        "fields": {
+          "Year": "2018",
+          "Location": "Prishtina, Kosova",
+          "Status": "Proposal",
+          "Institution": "University of Prishtina"
+        },
+        "text": "This project reimagines a flat, neutral city centre facade into a vibrant architectural landmark that bridges the dynamic urban core and the calm campus behind it. The design introduces bold, modern duplex apartments that offer diverse living experiences through expressive spatial organization, rhythm, and materiality. Serving as a visual mediator between two contrasting urban environments, the building captures the energy of the city across its dual facades. The new design replaces monotony with movement, obliquely arranged balconies in low-impact cementitious material animate the elevation, their textured surfaces softened by warm tones. A geometric play of black metal profiles disrupts the sleek glass, creating a bold, sustainable, and visually dynamic composition."
+      },
+      { "type": "image", "image": "/images/isl-situation.jpg", "size": "L", "caption": "Situation." },
+      { "type": "image", "image": "/images/isl-1.jpg", "size": "L", "caption": "Collage." },
+      { "type": "chapter", "title": "Composition" },
+      {
+        "type": "imageRow",
+        "images": [
+          { "src": "/images/isl-fac-01.png", "size": "xL" },
+          { "src": "/images/isl-fac-02.png", "size": "xL" }
+        ]
+      },
+      { "type": "text", "text": "The building’s composition is shaped by an interplay of staggered concrete balconies and recessed glass surfaces, creating a dynamic and rhythmic façade. Each apartment is closely connected to the exterior, with balconies and openings designed to frame views, enhance privacy, and bring natural light deep into the living spaces. The duplex units extend this relationship vertically, with double-height sections that animate the façade and emphasize movement. In contrast, the flat units maintain a more grounded and uniform expression. This architectural rhythm responds to the dual context, bridging the energy of the city center with the calm of the campus side, allowing the building to serve as both a comfortable living environment and a bold urban statemen." }
+    ],
+    "visible": true
   }
 ]

@@ -43,6 +43,14 @@ module.exports = {
   safelist: [
     "bg-background",  // Safelist the custom background class
     "text-foreground", // Safelist the custom text class
+    // Safelist all dynamic text size classes used in typography.js
+    "text-xs",
+    "text-sm",
+    "text-base",
+    "text-lg",
+    "text-xl",
+    "text-2xl",
+    "text-3xl"
   ],
   plugins: [],
 };

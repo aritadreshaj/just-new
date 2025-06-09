@@ -58,7 +58,7 @@ const newsItems = [
 	},
 	{
 		date: "2024-09-07",
-		title: "On War and Avant-Garde at the 9th Biennial Conference of the European Architectural History Network.",
+		title: "On War and Avant-Garde at the 9th Biennial Conference of the European Architectural History Network",
 		summary:
 			"(Re)searching the (Un)conscious. Artistic and architectural responses to conflict and political shifts. A research collaboration with Edmond Drenogllava.",
 		projectLink: "https://eam9.confer.uj.edu.pl/about-us1",

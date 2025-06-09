@@ -1,176 +1,296 @@
 "use client";
 
-import projectsData from '@/data/architecture-prj.json';
-import { useParams } from 'next/navigation';
-import Link from 'next/link';
-import React, { useState } from 'react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import CustomCursor from '@/components/CustomCursor';
-import NavigationArrows from '@/components/NavigationArrows';
-import '@/styles/typography.js';
-import '@/styles/arch-project-page.css';
-import "../../../styles/globals.css";
+import { useEffect, useState, useRef } from "react";
+import { useParams, notFound } from "next/navigation";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import CustomCursor from "@/components/CustomCursor";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import projects from "@/data/architecture-prj.json";
+import typography from "@/styles/typography";
 
-// Update the Project type to match the JSON data structure
-interface Project {
-  phase: string;
-  title: string;
-  slug: string;
-  date: string;
-  location: string;
-  publisher?: string;
-  institute?: string;
-  theme?: string;
-  content?: string; // Made optional
-  layout?: string; // Made optional
-  category?: string; // Made optional
-  images: string[]; // Updated to match JSON data
-  collaborator?: string;
-  budget?: string;
-  client?: string;
-  status?: string;
-  type?: string;
-  description?: string; // Added description field
-  private?: boolean; // Added private field
-}
+// ─────────────────── Chapter overlay hook ───────────────────────────────────
+const useChapterOverlay = () => {
+  const chapterRefs = useRef<Record<string, HTMLHeadingElement>>({});
+  const [opacity, setOpacity] = useState(0);
 
-// Correct the mapping logic for images and other properties
-const projects: Project[] = projectsData.map((project) => ({
-  ...project,
-  images: project.images, // Directly map images as strings
-  type: project.type, // Map 'type' from JSON data
-}));
-
-export default function ProjectPage() {
-  const { slug } = useParams();
-
-  if (!slug) {
-    return <div>Loading...</div>;
-  }
-
-  const project = projects.find((project) => project.slug === slug);
-
-  if (!project) {
-    return <div>Project not found</div>;
-  }
-
-  // Filter out private projects
-  const publicProjects = projects.filter((project) => !project.private);
-
-  // Sort public projects by date in descending order
-  const sortedProjects = publicProjects.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-
-  // Find the index of the current project and determine the previous and next public projects
-  const projectIndex = sortedProjects.findIndex((p) => p.slug === slug);
-  const prevProject = projectIndex + 1 < sortedProjects.length ? sortedProjects[projectIndex + 1] : sortedProjects[0];
-  const nextProject = projectIndex - 1 >= 0 ? sortedProjects[projectIndex - 1] : sortedProjects[sortedProjects.length - 1];
-
-  // Add state to manage the active tab
-  const [activeTab, setActiveTab] = useState("images");
-
-  // Explicitly type the tab parameter in handleTabSwitch
-  const handleTabSwitch = (tab: string) => {
-    setActiveTab(tab);
+  const register = (id: string) => (el: HTMLHeadingElement | null) => {
+    if (el) chapterRefs.current[id] = el;
   };
 
+  useEffect(() => {
+    const onScroll = () => {
+      const refs = Object.values(chapterRefs.current);
+      if (!refs.length) return;
+      const centerY = window.innerHeight / 2;
+      const threshold = window.innerHeight * 0.35;
+      let max = 0;
+      refs.forEach((h) => {
+        const rect = h.getBoundingClientRect();
+        const dist = Math.abs(rect.top + rect.height / 2 - centerY);
+        const pct = 1 - Math.min(1, dist / threshold);
+        if (pct > max) max = pct;
+      });
+      setOpacity(max);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return { opacity, register } as const;
+};
+
+// --- Typography-aware paragraph renderer ---
+function renderParagraphs(
+  text: string,
+  opts?: { size?: keyof typeof typography.sizes; align?: "left" | "center" | "right"; className?: string }
+) {
+  const sizeClass = typography.sizes[opts?.size || "md"] || "";
+  const alignClass = opts?.align === "left" ? "text-left" : opts?.align === "right" ? "text-right" : "text-center";
+  const extra = opts?.className || "";
+  return text.split(/\s*<p>\s*/).map((para, i) => (
+    <p key={i} className={`${sizeClass} ${alignClass} ${extra}`}>{para}</p>
+  ));
+}
+
+// ─────────────────── Main component ─────────────────────────────────────────
+export default function ProjectPage() {
+  const params = useParams();
+  const slug = Array.isArray(params?.slug) ? params.slug[0] : params?.slug;
+  const project = Array.isArray(projects)
+    ? projects.find((p) => p.slug === slug)
+    : null;
+  if (!project) return notFound ? notFound() : <div>Not found</div>;
+
+  const [showIntro, setShowIntro] = useState(true);
+  useEffect(() => {
+    if (!showIntro) return;
+    const dismiss = () => {
+      setShowIntro(false);
+      window.removeEventListener("scroll", dismiss);
+      window.removeEventListener("pointerdown", dismiss);
+    };
+    window.addEventListener("scroll", dismiss, { passive: true });
+    window.addEventListener("pointerdown", dismiss);
+    return () => {
+      window.removeEventListener("scroll", dismiss);
+      window.removeEventListener("pointerdown", dismiss);
+    };
+  }, [showIntro]);
+
+  const { opacity, register } = useChapterOverlay();
+  const { scrollYProgress } = useScroll();
+  const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+  // Dynamic section refs for overlays/scroll
+  const sectionCount = Array.isArray(project.sections) ? project.sections.length : 0;
+  const sectionRefs = Array.from({ length: sectionCount }, () => useRef<HTMLElement | null>(null));
+
   return (
-    <div className="min-h-screen flex flex-col relative bg-white">
+    <div className="bg-white">
+      {/* Progress bar */}
+      <motion.div style={{ scaleX }} className="fixed top-0 left-0 right-0 h-1 bg-blue-500 origin-left z-[80]" />
+
+      {/* Chapter tint overlay – disabled while intro splash is visible */}
+      <AnimatePresence>
+        {!showIntro && opacity > 0.05 && (
+          <motion.div
+            key="chapter-tint"
+            initial={{ opacity: 0 }}
+            animate={{ opacity }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            style={{ background: "#002F6C" }}
+            className="fixed inset-0 z-30 pointer-events-none"
+          />
+        )}
+      </AnimatePresence>
+
       <CustomCursor />
-      <Header />
-      <div className="margin-rule flex-1 flex flex-col w-full">
-        <main className="flex-1 w-full py-24 px-4" style={{ minHeight: 0, overflowY: "auto" }}>
-          <div className="arch-project-page-main">
-            <div className="flex justify-between mb-12">
-              {/* Left: Project Name */}
-              <div className="w-[30%]">
-                <h1 className="text-3xl font-bold mb-2">{project.title}</h1>
-                <p className="text-gray-500 italic">{project.location}</p>
-              </div>
 
-              {/* Right: Project Description */}
-              <div className="w-[70%]">
-                <p className="text-lg leading-relaxed mb-8">{project.description || "No description available."}</p>
-
-                {/* Add space before the buttons */}
-                <div className="flex justify-start gap-4">
-                  <button
-                    className={`text-black font-medium ${activeTab === "images" ? "border-b-2 border-black" : ""}`}
-                    onClick={() => handleTabSwitch("images")}
-                  >
-                    Images
-                  </button>
-                  <button
-                    className={`text-black font-medium ${activeTab === "info" ? "border-b-2 border-black" : ""}`}
-                    onClick={() => handleTabSwitch("info")}
-                  >
-                    Project Information
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Add the main image and sliding effect */}
-            <div className="relative overflow-hidden mt-4">
-              {/* Main Image */}
-              <div
-                className={`transition-transform duration-500 ${activeTab === "info" ? "-translate-x-[30%]" : "translate-x-0"}`}
-              >
-                <img
-                  src={project.images[0]}
-                  alt="Main Project Image"
-                  className="w-full h-auto shadow-md"
-                />
-              </div>
-
-              {/* Project Information Layer */}
-              <div
-                className={`absolute top-0 right-0 h-full bg-white p-6 pt-6 transition-transform duration-500 ease-in-out ${
-                  activeTab === "info" ? "translate-x-0" : "translate-x-full"
-                }`}
-                style={{ width: '70%', boxSizing: 'border-box', zIndex: 10 }}
-              >
-                <table className="w-full text-left text-sm border-t border-gray-300">
-                  <tbody>
-                    <tr className="border-b border-gray-300">
-                      <th className="pr-4 font-medium py-2">TYPE</th>
-                      <td className="py-2">{project.type}</td>
-                    </tr>
-                    <tr className="border-b border-gray-300">
-                      <th className="pr-4 font-medium py-2">CLIENT</th>
-                      <td className="py-2">{project.client || "N/A"}</td>
-                    </tr>
-                    <tr className="border-b border-gray-300">
-                      <th className="pr-4 font-medium py-2">DATE</th>
-                      <td className="py-2">{project.date}</td>
-                    </tr>
-                    <tr className="border-b border-gray-300">
-                      <th className="pr-4 font-medium py-2">STATUS</th>
-                      <td className="py-2">{project.status || "Completed"}</td>
-                    </tr>
-                    <tr className="border-b border-gray-300">
-                      <th className="pr-4 font-medium py-2">COLLABORATORS</th>
-                      <td className="py-2">{project.collaborator || "N/A"}</td>
-                    </tr>
-                    <tr className="border-b border-gray-300">
-                      <th className="pr-4 font-medium py-2">BUDGET</th>
-                      <td className="py-2">{project.budget || "N/A"}</td>
-                    </tr>
-                    <tr className="border-b border-gray-300">
-                      <th className="pr-4 font-medium py-2">PHASE</th>
-                      <td className="py-2">{project.phase || "N/A"}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </main>
+      {/* Header kept above intro splash */}
+      <div className="relative z-[90]">
+        <Header />
       </div>
-      <NavigationArrows
-        prevProjectUrl={prevProject ? `/architecture/${prevProject.slug}` : null}
-        nextProjectUrl={nextProject ? `/architecture/${nextProject.slug}` : null}
-      />
+
+      {/* Intro theme layer */}
+      {showIntro && (
+        <div className="fixed inset-0 z-[85] flex items-center justify-center text-5xl md:text-7xl lg:text-8xl font-bold uppercase tracking-wider" style={{ background: "#002F6C", color: "white", letterSpacing: "0.1em" }}>
+          {project.theme || project.title}
+        </div>
+      )}
+
+      {/* Content */}
+      <main className="w-full flex flex-col items-center bg-white">
+        {(project.sections || []).map((section, idx) => {
+          switch (section.type) {
+            case "hero":
+              return (
+                <section ref={sectionRefs[idx]} key={idx} className="w-full h-screen flex items-center justify-center relative min-h-[80vh]">
+                  <img src={section.image} alt={project.title} className="w-full h-full object-cover" />
+                </section>
+              );
+            case "info":
+              return (
+                <section ref={sectionRefs[idx]} key={idx} className="w-full flex flex-col md:flex-row max-w-6xl mx-auto py-24 px-4 gap-12 items-stretch min-h-[60vh]">
+                  <div className="flex-1 flex items-start">
+                    <h2 className="text-5xl md:text-6xl font-bold leading-tight text-gray-900 uppercase">{project.title}</h2>
+                  </div>
+                  <div className="flex-1 flex flex-col gap-4 text-lg text-gray-700 max-w-xl">
+                    {section.fields && Object.entries(section.fields).map(([label, value]) => (
+                      <p key={label}><span className="font-bold">{label}:</span> {value}</p>
+                    ))}
+                    {section.text && renderParagraphs(
+                      section.text,
+                      {
+                        size: "md", // always md for info text
+                        align: (section as any)?.align || "left"
+                      }
+                    )}
+                  </div>
+                </section>
+              );
+            case "image": {
+              // Support layout: left, right, center, landscape and size: S, M, XL
+              const layout = (section as any).layout || "center";
+              const size = (section as any).size || "M";
+              let imageClass = "object-cover mb-6";
+              let sectionClass = "w-full flex flex-col items-center mx-auto py-24 px-4 min-h-[60vh]";
+              if (size === "S") {
+                sectionClass += " max-w-md";
+                imageClass += " w-full";
+              } else if (size === "M") {
+                sectionClass += " max-w-2xl";
+                imageClass += " w-full";
+              } else if (size === "XL") {
+                sectionClass += " max-w-full";
+                imageClass += " w-full";
+              } else {
+                sectionClass += " max-w-4xl";
+                imageClass += " w-full";
+              }
+              if (layout === "left") {
+                sectionClass += " md:items-start";
+                imageClass += " md:mr-auto";
+              } else if (layout === "right") {
+                sectionClass += " md:items-end";
+                imageClass += " md:ml-auto";
+              } else if (layout === "landscape") {
+                imageClass += " aspect-[16/9]";
+              }
+              // center is default
+              return (
+                <section ref={sectionRefs[idx]} key={idx} className={sectionClass}>
+                  <img src={section.image} alt={section.caption || project.title} className={imageClass} />
+                  {section.caption && renderParagraphs(
+                    section.caption,
+                    {
+                      size: "sm", // always sm for captions
+                      align: (section as any)?.captionAlign || "center",
+                      className: "text-gray-700 max-w-2xl"
+                    }
+                  )}
+                </section>
+              );
+            }
+            case "imageRow": {
+              const size = (section as any).size || "M";
+              let imgClass = "object-cover mb-2 w-full";
+              if (size === "S") {
+                imgClass += " max-w-xs";
+              } else if (size === "M") {
+                imgClass += " max-w-md";
+              } else if (size === "XL") {
+                imgClass += " max-w-full";
+              } else {
+                imgClass += " max-w-lg";
+              }
+              return (
+                <section ref={sectionRefs[idx]} key={idx} className="w-full flex flex-col items-center max-w-6xl mx-auto py-24 px-4 min-h-[40vh]">
+                  <div className="flex flex-row gap-6 w-full justify-center">
+                    {(section as any).images && (section as any).images.map((img: any, i: any) => (
+                      <div key={i} className="flex-1 flex flex-col items-center">
+                        <img src={img.src} alt={img.caption || project.title} className={imgClass} />
+                        {img.caption && renderParagraphs(
+                          img.caption,
+                          {
+                            size: "sm", // always sm for captions
+                            align: (img as any)?.captionAlign || "center",
+                            className: "text-gray-600 text-center"
+                          }
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              );
+            }
+            case "centerText":
+              return (
+                <section ref={sectionRefs[idx]} key={idx} className="w-full flex flex-col items-center max-w-4xl mx-auto py-24 px-4 min-h-[40vh]">
+                  <h3 className="text-xxl md:text-4xl font-bold text-center mb-8">{section.title}</h3>
+                </section>
+              );
+            case "chapter":
+              return (
+                <section ref={sectionRefs[idx]} key={idx} className="w-full flex flex-col items-center justify-center min-h-[50vh] py-24 px-4">
+                  <h2
+                    ref={register(
+                      typeof section.title === "string"
+                        ? section.title.toLowerCase().replace(/\s/g, "-")
+                        : `chapter-${idx}`
+                    )}
+                    className={`relative z-40 font-bold text-white uppercase tracking-wider mb-8 text-5xl md:text-7xl lg:text-8xl ${(section as { align?: "left" | "center" | "right" })?.align === "left"
+                      ? "text-left"
+                      : (section as { align?: "left" | "center" | "right" })?.align === "right"
+                      ? "text-right"
+                      : "text-center"
+                    }`}
+                    style={{ letterSpacing: "0.08em" }}
+                  >
+                    {section.title}
+                  </h2>
+                  {section.text && renderParagraphs(
+                    section.text,
+                    {
+                      size: "md", // always md for chapter text
+                      align: (section as any)?.textAlign || (section as any)?.align || "center"
+                    }
+                  )}
+                </section>
+              );
+            case "text":
+              return (
+                <section ref={sectionRefs[idx]} key={idx} className="w-full flex flex-col items-center max-w-4xl mx-auto py-24 px-4 min-h-[40vh]">
+                  {renderParagraphs(
+                    section.text || "",
+                    {
+                      size: "md", // always md for text
+                      align: (section as any)?.align || "center"
+                    }
+                  )}
+                </section>
+              );
+            case "note":
+              return (
+                <section ref={sectionRefs[idx]} key={idx} className="w-full flex flex-col items-center max-w-3xl mx-auto py-8 px-4">
+                  {renderParagraphs(
+                    section.text || "",
+                    {
+                      size: "sm", // always sm for note
+                      align: (section as any)?.align || "center",
+                      className: "italic text-gray-500"
+                    }
+                  )}
+                </section>
+              );
+          }
+        })}
+      </main>
+
+      {/* Footer */}
       <Footer />
     </div>
   );
