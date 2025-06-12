@@ -32,6 +32,14 @@ const newsItems = [
 		projectLink: "https://www.wettbewerbe-aktuell.de/ergebnis/bahnhofsquartier-leverkusen-mitte-338150",
 		place: "Leverkusen, Germany",
 	},
+        	{
+		date: "2025-01-15",
+		title: "Awarded 3rd place for the new U5 Arenen design competition in Hamburg",
+		summary:
+			"The competition called for the architectural and landscape design of the U5 “Arenen” event station in Hamburg, aiming to create a distinctive, crowd-optimized station and public space near major venues. Contributed to the project as part of the team at LIN, in collaboration with Bollinger + Grohman for the structure.",
+		projectLink: "https://www.wettbewerbe-aktuell.de/ergebnis/bahnhofsquartier-leverkusen-mitte-338150",
+		place: "Hamburg, Germany",
+	},
 	{
 		date: "2025-04-03",
 		title: "Dreshaj's “Estrangement” at the International Architectural Conference 25 at University of Brighton",
@@ -55,6 +63,14 @@ const newsItems = [
 			"Selected and fully funded by Trans Europe Halles to participate in Rebuilding to Last: Becoming a Forest, a workshop held at Institute X in Aarhus. The program brought together practitioners across Europe to explore long-term strategies for sustainable cultural infrastructure and spatial resilience.",
 		projectLink: "https://www.teh.net/inititatives/rebuilding-to-last/",
 		place: "Aarhus, Denmark",
+	},
+    	{
+		date: "2020-11-06",
+		title: "Deutschlandstipendium Award - Granted for Academic and Creative Excellence",
+		summary:
+			"Granted by the Federal Ministry of Education and Research (BMBF) in collaboration with the Ferdinand and Charlotte Schimmelpfennig Foundation, the Deutschlandstipendium honors exceptional students across Germany.",
+		projectLink: "https://www.teh.net/inititatives/rebuilding-to-last/",
+		place: "Berlin, Germany",
 	},
 	{
 		date: "2024-09-07",
