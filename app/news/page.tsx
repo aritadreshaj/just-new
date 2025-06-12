@@ -37,7 +37,7 @@ const newsItems = [
 		title: "Awarded 3rd place for the new U5 Arenen design competition in Hamburg",
 		summary:
 			"The competition called for the architectural and landscape design of the U5 “Arenen” event station in Hamburg, aiming to create a distinctive, crowd-optimized station and public space near major venues. Contributed to the project as part of the team at LIN, in collaboration with Bollinger + Grohman for the structure.",
-		projectLink: "https://www.wettbewerbe-aktuell.de/ergebnis/bahnhofsquartier-leverkusen-mitte-338150",
+		projectLink: "",
 		place: "Hamburg, Germany",
 	},
 	{
@@ -69,7 +69,7 @@ const newsItems = [
 		title: "Deutschlandstipendium Award - Granted for Academic and Creative Excellence",
 		summary:
 			"Granted by the Federal Ministry of Education and Research (BMBF) in collaboration with the Ferdinand and Charlotte Schimmelpfennig Foundation, the Deutschlandstipendium honors exceptional students across Germany.",
-		projectLink: "https://www.teh.net/inititatives/rebuilding-to-last/",
+		projectLink: "",
 		place: "Berlin, Germany",
 	},
 	{
