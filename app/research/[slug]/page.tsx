@@ -98,7 +98,7 @@ export default function ProjectPage() {
             <div className="aspect-[21/9] bg-gray-200 flex items-center justify-center shadow overflow-hidden w-full max-h-[320px]" style={{ marginTop: 0, borderRadius: 0 }}>
               <img
                 src={project.images[0]}
-                alt="Main Project Image"
+                alt={`Arita Dreshaj – ${project.title}`}
                 className="object-cover w-full h-full"
                 style={{
                   display: "block",

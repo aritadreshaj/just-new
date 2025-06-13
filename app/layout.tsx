@@ -51,6 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             })
           }}
         />
+        <title>Arita Dreshaj - Architect and Urban Designer</title>
       </head>
       <body>
         {children}

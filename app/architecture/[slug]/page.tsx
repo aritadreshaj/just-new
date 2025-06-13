@@ -129,7 +129,7 @@ export default function ProjectPage() {
             case "hero":
               return (
                 <section ref={sectionRefs[idx]} key={idx} className="w-full h-screen flex items-center justify-center relative min-h-[80vh]">
-                  <img src={section.image} alt={project.title} className="w-full h-full object-cover" />
+                  <img src={section.image} alt={`Arita Dreshaj – ${project.title}`} className="w-full h-full object-cover" />
                 </section>
               );
             case "info":
@@ -183,7 +183,7 @@ export default function ProjectPage() {
               // center is default
               return (
                 <section ref={sectionRefs[idx]} key={idx} className={sectionClass}>
-                  <img src={section.image} alt={section.caption || project.title} className={imageClass} />
+                  <img src={section.image} alt={`Arita Dreshaj – ${project.title}${section.caption ? ' – ' + section.caption : ''}`} className={imageClass} />
                   {section.caption && renderParagraphs(
                     section.caption,
                     {
@@ -212,7 +212,7 @@ export default function ProjectPage() {
                   <div className="flex flex-row gap-6 w-full justify-center">
                     {(section as any).images && (section as any).images.map((img: any, i: any) => (
                       <div key={i} className="flex-1 flex flex-col items-center">
-                        <img src={img.src} alt={img.caption || project.title} className={imgClass} />
+                        <img src={img.src} alt={`Arita Dreshaj – ${project.title}${img.caption ? ' – ' + img.caption : ''}`} className={imgClass} />
                         {img.caption && renderParagraphs(
                           img.caption,
                           {
