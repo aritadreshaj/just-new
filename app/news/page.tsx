@@ -68,9 +68,17 @@ const newsItems = [
 		date: "2020-11-06",
 		title: "Deutschlandstipendium Award - Granted for Academic and Creative Excellence",
 		summary:
-			"Granted by the Federal Ministry of Education and Research (BMBF) in collaboration with the Ferdinand and Charlotte Schimmelpfennig Foundation, the Deutschlandstipendium honors exceptional students across Germany.",
+			"Arita Dreshaj was awarded the Deutschlandstipendium on November 6, 2020, in Berlin. The scholarship, granted by the Federal Ministry of Education and Research (BMBF) in collaboration with the Ferdinand and Charlotte Schimmelpfennig Foundation, recognizes academic and creative excellence among students across Germany.",
 		projectLink: "",
 		place: "Berlin, Germany",
+	},
+	{
+	date: "2023-05-27",
+	title: "Exhibition - The Addis Ababa House at Architekturgalerie München",
+	summary:
+		"Arita Dreshaj contributed to the international group exhibition 'The Addis Ababa House,' presented at Architekturgalerie München in May-June 2023. The exhibition explored the intersection of domestic space, migration, and urban transformation in Addis Ababa through architectural installations, research, and collaborative storytelling. Dreshaj's involvement reflects her ongoing interest in spatial memory, diaspora, and the architectural narrative of place-making.",
+	projectLink: "https://www.architekturgalerie-muenchen.de/programm/detail/news/detail/News/the-addis-ababa-house.html",
+	place: "Munich, Germany"
 	},
 	{
 		date: "2024-09-07",
