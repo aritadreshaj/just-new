@@ -23,6 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         />
         {/* Favicon and Apple Touch Icon */}
+        <link rel="icon" href="/favicon.ico" />
         <link rel="icon" href="/icon-web.png" sizes="any" />
         <link rel="apple-touch-icon" href="/icon-web.png" />
         {/* Structured Data for Person and Key Projects */}
