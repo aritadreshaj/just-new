@@ -69,7 +69,7 @@
       { "type": "image", "image": "/images/har-3d-structure.png", "caption": "Hybrid construction system." },
       { "type": "note", "text": "This project is the result of a collaborative design process. All authorship and intellectual property are retained by the credited design teams. Renderings by Onirism." }
     ],
-    "visible": true
+    "visible": false
   },
   {
     "title": "Eco Lodge",
@@ -125,7 +125,7 @@
       { "type": "image", "image": "/images/lvq-maquette.jpg", "size": "L", "caption": "© DOWE" },
       { "type": "note", "text": "This project is the result of a collaborative design process. All authorship and intellectual property are retained by the credited design teams." }
     ],
-    "visible": true
+    "visible": false
   },
   {
     "title": "Reckler's",
@@ -346,7 +346,61 @@
       { "type": "chapter", "title": "Hand Model" },
       { "type": "image", "image": "/images/dia-hand-model.jpg", "size": "L", "caption": "Hand Model." }
     ],
-    "visible": true
+    "visible": false
+  },
+    {
+    "title": "Burimi Tennis Academy",
+    "slug": "burimi-tennis-academy",
+    "theme": "Urban Design",
+    "sections": [
+      { "type": "hero", "image": "/images/dia-01.jpg" },
+      {
+        "type": "info",
+        "fields": {
+          "Year": "2025",
+          "Location": "Burim, Kosova",
+          "Status": "Proposal",
+          "Client": "Astrit Bujupaj",
+          "Award": "1st Place - Class of Piet Apel & Nomination for the DIA Award 2019"
+        },
+        "text": "Pataphysics informs a critical perspective on art and scientific voids, which are placed into angular forms to shape the Learning Center. Each angle corresponds to a specific function and aligns proportionally with the site’s natural topography and lighting conditions. <p> The Learning Center is set amidst mature trees and several surrounding cultural institutions. While the former parking deck hindered connectivity within the site, the new building and its integrated landscape introduce a renewed sense of urban cohesion. The original café located atop the former parking structure, an important social hub for the local community, has been preserved in its original position, maintaining its historical and cultural significance. <p> Comprising both a Public and an Academic Library, the building is elevated on a platform and framed by a porous architectural envelope that unifies the two volumes. These gaps form a shaded corridor that opens toward a green horizon, encouraging visual and physical continuity with the natural surroundings. Upon entry, visitors pass through a front garden lined with large trees and follow a gentle slope leading into the site. <p> To enable free flow of people and views, the design incorporates a structure of irregularly placed concrete cubes, creating the impression that the sloped ground and garden scenery extend into the interior. The intersections of these cubes introduce fluid circulation and spatial flexibility. Glass façades along the library promote transparency and engagement, fostering interaction between different parts of the building and reinforcing its role as a social and educational hub."
+      },
+      { "type": "image", "image": "/images/dia-concept.png", "caption": "Concept in steps." },
+      { "type": "image", "image": "/images/dia-02.jpg", "caption": "View from the backyard." },
+      { "type": "chapter", "title": "Planimetries" },
+      { "type": "image", "image": "/images/dia-siteplan.jpg", "size": "L", "caption": "Siteplan." },
+      { "type": "image", "image": "/images/dia-plans.jpg", "size": "L", "caption": "Plans and Sections." },
+      { "type": "chapter", "title": "Hand Model" },
+      { "type": "image", "image": "/images/dia-hand-model.jpg", "size": "L", "caption": "Hand Model." }
+    ],
+    "visible": false
+  },
+      {
+    "title": "La Plaza del Barri",
+    "slug": "la-plaza-del-barri",
+    "theme": "Re-sourcing from social dynamics",
+    "sections": [
+      { "type": "hero", "image": "/images/dia-01.jpg" },
+      {
+        "type": "info",
+        "fields": {
+          "Year": "2025",
+          "Location": "Barcelona, Spain",
+          "Status": "Proposal",
+          "Institution": "Europan 18",
+          "Award": "1st Place - Class of Piet Apel & Nomination for the DIA Award 2019"
+        },
+        "text": "Pataphysics informs a critical perspective on art and scientific voids, which are placed into angular forms to shape the Learning Center. Each angle corresponds to a specific function and aligns proportionally with the site’s natural topography and lighting conditions. <p> The Learning Center is set amidst mature trees and several surrounding cultural institutions. While the former parking deck hindered connectivity within the site, the new building and its integrated landscape introduce a renewed sense of urban cohesion. The original café located atop the former parking structure, an important social hub for the local community, has been preserved in its original position, maintaining its historical and cultural significance. <p> Comprising both a Public and an Academic Library, the building is elevated on a platform and framed by a porous architectural envelope that unifies the two volumes. These gaps form a shaded corridor that opens toward a green horizon, encouraging visual and physical continuity with the natural surroundings. Upon entry, visitors pass through a front garden lined with large trees and follow a gentle slope leading into the site. <p> To enable free flow of people and views, the design incorporates a structure of irregularly placed concrete cubes, creating the impression that the sloped ground and garden scenery extend into the interior. The intersections of these cubes introduce fluid circulation and spatial flexibility. Glass façades along the library promote transparency and engagement, fostering interaction between different parts of the building and reinforcing its role as a social and educational hub."
+      },
+      { "type": "image", "image": "/images/dia-concept.png", "caption": "Concept in steps." },
+      { "type": "image", "image": "/images/dia-02.jpg", "caption": "View from the backyard." },
+      { "type": "chapter", "title": "Planimetries" },
+      { "type": "image", "image": "/images/dia-siteplan.jpg", "size": "L", "caption": "Siteplan." },
+      { "type": "image", "image": "/images/dia-plans.jpg", "size": "L", "caption": "Plans and Sections." },
+      { "type": "chapter", "title": "Hand Model" },
+      { "type": "image", "image": "/images/dia-hand-model.jpg", "size": "L", "caption": "Hand Model." }
+    ],
+    "visible": false
   },
   {
     "title": "Box Box Box",
@@ -376,6 +430,6 @@
       },
       { "type": "text", "text": "The building’s composition is shaped by an interplay of staggered concrete balconies and recessed glass surfaces, creating a dynamic and rhythmic façade. Each apartment is closely connected to the exterior, with balconies and openings designed to frame views, enhance privacy, and bring natural light deep into the living spaces. The duplex units extend this relationship vertically, with double-height sections that animate the façade and emphasize movement. In contrast, the flat units maintain a more grounded and uniform expression. This architectural rhythm responds to the dual context, bridging the energy of the city center with the calm of the campus side, allowing the building to serve as both a comfortable living environment and a bold urban statemen." }
     ],
-    "visible": true
+    "visible": false
   }
 ]

@@ -59,21 +59,17 @@ const aboutSections = [
 		label: "Contact",
 		content: (
 			<>
-				<p>
-					Arita Dreshaj
-					<br />
-					Between Berlin & Prishtina
-				</p>
-				<p className="mt-4">
-					For project inquiries, or collaborations, please get in touch via email:
-					<br />
-					<a
-						href="mailto:info@aritadreshaj.com"
-						className="text-[#ff6000]"
-					>
-						info@aritadreshaj.com
-					</a>
-				</p>
+<p>
+				For project inquiries or collaborations, please get in touch via email:
+				<br />
+				<a
+					href="mailto:info@aritadreshaj.com"
+					className="text-[#ff6000]"
+				>
+					info@aritadreshaj.com
+				</a>
+			</p>
+			<p className="mt-4">Based between Berlin & Prishtina</p>
 			</>
 		),
 	},

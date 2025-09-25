@@ -9,6 +9,14 @@ import "@/styles/globals.css";
 // Example news data (replace with your own or fetch dynamically)
 const newsItems = [
 	{
+		date: "2025-09-10",
+		title: "AWC #38 distributed in 50,000 copies across Berlin featuring “The Grammar of the Unbuilt” on page 19",
+		summary:
+			"Like a comma in the city's syntax, the unbuilt holds its breath. Neither empty nor complete, it waits, a pause that carries imagination, care and the promise of futures not yet spoken.",
+		projectLink: "https://www.artsoftheworkingclass.org/edition/choreography",
+		place: "Berlin, Germany",
+	},
+		{
 		date: "2025-04-17",
 		title: "“Unbounded Spaces” part of the Atlantis Magazine at TU Delft",
 		summary:

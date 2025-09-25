@@ -27,6 +27,20 @@
     "images": ["/images/arita-dreshaj-dus-3.jpg"],
     "private": false
   },
+    {
+    "title": "The Grammar of the Unbuilt",
+    "slug": "awc",
+    "date": "2025-09-10",
+    "location": "Berlin, Germany",
+    "publisher": "Arts of The Working Class",
+    "institute": "In collaboration with Architects 4 Tempelhofer Feld",
+    "theme": "Ecologies of Pause at Tempelhofer Feld",
+    "content": "What happens when homes stop reflecting who we are, and start erasing us instead? Once handmade and memory-filled, living spaces have become sterile, optimized, and commodified. We no longer build homes; we consume them. Through the lens of Marx’s estrangement, this reflective piece explores how domestic life has been shaped and stripped by convenience, capitalism, and crisis. But in the cracks of disaster and displacement, could there be room to reclaim imagination? To re-craft spaces that remember, reflect, and resist? This monologue, invites us to rethink what it truly means to live and belong.",
+    "layout": "video",
+    "category": "Newspaper Article",
+    "images": ["/images/awc-gaz.jpg"],
+    "private": false
+  },
   {
     "title": "The Trajectory of Avant-Gardism: Non-Conscious Expressions In The Post-Conflict Balkans",
     "slug": "eam",
