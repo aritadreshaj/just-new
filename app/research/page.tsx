@@ -5,30 +5,13 @@ import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import Link from "next/link";
 import projects from '@/data/research-prj.json';
-import { useState, useEffect } from "react";
-import "@/styles/scroll-reveal.css"; // Import the scroll-reveal styles
 import "@/styles/globals.css"; // Bring back the margin rule
 
 export default function ResearchPage() {
   // Sort projects by date in descending order
   const sortedProjects = projects.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-  // State to track the number of projects to display
-  const [visibleProjects, setVisibleProjects] = useState(6);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-
-      if (scrollPosition >= documentHeight - 100) {
-        setVisibleProjects((prev) => Math.min(prev + 6, sortedProjects.length));
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // Render all projects immediately (no incremental scroll reveal)
 
   return (
     <div className="min-h-screen flex flex-col relative">
@@ -38,7 +21,7 @@ export default function ResearchPage() {
         <div className="margin-rule">
           <h1 className="text-2xl font-light mb-10 text-left">research</h1>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-            {sortedProjects.slice(0, visibleProjects).map((project) => (
+            {sortedProjects.map((project) => (
               <div key={project.slug} className="opacity-100 transition-opacity duration-500">
                 <div className="aspect-[1/1] bg-neutral-200"></div>
                 <div className="mt-4 text-center">

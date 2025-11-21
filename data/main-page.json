@@ -1,0 +1,56 @@
+[
+  {
+    "id": "bar",
+    "title": "La Plaza del Barri",
+    "side": "left",
+    "heroImage": "/mainpage/bar-angle-visu.jpg",
+    "excerpt": "A Prototype for Urban Regeneration in Verneda.",
+    "location": "Barcelona, Spain",
+    "theme": "Re-sourcing from social dynamic: Promoting open Neighbourhoods",
+    "description": "This project reimagines a residual site as a civic threshold and shared commons. By shaping the ground into a continuous, walkable landscape, it reconnects fragmented neighborhoods and creates space for collective life. Architecture grows from the terrain and local dynamics, offering a simple, reproducible strategy for community-centered urban regeneration.",
+    "link": "false",
+    "collaborator": "with Antonio Verni & Amir Sheykhan",
+    "alt": {
+      "hero": "Left Project - hero image"
+    }
+  },
+    {
+    "id": "box-box-box",
+    "title": "Box Box Box",
+    "side": "left",
+    "heroImage": "/images/isl-fac-02.png",
+    "excerpt": "One sentence description for left image.",
+    "location": "Prishtina, Kosova",
+    "theme": "Rehabilitation of the Facade Concept",
+    "description": "Reimagining a flat, neutral city-centre facade, the design becomes a vibrant landmark that links the dynamic urban core with the calm campus behind it. Bold duplex apartments introduce varied living experiences through expressive spatial organization and materiality. Oblique balconies in low-impact cementitious material animate the facade with warm textures, while black metal profiles break the glass surface to form a sustainable, contemporary, and visually dynamic composition.",
+    "link": "/architecture/box-box-box",
+    "collaborator": "false",
+    "alt": {
+      "hero": "Left Project - hero image"
+    }
+  },
+  {
+    "id": "awc",
+    "title": "The Grammar of The Unbuilt",
+    "side": "right",
+    "heroImage": "/mainpage/awc-screen.jpg",
+    "excerpt": "AWC #38 distributed in 50,000 copies across Berlin featuring “The Grammar of the Unbuilt” on page 19.",
+    "link": "/research/awc",
+    "collaborator": " with AWC & Architects4THF",
+    "alt": {
+      "hero": "Right Project - hero image"
+    }
+  },
+    {
+    "id": "eam",
+    "title": "The Trajectory of Avant-Gardism",
+    "side": "right",
+    "heroImage": "/images/eam-1.jpeg",
+    "excerpt": "A reflection presented at the EAHN Biennial Conference on how artistic expression in the post-conflict Balkans emerges from the tension between oppression and freedom, revealing an avant-garde shaped by constraint yet seeking to reshape architectural and cultural history.",
+    "link": "false",
+    "collaborator": "with Edmond Drenogllava",
+    "alt": {
+      "hero": "Right Project - hero image"
+    }
+  }
+]

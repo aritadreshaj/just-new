@@ -1,0 +1,62 @@
+/* GENERAL PAGE SETTINGS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* LEFT COLUMN – normal scrolling */
+.leftColumn {
+  overflow-y: scroll;
+  padding: 20px;
+}
+
+.leftColumn img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.project {
+  margin-bottom: 50px;
+}
+
+/* RIGHT COLUMN – scroll only when hovered */
+.rightColumn {
+  overflow-y: auto;
+  height: 100vh;
+  padding: 20px;
+
+  /* Disable scroll unless hovered */
+  pointer-events: none;
+}
+
+.rightColumn:hover {
+  pointer-events: auto;
+}
+
+.rightColumn img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.sideProject {
+  margin-bottom: 40px;
+}
+
+/* OPTIONAL SCROLLBAR STYLE */
+.leftColumn::-webkit-scrollbar,
+.rightColumn::-webkit-scrollbar {
+  width: 6px;
+}
+
+.leftColumn::-webkit-scrollbar-thumb,
+.rightColumn::-webkit-scrollbar-thumb {
+  background: #888;
+}

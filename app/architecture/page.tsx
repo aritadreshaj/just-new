@@ -5,8 +5,6 @@ import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import Link from "next/link";
 import projects from '@/data/architecture-prj.json';
-import { useState, useEffect } from "react";
-import "@/styles/scroll-reveal.css";
 import "@/styles/globals.css";
 
 export default function ArchitecturePage() {
@@ -27,22 +25,7 @@ export default function ArchitecturePage() {
     return getYear(b) - getYear(a);
   });
 
-  // State to track the number of projects to display
-  const [visibleProjects, setVisibleProjects] = useState(6);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-
-      if (scrollPosition >= documentHeight - 100) {
-        setVisibleProjects((prev) => Math.min(prev + 6, sortedProjects.length));
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // Render all projects immediately (no incremental scroll reveal)
 
   return (
     <div className="min-h-screen flex flex-col relative">
@@ -52,7 +35,7 @@ export default function ArchitecturePage() {
         <div className="margin-rule">
           <h1 className="text-2xl font-light mb-10 text-left pt-40">architecture</h1>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-            {sortedProjects.slice(0, visibleProjects).map((project) => {
+            {sortedProjects.map((project) => {
               // Try to get year from sections[1].fields.Year
               let year = "";
               if (project.sections && project.sections[1] && project.sections[1].fields && project.sections[1].fields["Year"]) {

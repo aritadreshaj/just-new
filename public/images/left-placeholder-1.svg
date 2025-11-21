@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <rect width="100%" height="100%" fill="#ffffff" />
+  <rect x="0" y="0" width="100%" height="100%" fill="#e5e7eb" />
+  <text x="10%" y="90%" fill="#6b7280" font-family="Poppins, Arial, Helvetica, sans-serif" font-size="28">Left placeholder 1</text>
+</svg>

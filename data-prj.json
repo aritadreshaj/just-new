@@ -1,0 +1,34 @@
+[
+  {
+    "id": "la-plaza-del-barri",
+    "title": "La Plaza Del Barri",
+    "slug": "la-plaza-del-barri",
+    "type": "feature",
+    "heroImage": "/images/left-placeholder-1.svg",
+    "portraitImage": "/images/mid-placeholder-1.svg",
+    "excerpt": "Short description. Collaboration with Antonio Verni & Amir Sheykhan.",
+    "credits": "Antonio Verni, Amir Sheykhan",
+    "date": "2025-11-20",
+    "priority": 1,
+    "alt": {
+      "hero": "La Plaza Del Barri - hero image",
+      "portrait": "La Plaza Del Barri - portrait image"
+    }
+  },
+  {
+    "id": "another-project",
+    "title": "Another Project",
+    "slug": "another-project",
+    "type": "portrait",
+    "heroImage": "/images/left-placeholder-2.svg",
+    "portraitImage": "/images/mid-placeholder-2.svg",
+    "excerpt": "Short explanation and credits.",
+    "credits": "Studio XYZ",
+    "date": "2025-11-15",
+    "priority": 2,
+    "alt": {
+      "hero": "Another Project - hero image",
+      "portrait": "Another Project - portrait image"
+    }
+  }
+]
