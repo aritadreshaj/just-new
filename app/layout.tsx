@@ -1,7 +1,9 @@
+
 import React from "react";
 import "@/app/globals.css";
 import "@/styles/typography.js";
 import { ThemeProvider } from "@/components/theme-provider";
+import CustomCursor from "@/components/CustomCursor";
 
 export const metadata = {
   title: "Arita Dreshaj",
@@ -54,6 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <title>Arita Dreshaj - Architect and Urban Designer</title>
       </head>
       <body>
+        <CustomCursor />
         {children}
       </body>
     </html>

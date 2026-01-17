@@ -9,6 +9,8 @@ export default function CustomCursor() {
       typeof window !== "undefined" &&
       (window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768)
     ) {
+      // Ensure default cursor is visible on mobile/touch devices
+      document.body.style.cursor = "";
       return;
     }
 

@@ -30,19 +30,21 @@ export default function Header() {
             a r i t a d r e s h a j
           </Link>
           <div className="flex items-center gap-6 pr-6 relative">
-            {/* Hamburger/Close Button */}
-            <button
-              onClick={handleMenuToggle}
-              className="p-2 focus:outline-none z-50"
-            >
-              <Image
-                src={menuOpen ? "/close.png" : "/open.png"} // Toggle between open and close icons
-                alt={menuOpen ? "Close menu" : "Open menu"}
-                width={24}
-                height={24}
-                priority // Ensures the image is loaded quickly
-              />
-            </button>
+            {/* Hamburger Button (only visible when menu is closed) */}
+            {!menuOpen && (
+              <button
+                onClick={handleMenuToggle}
+                className="p-2 focus:outline-none z-50"
+              >
+                <Image
+                  src="/open.png"
+                  alt="Open menu"
+                  width={24}
+                  height={24}
+                  priority
+                />
+              </button>
+            )}
           </div>
         </div>
       </header>
@@ -52,10 +54,26 @@ export default function Header() {
         className={`fixed top-0 right-0 h-full bg-white shadow-lg transition-transform duration-300 z-50 ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
-        style={{ width: typeof window !== 'undefined' && window.innerWidth <= 640 ? '50%' : '20%' }} // Responsive width
-        onMouseLeave={handleMenuClose} // Close the menu when the cursor leaves the menu area
+        style={{ width: typeof window !== 'undefined' && window.innerWidth <= 640 ? '50%' : '20%' }}
+        onMouseLeave={handleMenuClose}
       >
-        <div className="flex flex-col items-start pl-8 pr-6 pt-6 pb-6 mt-2">
+        {/* Close Button (X) inside the menu, only visible when menu is open */}
+        {menuOpen && (
+          <button
+            onClick={handleMenuToggle}
+            className="absolute top-6 right-6 p-2 focus:outline-none z-50"
+          >
+            <Image
+              src="/close.png"
+              alt="Close menu"
+              width={24}
+              height={24}
+              priority
+            />
+          </button>
+        )}
+        <div className="flex flex-col items-start pl-8 pr-6 pt-6 pb-6 mt-20">
+          {/* ↑ changed mt-6 to mt-14 to push links below the close button */}
           <Link
             href="/research"
             onClick={() => setMenuOpen(false)}

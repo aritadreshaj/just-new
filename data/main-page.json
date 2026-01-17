@@ -52,5 +52,41 @@
     "alt": {
       "hero": "Right Project - hero image"
     }
+  },
+      {
+    "id": "atlantis",
+    "title": "Reclaiming Identity featured in the issue #35.2 of Atlantis Magazine",
+    "side": "right",
+    "heroImage": "/mainpage/atlantis.gif",
+    "excerpt": "A reflection p how artistng to reshape architectural and cultural history.",
+    "link": "false",
+    "collaborator": "false",
+    "alt": {
+      "hero": "Right Project - hero image"
+    }
+  },
+      {
+    "id": "aah",
+    "title": "Finissage of Addis Ababa House at Architektur Galerie München",
+    "side": "right",
+    "heroImage": "/mainpage/galerie.JPG",
+    "excerpt": "A ref eling an avant-. Image © Piet Nieder",
+    "link": "false",
+    "collaborator": "Technical University of Berlin",
+    "alt": {
+      "hero": "Right Project - hero image"
+    }
+  },
+    {
+    "id": "new",
+    "title": "New Archipelago presented at the Plattformnachwuchsarchitekten in Berlin ",
+    "side": "right",
+    "heroImage": "/mainpage/new.jpg",
+    "excerpt": "New Archipelago proposes an alternative to tabula-rasa urban development by preserving post-industrial open land as a vital ecological resource. Instead of replacing the site with generic, market-driven construction, the project imagines a minimal architectural intervention that protects and amplifies the emerging landscape. Drawing on and reinterpreting Ungers’ idea of the “Green Archipelago,” it argues for a contemporary urban model where growth is balanced by the safeguarding of open spaces that form a resilient, city-wide network.",
+    "link": "false",
+    "collaborator": "with Hänsch, Lee, Schock & Stahlschmidt",
+    "alt": {
+      "hero": "Right Project - hero image"
+    }
   }
 ]

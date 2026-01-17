@@ -3,7 +3,7 @@
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { VariantProps, cva } from "class-variance-authority"
-import { PanelLeft } from "lucide-react"
+import { PanelLeft, X as CloseIcon } from "lucide-react"
 
 import { useIsMobile } from "@/hooks/use-mobile"
 import { cn } from "@/lib/utils"
@@ -22,7 +22,7 @@ import {
 const SIDEBAR_COOKIE_NAME = "sidebar:state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
 const SIDEBAR_WIDTH = "16rem"
-const SIDEBAR_WIDTH_MOBILE = "18rem"
+const SIDEBAR_WIDTH_MOBILE = "100vw"
 const SIDEBAR_WIDTH_ICON = "3rem"
 const SIDEBAR_KEYBOARD_SHORTCUT = "b"
 
@@ -195,10 +195,23 @@ const Sidebar = React.forwardRef<
     if (isMobile) {
       return (
         <Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
+          {/* X button fixed at top right, above the sidebar, only when openMobile is true */}
+          {openMobile && (
+            <button
+              type="button"
+              aria-label="Close sidebar"
+              className="fixed top-4 right-4 z-[100] flex items-center justify-center rounded-full bg-sidebar-accent text-sidebar-accent-foreground p-2 shadow-lg md:hidden"
+              onClick={() => setOpenMobile(false)}
+              tabIndex={0}
+              style={{ pointerEvents: 'auto' }}
+            >
+              <CloseIcon className="w-6 h-6" />
+            </button>
+          )}
           <SheetContent
             data-sidebar="sidebar"
             data-mobile="true"
-            className="w-[--sidebar-width] bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
+            className="relative w-full max-w-none h-full bg-sidebar p-0 text-sidebar-foreground"
             style={
               {
                 "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
@@ -206,7 +219,10 @@ const Sidebar = React.forwardRef<
             }
             side={side}
           >
-            <div className="flex h-full w-full flex-col">{children}</div>
+            <div className="flex h-full w-full flex-col">
+              {/* Categories and other sidebar content */}
+              {children}
+            </div>
           </SheetContent>
         </Sheet>
       )
@@ -259,11 +275,12 @@ const Sidebar = React.forwardRef<
 )
 Sidebar.displayName = "Sidebar"
 
+
 const SidebarTrigger = React.forwardRef<
   React.ElementRef<typeof Button>,
   React.ComponentProps<typeof Button>
 >(({ className, onClick, ...props }, ref) => {
-  const { toggleSidebar } = useSidebar()
+  const { isMobile, openMobile, toggleSidebar } = useSidebar();
 
   return (
     <Button
@@ -271,19 +288,28 @@ const SidebarTrigger = React.forwardRef<
       data-sidebar="trigger"
       variant="ghost"
       size="icon"
-      className={cn("h-7 w-7", className)}
+      className={cn("h-7 w-7 transition-all duration-200", className)}
       onClick={(event) => {
-        onClick?.(event)
-        toggleSidebar()
+        onClick?.(event);
+        toggleSidebar();
       }}
+      aria-label={isMobile && openMobile ? "Close menu" : "Open menu"}
       {...props}
     >
-      <PanelLeft />
-      <span className="sr-only">Toggle Sidebar</span>
+      {isMobile ? (
+        openMobile ? (
+          <CloseIcon className="transition-transform duration-200" />
+        ) : (
+          <PanelLeft className="transition-transform duration-200" />
+        )
+      ) : (
+        <PanelLeft className="transition-transform duration-200" />
+      )}
+      <span className="sr-only">{isMobile && openMobile ? "Close Sidebar" : "Open Sidebar"}</span>
     </Button>
-  )
-})
-SidebarTrigger.displayName = "SidebarTrigger"
+  );
+});
+SidebarTrigger.displayName = "SidebarTrigger";
 
 const SidebarRail = React.forwardRef<
   HTMLButtonElement,

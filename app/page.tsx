@@ -33,8 +33,8 @@ export default function Home() {
       <CustomCursor />
       <Header />
 
-      <main className="flex-1 px-4 md:px-8" style={{ paddingTop: 100 }}>
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+      <main className="flex-1 px-4 md:px-8" style={{ paddingTop: 0 }}>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6" style={{ marginTop: '4rem', paddingTop: '4rem' }}>
           {/* Left column: all left projects */}
           <div className="md:col-span-6">
             {leftProjects.map((project: any, idx: number) => (
@@ -124,6 +124,8 @@ export default function Home() {
               background: 'white',
               zIndex: 10,
               scrollbarWidth: 'none', // Firefox
+              marginTop: '4rem',
+              paddingTop: '4rem',
             }}
             onMouseEnter={e => {
               e.currentTarget.style.overflowY = 'auto';
@@ -139,7 +141,7 @@ export default function Home() {
             <div className="no-scrollbar">
               {rightProjects.map((project: any) => (
                 <div key={project.id} className="mb-12">
-                  <div className="w-full min-h-[80vh] bg-neutral-100 relative overflow-hidden">
+                  <div className="w-full min-h-[50vh] bg-neutral-100 relative overflow-hidden">
                     {project.link && project.link !== "false" ? (
                       <Link href={project.link}>
                         <img
