@@ -292,7 +292,7 @@
       { "type": "text", "text": "Except for a 3% stone work needed for the revitalization of the existing walls (46m² of the facade), the remaining walls will be connected with KINGSPAN insulated walls (30m²), attached to an inner wooden structure, and covered with a KINGSPAN insulated roof (24m² in surface). The rest of the design will also be made of wood elements, all produced in the city of Plave." },
       { "type": "image", "image": "/images/mic-pl-material-01.png", "caption": "Technical detail." },
       { "type": "image", "image": "/images/mic-materials.jpg", "caption": "Application." }    ],
-    "visible": true
+    "visible": false
   },
   {
     "title": "A Residential Conversion",

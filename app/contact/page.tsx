@@ -23,7 +23,7 @@ export default function ContactPage() {
 
                 {/* Right: Instagram */}
                 <div className="text-right">
-                  <h2 className="text-xl text-neutral-600">Follow my work:</h2>
+                  <h2 className="text-xl text-neutral-600">Instagram:</h2>
                   <a href="https://instagram.com/aritadreshaj" target="_blank" rel="noopener noreferrer" className="text-xl text-[#ff6000]">@aritadreshaj</a>
                 </div>
               </div>

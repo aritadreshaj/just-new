@@ -33,7 +33,7 @@ export default function Home() {
       <CustomCursor />
       <Header />
 
-      <main className="flex-1 px-4 md:px-8" style={{ paddingTop: 0 }}>
+      <main className="flex-1 px-4 md:px-5" style={{ paddingTop: 0 }}>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6" style={{ marginTop: '4rem', paddingTop: '4rem' }}>
           {/* Left column: all left projects */}
           <div className="md:col-span-6">
@@ -88,17 +88,17 @@ export default function Home() {
               <div
                 key={project.id}
                 className="mb-12 w-full"
-                style={{ position: 'absolute', top: `calc(${idx} * 66vh + ${idx} * 1rem + 1rem)` }}
+                style={{ position: 'absolute', top: `calc(${idx} * 70vh + ${idx} * 1rem + 1rem)` }}
               >
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', minHeight: '70px' }}>
                   {hoverStates[idx] ? (
                     <>
-                      <h3 className="text-2xl font-semibold mb-2" style={{ visibility: 'hidden', height: 0, margin: 0, padding: 0 }}>{project.title || ""}</h3>
-                      <p className="text-4xl mt-2">{project.description || project.excerpt || ""}</p>
+                      <h3 className="text-2xl font-semibold mb-4" style={{ visibility: 'hidden', height: 0, margin: 0, padding: 0 }}>{project.title || ""}</h3>
+                      <p className="text-2xl mt-2">{project.description || project.excerpt || ""}</p>
                     </>
                   ) : (
                     <>
-                      <h3 className="text-2xl font-semibold mb-2">{project.title || ""}</h3>
+                      <h3 className="text-2xl font-semibold mb-4">{project.title || ""}</h3>
                       <div className="text-2xl mb-1">{project.location || ""}</div>
                       <div className="text-2xl mb-1">{project.theme || ""}</div>
                       {project.collaborator && project.collaborator !== "false" && (
@@ -115,17 +115,15 @@ export default function Home() {
           <div
             className="md:col-span-3"
             style={{
-              position: 'fixed',
-              right: 0,
-              top: 0,
-              width: '25%',
-              height: '100vh',
-              overflowY: 'hidden',
+              position: 'sticky',
+              top: '4rem',
+              alignSelf: 'flex-start',
+              width: '100%',
               background: 'white',
               zIndex: 10,
+              maxHeight: 'calc(100vh - 4rem)',
+              overflowY: 'hidden',
               scrollbarWidth: 'none', // Firefox
-              marginTop: '4rem',
-              paddingTop: '4rem',
             }}
             onMouseEnter={e => {
               e.currentTarget.style.overflowY = 'auto';

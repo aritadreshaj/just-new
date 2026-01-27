@@ -21,15 +21,16 @@ export default function Header() {
   return (
     <>
       {/* Header */}
-      <header className="border-b border-neutral-200 fixed top-0 left-0 right-0 bg-white z-50">
-        <div className="w-full flex justify-between items-center py-6">
+      <header className="border-b border-neutral-200 fixed top-0 left-0 right-0 bg-white z-50 w-full h-20 flex items-center" style={{minHeight: '80px'}}>
+        <div className="w-full flex justify-between items-center px-0" style={{height: '100%'}}>
           <Link
             href="/"
             className={`${typography.sizes.xxl} ${typography.weights.medium} tracking-wide ${typography.colors.orange} pl-8`}
+            style={{lineHeight: 'normal'}}
           >
             a r i t a d r e s h a j
           </Link>
-          <div className="flex items-center gap-6 pr-6 relative">
+          <div className="flex items-center gap-6 pr-6 relative" style={{height: '100%'}}>
             {/* Hamburger Button (only visible when menu is closed) */}
             {!menuOpen && (
               <button

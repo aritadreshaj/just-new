@@ -25,7 +25,7 @@
     "layout": "gallery",
     "category": "Conference",
     "images": ["/images/arita-dreshaj-dus-3.jpg"],
-    "private": false
+    "private": true
   },
     {
     "title": "The Grammar of the Unbuilt",
@@ -39,7 +39,7 @@
     "layout": "video",
     "category": "Newspaper Article",
     "images": ["/images/awc-gaz.jpg"],
-    "private": false
+    "private": true
   },
   {
     "title": "The Trajectory of Avant-Gardism: Non-Conscious Expressions In The Post-Conflict Balkans",
@@ -68,7 +68,7 @@
     "layout": "video",
     "category": "Workshop",
     "images": ["/images/teh-1.jpg"],
-    "private": false
+    "private": true
   },
   {
     "title": "Rilindja Revealed: The Intersection of Modernism and Local Identity in Prishtina",

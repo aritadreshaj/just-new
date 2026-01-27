@@ -3,7 +3,7 @@
     "id": "bar",
     "title": "La Plaza del Barri",
     "side": "left",
-    "heroImage": "/mainpage/bar-angle-visu.jpg",
+    "heroImage": "/images/arita-dreshaj_laplazadelbarri.jpg",
     "excerpt": "A Prototype for Urban Regeneration in Verneda.",
     "location": "Barcelona, Spain",
     "theme": "Re-sourcing from social dynamic: Promoting open Neighbourhoods",
@@ -18,12 +18,12 @@
     "id": "box-box-box",
     "title": "Box Box Box",
     "side": "left",
-    "heroImage": "/images/isl-fac-02.png",
+    "heroImage": "/images/arita_dreshaj-prishtina.jpg",
     "excerpt": "One sentence description for left image.",
     "location": "Prishtina, Kosova",
     "theme": "Rehabilitation of the Facade Concept",
     "description": "Reimagining a flat, neutral city-centre facade, the design becomes a vibrant landmark that links the dynamic urban core with the calm campus behind it. Bold duplex apartments introduce varied living experiences through expressive spatial organization and materiality. Oblique balconies in low-impact cementitious material animate the facade with warm textures, while black metal profiles break the glass surface to form a sustainable, contemporary, and visually dynamic composition.",
-    "link": "/architecture/box-box-box",
+    "link": "false",
     "collaborator": "false",
     "alt": {
       "hero": "Left Project - hero image"
@@ -70,7 +70,7 @@
     "title": "Finissage of Addis Ababa House at Architektur Galerie München",
     "side": "right",
     "heroImage": "/mainpage/galerie.JPG",
-    "excerpt": "A ref eling an avant-. Image © Piet Nieder",
+    "excerpt": "Image © Piet Nieder",
     "link": "false",
     "collaborator": "Technical University of Berlin",
     "alt": {
