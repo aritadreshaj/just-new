@@ -1,15 +1,138 @@
 [
+      {
+    "id": "stan",
+    "title": "Stani",
+    "side": "left",
+    "heroImage": "/mainpage/arita-dreshaj-stan.jpg",
+    "excerpt": "Timber structure embedded in the rocky landscape",
+    "location": "Burim, Kosova",
+    "theme": "Against the Rock",
+    "description": "Reconstruction of a traditional Albanian stan, destroyed during the 1999 war. The new timber structure settles into the rocky terrain, its metal-panel roof responding to the steep landscape and opening towards the pine-covered mountains.",
+    "link": "false",
+    "collaborator": "false",
+    "alt": {
+      "hero": "Left Project - hero image"
+    }
+  },
+   {
+    "id": "bta",
+    "title": "Burimi Tennis Academy",
+    "side": "left",
+    "heroImage": "/mainpage/arita-dreshaj-bta.jpg",
+    "excerpt": "Layered courts connected through circulation, technical spaces, and viewing areas",
+    "location": "Burim, Kosova",
+    "theme": "Sports, Landscape, and Community",
+    "description": "The Academy is conceived as a new training and social space for young players in a city where access to tennis facilities remains limited. Set at the edge of the urban fabric, just before the landscape rises toward the national park, the stepped courts follow the terrain while using the levels beneath them for technical and service spaces. Beyond training and competition, the academy becomes a place to gather, rest, and enjoy views back toward the city.",
+    "link": "false",
+    "architectureSlug": "burimi-tennis-academy",
+    "collaborator": "false",
+    "alt": {
+      "hero": "Left Project - hero image"
+    }
+  },
+   {
+    "id": "micro",
+    "title": "Microhome",
+    "side": "left",
+    "heroImage": "/mainpage/arita-dreshaj-microhome.jpg",
+    "excerpt": "Reusing an abandoned stone ruin while reconnecting it with the surrounding landscape",
+    "location": "Plavë, Montenegro",
+    "theme": "Adaptive Reuse, Domesticity & Sustainable Living",
+    "description": "A transformation of a 160-year-old stone ruin in the Northeast of Montenegro, into a small contemporary home that preserves the memory of the existing structure while introducing new ways of living. The project combines local materials, passive environmental strategies, flexible interiors, and renewable systems to create a house that is both rooted in its context and open to changing domestic needs.",
+    "link": "false",
+    "architectureSlug": "microhome",
+    "collaborator": "false",
+    "alt": {
+      "hero": "Left Project - hero image"
+    }
+  },
+    {
+    "id": "h2h",
+    "title": "Hall to Home",
+    "side": "left",
+    "heroImage": "/mainpage/arita-dreshaj-h2h2.jfif",
+    "excerpt": "The existing structure becomes the framework for a new domestic interior",
+    "location": "Burim, Kosova",
+    "theme": "Dwelling within the Existing",
+    "description": "A former annex of a wedding hall is transformed into a four-room apartment. Existing structural walls are retained as the framework for a new domestic layout, with rooms reorganized according to orientation, light, and use.",
+    "link": "false",
+    "collaborator": "false",
+    "alt": {
+      "hero": "Left Project - hero image"
+    }
+  },
+    {
+    "id": "cookie",
+    "title": "Family House",
+    "side": "left",
+    "heroImage": "/mainpage/arita-dreshaj-cookie.jpg",
+    "excerpt": "Interior structure taking shape during construction",
+    "location": "Burim, Kosova",
+    "theme": "House Organisation",
+    "description": "A five-room family house organized through the relationship between orientation, light, and everyday domestic life. Rooms are arranged as a sequence of connected spaces, balancing openness with individual privacy.",
+    "link": "false",
+    "collaborator": "false",
+    "alt": {
+      "hero": "Left Project - hero image"
+    }
+  },
+    {
+    "id": "ivy",
+    "title": "Ivy Apartment",
+    "side": "left",
+    "heroImage": "/mainpage/arita-dreshaj-ivy.jfif",
+    "excerpt": "Kitchen installation — final on-site coordination with the fabricators",
+    "location": "Prishtina, Kosova",
+    "theme": "Joints and Edges",
+    "description": "A three-room apartment developed in close dialogue with a private client. The interior is defined by crisp junctions, precise edges, and engraved wall detailing, with each element resolved as part of a continuous architectural language.",
+    "link": "false",
+    "collaborator": "Collaboration with Ngadhnjim Selmonaj",
+    "alt": {
+      "hero": "Left Project - hero image"
+    }
+  },
+    {
+    "id": "frogchair",
+    "title": "The Frog Chair",
+    "side": "left",
+    "heroImage": "/mainpage/arita-dreshaj-frog-chair.png",
+    "excerpt": "First full-scale comfort test in the workshop",
+    "location": "Burim, Kosova",
+    "theme": "From Test to Use",
+    "description": "A chair made from unused timber pieces left over from CNC machining tests. Rather than discarding the test material, the remaining pieces become the starting point for a new object, assembled and adjusted through making.",
+    "link": "false",
+    "collaborator": "Collaboration with NR Wood Work",
+    "alt": {
+      "hero": "Left Project - hero image"
+    }
+  },
   {
+    "id": "ga8",
+    "title": "Ga8",
+    "side": "left",
+    "heroImage": "/videos/arita-dreshaj-gallusanlage8.gif",
+    "excerpt": "Hand-drawn facade studies developed for Gallusanlage 8 Tower",
+    "location": "Frankfurt am Main, Germany",
+    "theme": "Precise Inconsistencies.",
+    "description": "A series of hand-drawnfacade studies testingproportion through repetition, density, and slight deviation, where 2D linework begins to suggest depth, vibration, and movement.",
+    "link": "false",
+    "collaborator": "Collaboration with Barkow Leibinger",
+    "alt": {
+      "hero": "Left Project - hero image"
+    }
+  },
+    {
     "id": "bar",
     "title": "La Plaza del Barri",
     "side": "left",
-    "heroImage": "/images/arita-dreshaj_laplazadelbarri.jpg",
+    "heroImage": "/mainpage/arita-dreshaj-bar.png",
     "excerpt": "A Prototype for Urban Regeneration in Verneda.",
     "location": "Barcelona, Spain",
     "theme": "Re-sourcing from social dynamic: Promoting open Neighbourhoods",
     "description": "This project reimagines a residual site as a civic threshold and shared commons. By shaping the ground into a continuous, walkable landscape, it reconnects fragmented neighborhoods and creates space for collective life. Architecture grows from the terrain and local dynamics, offering a simple, reproducible strategy for community-centered urban regeneration.",
     "link": "false",
-    "collaborator": "with Antonio Verni & Amir Sheykhan",
+    "architectureSlug": "la-plaza-del-barri",
+    "collaborator": "Collaboration with Antonio Verni & Amir Sheykhan",
     "alt": {
       "hero": "Left Project - hero image"
     }
@@ -19,11 +142,12 @@
     "title": "Box Box Box",
     "side": "left",
     "heroImage": "/images/arita_dreshaj-prishtina.jpg",
-    "excerpt": "One sentence description for left image.",
+    "excerpt": "Façade study exploring repetition, depth, and variation",
     "location": "Prishtina, Kosova",
     "theme": "Rehabilitation of the Facade Concept",
     "description": "Reimagining a flat, neutral city-centre facade, the design becomes a vibrant landmark that links the dynamic urban core with the calm campus behind it. Bold duplex apartments introduce varied living experiences through expressive spatial organization and materiality. Oblique balconies in low-impact cementitious material animate the facade with warm textures, while black metal profiles break the glass surface to form a sustainable, contemporary, and visually dynamic composition.",
     "link": "false",
+    "architectureSlug": "box-box-box",
     "collaborator": "false",
     "alt": {
       "hero": "Left Project - hero image"
@@ -37,6 +161,18 @@
     "excerpt": "AWC #38 distributed in 50,000 copies across Berlin featuring “The Grammar of the Unbuilt” on page 19.",
     "link": "/research/awc",
     "collaborator": " with AWC & Architects4THF",
+    "alt": {
+      "hero": "Right Project - hero image"
+    }
+  },
+    {
+    "id": "dus",
+    "title": "Estrangement: Home Then and Now",
+    "side": "right",
+    "heroImage": "/mainpage/arita-dreshaj-dus-3.JPG",
+    "excerpt": "A reflection presented at the Domesticity Under Siege International Architectural Conference on how commodification, estrangement, and crisis reshape the meaning of home, questioning whether domestic space can be reclaimed through labor, memory, individuality, and everyday acts of creation.",
+    "link": "/research/awc",
+    "collaborator": "University of Brighton, International Architecture Conference 25",
     "alt": {
       "hero": "Right Project - hero image"
     }
@@ -58,7 +194,7 @@
     "title": "Reclaiming Identity featured in the issue #35.2 of Atlantis Magazine",
     "side": "right",
     "heroImage": "/mainpage/atlantis.gif",
-    "excerpt": "A reflection p how artistng to reshape architectural and cultural history.",
+    "excerpt": "A reflection on how artistng to reshape architectural and cultural history.",
     "link": "false",
     "collaborator": "false",
     "alt": {
@@ -85,6 +221,18 @@
     "excerpt": "New Archipelago proposes an alternative to tabula-rasa urban development by preserving post-industrial open land as a vital ecological resource. Instead of replacing the site with generic, market-driven construction, the project imagines a minimal architectural intervention that protects and amplifies the emerging landscape. Drawing on and reinterpreting Ungers’ idea of the “Green Archipelago,” it argues for a contemporary urban model where growth is balanced by the safeguarding of open spaces that form a resilient, city-wide network.",
     "link": "false",
     "collaborator": "with Hänsch, Lee, Schock & Stahlschmidt",
+    "alt": {
+      "hero": "Right Project - hero image"
+    }
+  },
+    {
+    "id": "dcp",
+    "title": "Dancing Volume - Triadic Porcelain with Carl Constantin Weber",
+    "side": "right",
+    "heroImage": "/mainpage/arita-dreshaj-dvp.jpg",
+    "excerpt": "This porcelain piece translates a movement from traditional southern Albanian dance into an abstract three-dimensional form. Responding to the studio’s exploration of the Triadic Ballet, the work captures the body in motion through geometry, volume, and color, transforming an ephemeral cultural gesture into a static object.",
+    "link": "https://carlconstantinweber.de/portfolio/porzellanladen-4-0-dancing-volume-triadic-porcelain/",
+    "collaborator": "false",
     "alt": {
       "hero": "Right Project - hero image"
     }

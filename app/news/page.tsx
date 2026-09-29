@@ -9,6 +9,14 @@ import "@/styles/globals.css";
 // Example news data (replace with your own or fetch dynamically)
 const newsItems = [
 	{
+		date: "2025-12-16",
+		title: "2nd Place in Gallusanlage 8 High-Rise Competition",
+		summary:
+			"Mixed-use high-rise ensemble with a 170m office tower and 60m residential tower on a shared podium, connecting the Bankenviertel and Bahnhofsviertel. Contributed to the project as part of the team at Barkow Leibinger.",
+		projectLink: "https://www.wettbewerbe-aktuell.de/ergebnis/ga8-frankfurt-am-main-404143",
+		place: "Frankfurt am Main, Germany",
+	},
+	{
 		date: "2025-09-10",
 		title: "AWC #38 distributed in 50,000 copies across Berlin featuring “The Grammar of the Unbuilt” on page 19",
 		summary:

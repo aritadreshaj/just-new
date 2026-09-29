@@ -5,6 +5,9 @@ import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import "@/styles/globals.css";
 
+const listFontSize = "1.875rem";
+const categoryLabelFontSize = "1.125rem";
+
 export default function ContactPage() {
   return (
     <>
@@ -15,16 +18,28 @@ export default function ContactPage() {
           <main className="flex flex-1 pt-40 pb-24" style={{ minHeight: 0 }}>
             <div className="w-full">
               <div className="flex justify-between items-start">
-                {/* Left: Inquiries */}
                 <div className="text-left">
-                  <h2 className="text-xl text-neutral-600">For inquiries:</h2>
-                  <a href="mailto:info@aritadreshaj.com" className="text-xl text-[#ff6000] break-words">info@aritadreshaj.com</a>
+                  <h2 className="text-neutral-600" style={{ fontSize: categoryLabelFontSize }}>For inquiries</h2>
+                  <a
+                    href="mailto:info@aritadreshaj.com"
+                    className="inline-block text-[#000000] break-words transition-colors duration-200 hover:text-[#ff5a00] focus:text-[#ff5a00] active:text-[#ff0000]"
+                    style={{ fontSize: listFontSize }}
+                  >
+                    info@aritadreshaj.com
+                  </a>
                 </div>
 
-                {/* Right: Instagram */}
                 <div className="text-right">
-                  <h2 className="text-xl text-neutral-600">Instagram:</h2>
-                  <a href="https://instagram.com/aritadreshaj" target="_blank" rel="noopener noreferrer" className="text-xl text-[#ff6000]">@aritadreshaj</a>
+                  <h2 className="text-neutral-600" style={{ fontSize: categoryLabelFontSize }}>Instagram</h2>
+                  <a
+                    href="https://instagram.com/aritadreshaj"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block text-[#000000] transition-colors duration-200 hover:text-[#ff5a00] focus:text-[#ff5a00] active:text-[#ff0000]"
+                    style={{ fontSize: listFontSize }}
+                  >
+                    @aritadreshaj
+                  </a>
                 </div>
               </div>
             </div>

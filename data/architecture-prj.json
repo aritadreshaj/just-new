@@ -1,4 +1,31 @@
 [
+    {
+    "title": "Stani",
+    "slug": "Stani",
+    "theme": "RESIDENTIAL",
+    "sections": [
+      { "type": "hero", "image": "/images/arita-dreshaj-stan-1.jpg" },
+      {
+        "type": "info",
+        "fields": {
+          "Year": "2024",
+          "Client": "Private Client",
+          "Type": "Residential",
+          "Location": "Burim, Kosova",
+          "Status": "Completed",
+          "Collaborator": "Ar Decor SH. P . K.",
+          "Budget": "15 000 EUR",
+          "Phase": "LPH 01-07"
+        },
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum."
+      },
+      { "type": "image", "image": "/images/arita-dreshaj-stan-2.jpg", "caption": "Placeholder caption for Whisperpine." },
+      { "type": "chapter", "title": "Design Approach", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." },
+      { "type": "text", "text": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam." },
+      { "type": "fullscreenImage", "image": "/images/arita-dreshaj-stan-3.jpg", "caption": "The kitchenette." }
+    ],
+    "visible": true
+  },
   {
     "title": "Whisperpine",
     "slug": "whisperpine",
@@ -24,12 +51,12 @@
       { "type": "text", "text": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam." },
       { "type": "fullscreenImage", "image": "/images/placeholder.jpeg", "caption": "Fullscreen placeholder image." }
     ],
-    "visible": false
+    "visible": true
   },
   {
     "title": "Home Above Rails",
     "slug": "home-above-rails",
-    "theme": "SOCIAL HOUSING",
+    "theme": "Social-Housing",
     "sections": [
       { "type": "hero", "image": "/images/har-facade.jpg" },
       {
@@ -72,36 +99,9 @@
     "visible": false
   },
   {
-    "title": "Eco Lodge",
-    "slug": "eco-lodge",
-    "theme": "MICROHOUSE",
-    "sections": [
-      { "type": "hero", "image": "/images/placeholder.jpeg" },
-      {
-        "type": "info",
-        "fields": {
-          "Year": "2024",
-          "Client": "Dreshaj Family",
-          "Type": "Microhouse",
-          "Location": "Burim, Kosova",
-          "Status": "Completed",
-          "Collaborator": "Ar Decor SH. P . K.",
-          "Budget": "15 000 EUR",
-          "Phase": "LPH 01-09"
-        },
-        "text": "Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Nulla porttitor accumsan tincidunt."
-      },
-      { "type": "image", "image": "/images/placeholder.jpeg", "caption": "Placeholder caption for Eco Lodge." },
-      { "type": "chapter", "title": "Sustainability", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
-      { "type": "text", "text": "Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a." },
-      { "type": "fullscreenImage", "image": "/images/placeholder.jpeg", "caption": "Fullscreen placeholder image." }
-    ],
-    "visible": false
-  },
-  {
     "title": "Leverkusen Mitte Quartier",
     "slug": "leverkusen-mitte-quartier",
-    "theme": "MIXED USE",
+    "theme": "Urban Design, Bike parking, Offices",
     "sections": [
       { "type": "hero", "image": "/images/lvq-1.jpg" },
       {
@@ -130,7 +130,7 @@
   {
     "title": "Reckler's",
     "slug": "recklers",
-    "theme": "RECONSTRUCTION",
+    "theme": "Adaptation, Residential",
     "sections": [
       { "type": "hero", "image": "/images/placeholder.jpeg" },
       {
@@ -138,7 +138,7 @@
         "fields": {
           "Year": "2019",
           "Client": "Private",
-          "Type": "Reconstruction",
+          "Type": "Adaptation, Residential",
           "Location": "Hamburg, Germany",
           "Status": "Completed",
           "Collaborator": "D&G Sanierung",
@@ -157,7 +157,7 @@
   {
     "title": "U5 Arenen",
     "slug": "u5-arenen",
-    "theme": "URBAN MOBILITY",
+    "theme": "U-Bahn, Urban Design",
     "sections": [
       { "type": "hero", "image": "/images/placeholder.jpeg" },
       {
@@ -165,7 +165,7 @@
         "fields": {
           "Year": "2024",
           "Client": "Hamburg Municipality",
-          "Type": "Urban Mobility",
+          "Type": "U-Bahn, Urban Design",
           "Location": "Hamburg, Germany",
           "Status": "Competition",
           "Collaborator": "LIN Architects and Urbanists, Bollinger and Grohmann",
@@ -238,7 +238,7 @@
   {
     "title": "New Archipelago",
     "slug": "new-archipelago",
-    "theme": "MIXED USE",
+    "theme": "Housing, Urban Design",
     "sections": [
       { "type": "hero", "image": "/images/new-01.jpg" },
       {
@@ -264,7 +264,7 @@
   {
     "title": "Home&More",
     "slug": "microhome",
-    "theme": "MICROHOME",
+    "theme": "Microhome",
     "sections": [
       { "type": "hero", "image": "/images/mic-section.png" },
       {
@@ -295,11 +295,11 @@
     "visible": false
   },
   {
-    "title": "A Residential Conversion",
+    "title": "Hall to Home",
     "slug": "a-residential-conversion",
-    "theme": "ADAPTATION, RESIDENTIAL",
+    "theme": "Adaptation, Residential",
     "sections": [
-      { "type": "hero", "image": "/images/placeholder.jpeg" },
+      { "type": "hero", "image": "/images/arita-dreshaj-h2h-2.jpg" },
       {
         "type": "info",
         "fields": {
@@ -324,7 +324,7 @@
   {
     "title": "Island of Angles",
     "slug": "island-of-angles",
-    "theme": "LIBRARY",
+    "theme": "Library",
     "sections": [
       { "type": "hero", "image": "/images/dia-01.jpg" },
       {
@@ -353,7 +353,7 @@
     "slug": "burimi-tennis-academy",
     "theme": "Urban Design",
     "sections": [
-      { "type": "hero", "image": "/images/dia-01.jpg" },
+      { "type": "hero", "image": "/images/arita-dreshaj-bta-1.jpg" },
       {
         "type": "info",
         "fields": {
@@ -361,17 +361,12 @@
           "Location": "Burim, Kosova",
           "Status": "Proposal",
           "Client": "Astrit Bujupaj",
-          "Award": "1st Place - Class of Piet Apel & Nomination for the DIA Award 2019"
+          "Award": "false"
         },
         "text": "Pataphysics informs a critical perspective on art and scientific voids, which are placed into angular forms to shape the Learning Center. Each angle corresponds to a specific function and aligns proportionally with the site’s natural topography and lighting conditions. <p> The Learning Center is set amidst mature trees and several surrounding cultural institutions. While the former parking deck hindered connectivity within the site, the new building and its integrated landscape introduce a renewed sense of urban cohesion. The original café located atop the former parking structure, an important social hub for the local community, has been preserved in its original position, maintaining its historical and cultural significance. <p> Comprising both a Public and an Academic Library, the building is elevated on a platform and framed by a porous architectural envelope that unifies the two volumes. These gaps form a shaded corridor that opens toward a green horizon, encouraging visual and physical continuity with the natural surroundings. Upon entry, visitors pass through a front garden lined with large trees and follow a gentle slope leading into the site. <p> To enable free flow of people and views, the design incorporates a structure of irregularly placed concrete cubes, creating the impression that the sloped ground and garden scenery extend into the interior. The intersections of these cubes introduce fluid circulation and spatial flexibility. Glass façades along the library promote transparency and engagement, fostering interaction between different parts of the building and reinforcing its role as a social and educational hub."
       },
-      { "type": "image", "image": "/images/dia-concept.png", "caption": "Concept in steps." },
-      { "type": "image", "image": "/images/dia-02.jpg", "caption": "View from the backyard." },
-      { "type": "chapter", "title": "Planimetries" },
-      { "type": "image", "image": "/images/dia-siteplan.jpg", "size": "L", "caption": "Siteplan." },
-      { "type": "image", "image": "/images/dia-plans.jpg", "size": "L", "caption": "Plans and Sections." },
-      { "type": "chapter", "title": "Hand Model" },
-      { "type": "image", "image": "/images/dia-hand-model.jpg", "size": "L", "caption": "Hand Model." }
+      { "type": "image", "image": "/images/arita-dreshaj-bta-2.jpg", "caption": "Master plan" },
+      { "type": "image", "image": "/images/arita-dreshaj-bta-3.jpg", "caption": "View from the backyard." }
     ],
     "visible": false
   },
@@ -380,7 +375,7 @@
     "slug": "la-plaza-del-barri",
     "theme": "Re-sourcing from social dynamics",
     "sections": [
-      { "type": "hero", "image": "/images/dia-01.jpg" },
+      { "type": "hero", "image": "/images/arita-dreshaj-bar-1.jpg" },
       {
         "type": "info",
         "fields": {
@@ -388,24 +383,24 @@
           "Location": "Barcelona, Spain",
           "Status": "Proposal",
           "Institution": "Europan 18",
-          "Award": "1st Place - Class of Piet Apel & Nomination for the DIA Award 2019"
+          "Award": "false"
         },
         "text": "Pataphysics informs a critical perspective on art and scientific voids, which are placed into angular forms to shape the Learning Center. Each angle corresponds to a specific function and aligns proportionally with the site’s natural topography and lighting conditions. <p> The Learning Center is set amidst mature trees and several surrounding cultural institutions. While the former parking deck hindered connectivity within the site, the new building and its integrated landscape introduce a renewed sense of urban cohesion. The original café located atop the former parking structure, an important social hub for the local community, has been preserved in its original position, maintaining its historical and cultural significance. <p> Comprising both a Public and an Academic Library, the building is elevated on a platform and framed by a porous architectural envelope that unifies the two volumes. These gaps form a shaded corridor that opens toward a green horizon, encouraging visual and physical continuity with the natural surroundings. Upon entry, visitors pass through a front garden lined with large trees and follow a gentle slope leading into the site. <p> To enable free flow of people and views, the design incorporates a structure of irregularly placed concrete cubes, creating the impression that the sloped ground and garden scenery extend into the interior. The intersections of these cubes introduce fluid circulation and spatial flexibility. Glass façades along the library promote transparency and engagement, fostering interaction between different parts of the building and reinforcing its role as a social and educational hub."
       },
-      { "type": "image", "image": "/images/dia-concept.png", "caption": "Concept in steps." },
-      { "type": "image", "image": "/images/dia-02.jpg", "caption": "View from the backyard." },
+      { "type": "image", "image": "/images/arita-dreshaj-bar-4.png", "caption": "Ground Floor plan." },
+      { "type": "image", "image": "/images/arita-dreshaj-bar-3.png", "caption": "Typological apartment floor plan." },
       { "type": "chapter", "title": "Planimetries" },
-      { "type": "image", "image": "/images/dia-siteplan.jpg", "size": "L", "caption": "Siteplan." },
+      { "type": "image", "image": "/images/arita-dreshaj-bar-5.png", "size": "L", "caption": "Floorplans." },
       { "type": "image", "image": "/images/dia-plans.jpg", "size": "L", "caption": "Plans and Sections." },
-      { "type": "chapter", "title": "Hand Model" },
-      { "type": "image", "image": "/images/dia-hand-model.jpg", "size": "L", "caption": "Hand Model." }
+      { "type": "chapter", "title": "Axonometry" },
+      { "type": "image", "image": "/images/arita-dreshaj-bar-7.pdf", "size": "L", "caption": "Hand Model." }
     ],
     "visible": false
   },
   {
     "title": "Box Box Box",
     "slug": "box-box-box",
-    "theme": "HOUSING",
+    "theme": "Housing",
     "sections": [
       { "type": "hero", "image": "/images/box-shadow-study.gif" },
       {

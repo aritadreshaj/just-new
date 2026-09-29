@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image"; // Importing next/image for optimized image handling
 import typography from "@/styles/typography"; // Import the typography configuration
-import "@/styles/globals.css";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);

@@ -40,42 +40,50 @@ export default function CustomCursor() {
     `;
     document.head.appendChild(style);
 
-    // Move the custom cursor with the mouse
+    const isClickable = (element: HTMLElement | null) => {
+      if (!element) return false;
+
+      if (
+        element.closest(
+          'a, button, [role="button"], [role="link"], summary, label[for], input:not([type="hidden"]):not([disabled]), select:not([disabled]), textarea:not([disabled]), [onclick], [tabindex]:not([tabindex="-1"]), [data-clickable="true"]',
+        )
+      ) {
+        return true;
+      }
+
+      let current: HTMLElement | null = element;
+      while (current) {
+        if (window.getComputedStyle(current).cursor === "pointer") {
+          return true;
+        }
+        current = current.parentElement;
+      }
+
+      return false;
+    };
+
+    // Move the custom cursor with the mouse and switch color on clickable targets
     const moveCursor = (e: MouseEvent) => {
       cursor.style.left = `${e.clientX}px`;
       cursor.style.top = `${e.clientY}px`;
-    };
 
-    // Change cursor color to black when hovering over clickable elements
-    const handleMouseOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.tagName === "A" || target.tagName === "BUTTON" || target.classList.contains("icon") || (target.tagName === "IMG" && target.hasAttribute("onclick"))) {
-        cursor.style.backgroundColor = "black"; // Change to black
-      }
-    };
-
-    const handleMouseOut = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.tagName === "A" || target.tagName === "BUTTON") {
-        cursor.style.backgroundColor = "#ff6000"; // Revert to orange
-      } else if (target.tagName === "IMG" && target.hasAttribute("onclick")) {
-        cursor.style.backgroundColor = "#ff6000"; // Revert to orange
-      }
+      const target = e.target as HTMLElement | null;
+      cursor.style.backgroundColor = isClickable(target) ? "black" : "#ff6000";
     };
 
     // Add event listeners
     document.addEventListener("mousemove", moveCursor);
-    document.addEventListener("mouseover", handleMouseOver);
-    document.addEventListener("mouseout", handleMouseOut);
 
     // Cleanup on component unmount
     return () => {
       document.removeEventListener("mousemove", moveCursor);
-      document.removeEventListener("mouseover", handleMouseOver);
-      document.removeEventListener("mouseout", handleMouseOut);
       document.body.style.cursor = ""; // Restore the default cursor
-      document.body.removeChild(cursor);
-      document.head.removeChild(style); // Remove the added style
+      if (document.body.contains(cursor)) {
+        document.body.removeChild(cursor);
+      }
+      if (document.head.contains(style)) {
+        document.head.removeChild(style); // Remove the added style
+      }
     };
   }, []);
 
