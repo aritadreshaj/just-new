@@ -33,6 +33,7 @@ type MainPageProject = {
 type ArchitectureProject = {
   slug: string;
   title: string;
+  isPublished?: boolean;
 };
 
 const normalizeText = (value: string) => value.trim().toLowerCase().replace(/\s+/g, " ");
@@ -52,11 +53,17 @@ export default function Home() {
   const [headerHeight, setHeaderHeight] = useState(80);
   const [hoveredLeftIndex, setHoveredLeftIndex] = useState<number | null>(null);
   const [isRightPanelHovered, setIsRightPanelHovered] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(
+    typeof window !== "undefined" ? window.innerWidth >= 768 : false,
+  );
 
-  const architectureByTitle = useMemo(() => {
+  const { architectureByTitle, publishedArchitectureSlugs } = useMemo(() => {
     const items = (architectureProjects as ArchitectureProject[]) || [];
-    return new Map(items.map((project) => [normalizeText(project.title), project.slug]));
+    const published = items.filter((project) => project.isPublished === true);
+    return {
+      architectureByTitle: new Map(published.map((project) => [normalizeText(project.title), project.slug])),
+      publishedArchitectureSlugs: new Set(published.map((project) => project.slug)),
+    };
   }, []);
 
   const sorted = projects.slice().sort((a, b) => new Date((b as any).date || 0).getTime() - new Date((a as any).date || 0).getTime());
@@ -64,7 +71,9 @@ export default function Home() {
   const rightProjects = sorted.filter((p) => p.column === "right" || p.side === "right");
   const getProjectLink = (project: MainPageProject) => {
     if (project.link && project.link !== "false" && isRoutableLink(project.link)) return project.link;
-    if (project.architectureSlug) return `/architecture/${project.architectureSlug}`;
+    if (project.architectureSlug && publishedArchitectureSlugs.has(project.architectureSlug)) {
+      return `/architecture/${project.architectureSlug}`;
+    }
     const matchedSlug = architectureByTitle.get(normalizeText(project.title || ""));
     return matchedSlug ? `/architecture/${matchedSlug}` : null;
   };
@@ -144,7 +153,7 @@ export default function Home() {
                         ) : (
                           <h3 className="text-lg md:text-2xl font-semibold mb-2">{p.title || ""}</h3>
                         )}
-                        {p.description ? <p className="text-base md:text-2xl mb-2 leading-snug">{p.description}</p> : null}
+                        {!isDesktop && p.description ? <p className="text-base md:text-2xl mb-2 leading-snug">{p.description}</p> : null}
                         {p.collaborator && p.collaborator !== "false" ? <div className="text-base md:text-2xl mb-1 text-neutral-500">{p.collaborator}</div> : null}
                         {p.location ? <div className="text-base md:text-2xl mb-1 text-neutral-500">{p.location}</div> : null}
                         {isDesktop ? <div className="text-base md:text-2xl mb-1">{p.theme || ""}</div> : null}

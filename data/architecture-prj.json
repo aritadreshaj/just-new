@@ -101,7 +101,7 @@
   {
     "title": "Leverkusen Mitte Quartier",
     "slug": "leverkusen-mitte-quartier",
-    "theme": "Urban Design, Bike parking, Offices",
+    "theme": "Bike Hub, Office",
     "sections": [
       { "type": "hero", "image": "/images/lvq-1.jpg" },
       {
@@ -130,7 +130,7 @@
   {
     "title": "Reckler's",
     "slug": "recklers",
-    "theme": "Adaptation, Residential",
+    "theme": "Adaptation",
     "sections": [
       { "type": "hero", "image": "/images/placeholder.jpeg" },
       {
@@ -138,7 +138,7 @@
         "fields": {
           "Year": "2019",
           "Client": "Private",
-          "Type": "Adaptation, Residential",
+          "Type": "Adaptation",
           "Location": "Hamburg, Germany",
           "Status": "Completed",
           "Collaborator": "D&G Sanierung",
@@ -157,7 +157,7 @@
   {
     "title": "U5 Arenen",
     "slug": "u5-arenen",
-    "theme": "U-Bahn, Urban Design",
+    "theme": "Infrastructural Architecture",
     "sections": [
       { "type": "hero", "image": "/images/placeholder.jpeg" },
       {
@@ -192,7 +192,7 @@
         "fields": {
           "Year": "2024",
           "Client": "Hamburg Municipality",
-          "Type": "Theater Production Facility",
+          "Type": "Theater",
           "Location": "Rostock, Germany",
           "Status": "Competition",
           "Collaborator": "LIN Architects and Urbanists, Winter Ingenieure",
@@ -305,7 +305,7 @@
         "fields": {
           "Year": "2025",
           "Client": "Private",
-          "Type": "Adaptation, Residential",
+          "Type": "Adaptation",
           "Location": "Burim, Kosova",
           "Status": "On-Going",
           "Collaborator": "Private",
@@ -373,7 +373,7 @@
       {
     "title": "La Plaza del Barri",
     "slug": "la-plaza-del-barri",
-    "theme": "Re-sourcing from social dynamics",
+    "theme": "Re-sourcing",
     "sections": [
       { "type": "hero", "image": "/images/arita-dreshaj-bar-1.jpg" },
       {

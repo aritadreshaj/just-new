@@ -13,10 +13,17 @@ type SortDirection = "asc" | "desc";
 
 const styles = {
   fontFamily: "'Poppins', sans-serif",
-  fontSize: "1.875rem",
+  fontSize: "1.5rem",
   textColor: "#9ca3af",
 };
-const columnLayoutClass = "md:grid-cols-[3fr_1.5fr_1fr_0.7fr]";
+const columnLayoutClass = "md:grid-cols-[3fr_1.6fr_1.6fr_0.6fr]";
+type ArchitectureProject = {
+  slug?: string;
+  isPublished?: boolean;
+  sections?: Array<{ type?: string; fields?: Record<string, unknown> }>;
+  theme?: string;
+  title: string;
+};
 
 export default function ArchitecturePage() {
   const [sortKey, setSortKey] = useState<SortKey | null>(null);
@@ -33,7 +40,7 @@ export default function ArchitecturePage() {
 
   const projectsWithMeta = useMemo(
     () =>
-      projects.map((project, index) => {
+      (projects as ArchitectureProject[]).map((project, index) => {
         const infoSection = project.sections?.find((section) => section.type === "info");
         const fields = (infoSection?.fields ?? {}) as Record<string, unknown>;
         const yearText = fields["Year"] as string | undefined;
@@ -46,7 +53,7 @@ export default function ArchitecturePage() {
           yearText,
           location: (fields["Location"] as string) ?? "",
           category: (fields["Type"] as string) ?? project.theme ?? "",
-          isLinkable: typeof project.slug === "string" && project.slug.length > 0,
+          isLinkable: project.isPublished === true && typeof project.slug === "string" && project.slug.length > 0,
         };
       }),
     [],
@@ -151,22 +158,22 @@ export default function ArchitecturePage() {
               return (
                 <div key={project.slug} className="py-3">
                   <div className={`hidden md:grid grid-cols-1 ${columnLayoutClass} gap-4`} style={{ fontSize: styles.fontSize }}>
-                    <div>
+                    <div className="min-w-0">
                       {projectMeta.isLinkable ? (
                         <Link
                           href={`/architecture/${project.slug}`}
-                          className="inline-block font-bold text-black transition-colors duration-200 hover:text-[#ff5a00] focus:text-[#ff5a00] active:text-[#ff0000]"
+                          className="inline-block max-w-full truncate font-bold text-black transition-colors duration-200 hover:text-[#ff5a00] focus:text-[#ff5a00] active:text-[#ff0000]"
                         >
                           {project.title}
                         </Link>
                       ) : (
-                        <span className="inline-block font-bold text-black">
+                        <span className="inline-block max-w-full truncate font-bold text-black">
                           {project.title}
                         </span>
                       )}
                     </div>
-                    <div style={{ color: styles.textColor }}>{projectMeta.location}</div>
-                    <div style={{ color: styles.textColor }}>{projectMeta.category}</div>
+                    <div className="truncate" style={{ color: styles.textColor }}>{projectMeta.location}</div>
+                    <div className="truncate" style={{ color: styles.textColor }}>{projectMeta.category}</div>
                     <div className="text-right" style={{ color: styles.textColor }}>{year}</div>
                   </div>
                   <div className="md:hidden space-y-1">

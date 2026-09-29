@@ -32,6 +32,7 @@ type Section =
 type Project = {
   title: string;
   slug: string;
+  isPublished?: boolean;
   sections?: Section[];
 };
 
@@ -62,6 +63,7 @@ export default function ArchitectureProjectPage() {
 
   const project = (projects as Project[]).find((item) => item.slug === slug);
   if (!project) return notFound();
+  if (project.isPublished !== true) return notFound();
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
