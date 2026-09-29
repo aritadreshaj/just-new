@@ -91,7 +91,7 @@ export default function ProjectPage() {
     <div className="min-h-screen flex flex-col relative bg-white" style={{ overflowX: "hidden" }}>
       <CustomCursor />
       <Header />
-      <main className="flex-1 flex flex-col px-0" style={{ minHeight: 0, paddingTop: "6rem", paddingBottom: "5rem", overflowX: "hidden" }}>
+      <main className="flex-1 flex flex-col px-0 page-main-offset pb-20" style={{ minHeight: 0, overflowX: "hidden" }}>
         <div className="margin-rule flex flex-col items-center" style={{ boxSizing: "border-box", marginTop: 0 }}>
           {/* Centered image and text, both inside margin-rule (60% width) */}
           <div className="flex flex-col items-center w-full">

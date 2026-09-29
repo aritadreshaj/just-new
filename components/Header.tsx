@@ -9,7 +9,6 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleMenuToggle = () => {
-    console.log("Menu Open State:", menuOpen); // Debugging
     setMenuOpen(!menuOpen);
   };
 
@@ -24,12 +23,13 @@ export default function Header() {
         <div className="w-full flex justify-between items-center px-0" style={{height: '100%'}}>
           <Link
             href="/"
-            className={`${typography.sizes.xxl} ${typography.weights.medium} tracking-wide ${typography.colors.orange} pl-8`}
+            className={`${typography.sizes.xxl} ${typography.weights.medium} tracking-wide ${typography.colors.orange} pl-4 sm:pl-8`}
             style={{lineHeight: 'normal'}}
           >
-            a r i t a d r e s h a j
+            <span className="sm:hidden">arita dreshaj</span>
+            <span className="hidden sm:inline">a r i t a d r e s h a j</span>
           </Link>
-          <div className="flex items-center gap-6 pr-6 relative" style={{height: '100%'}}>
+          <div className="flex items-center gap-4 sm:gap-6 pr-4 sm:pr-6 relative" style={{height: '100%'}}>
             {/* Hamburger Button (only visible when menu is closed) */}
             {!menuOpen && (
               <button
@@ -53,8 +53,7 @@ export default function Header() {
       <div
         className={`fixed top-0 right-0 h-full bg-white shadow-lg transition-transform duration-300 z-50 ${
           menuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-        style={{ width: typeof window !== 'undefined' && window.innerWidth <= 640 ? '50%' : '20%' }}
+        } w-2/5 sm:w-1/2 md:w-1/3 lg:w-1/5`}
         onMouseLeave={handleMenuClose}
       >
         {/* Close Button (X) inside the menu, only visible when menu is open */}

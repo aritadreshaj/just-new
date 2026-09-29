@@ -132,9 +132,9 @@ export default function ResearchPage() {
       <CustomCursor />
       <Header />
 
-      <main className="flex flex-1 pt-40">
+      <main className="flex flex-1 pt-[calc(80px+1rem)] md:pt-[calc(80px+4rem)]">
         <div className="margin-rule">
-          <div className="mb-6 pb-2 text-lg" style={{ fontFamily: styles.fontFamily }}>
+          <div className="mb-6 pb-2 text-lg hidden md:block" style={{ fontFamily: styles.fontFamily }}>
             <div className={`grid grid-cols-1 ${columnLayoutClass} gap-4 uppercase tracking-[0.02em]`}>
               <button type="button" onClick={() => { handleSortClick("name"); }} className="text-left cursor-pointer hover:text-black" style={{ color: styles.textColor, fontWeight: sortKey === "name" ? 600 : 400 }}>
                 Name
@@ -151,30 +151,49 @@ export default function ResearchPage() {
             </div>
           </div>
 
-          <div className="space-y-2" style={{ fontFamily: styles.fontFamily, fontSize: styles.fontSize, fontWeight: 400, color: styles.textColor }}>
+          <div className="space-y-1 md:space-y-2" style={{ fontFamily: styles.fontFamily, fontWeight: 400, color: styles.textColor }}>
             {sortedProjects.map((project) => {
               const projectMeta = projectMetaBySlug[project.slug];
               const year = projectMeta.yearValue !== null ? String(projectMeta.yearValue) : "-";
 
               return (
-                <div key={project.slug} className={`grid grid-cols-1 ${columnLayoutClass} gap-4 py-2`}>
-                  <div>
+                <div key={project.slug} className="py-3">
+                  <div className={`hidden md:grid grid-cols-1 ${columnLayoutClass} gap-4`} style={{ fontSize: styles.fontSize }}>
+                    <div>
+                      {projectMeta.isLinkable ? (
+                        <Link
+                          href={`/research/${project.slug}`}
+                          className="inline-block font-bold text-black transition-colors duration-200 hover:text-[#ff5a00] focus:text-[#ff5a00] active:text-[#ff0000]"
+                        >
+                          {project.title}
+                        </Link>
+                      ) : (
+                        <span className="inline-block font-bold text-black">
+                          {project.title}
+                        </span>
+                      )}
+                    </div>
+                    <div style={{ color: styles.textColor }}>{projectMeta.location}</div>
+                    <div style={{ color: styles.textColor }}>{projectMeta.category}</div>
+                    <div className="text-right" style={{ color: styles.textColor }}>{year}</div>
+                  </div>
+                  <div className="md:hidden space-y-1">
                     {projectMeta.isLinkable ? (
                       <Link
                         href={`/research/${project.slug}`}
-                        className="inline-block font-bold text-black transition-colors duration-200 hover:text-[#ff5a00] focus:text-[#ff5a00] active:text-[#ff0000]"
+                        className="inline-block text-3xl font-bold text-black leading-tight transition-colors duration-200 hover:text-[#ff5a00] focus:text-[#ff5a00] active:text-[#ff0000]"
                       >
                         {project.title}
                       </Link>
                     ) : (
-                      <span className="inline-block font-bold text-black">
+                      <span className="inline-block text-3xl font-bold text-black leading-tight">
                         {project.title}
                       </span>
                     )}
+                    {projectMeta.location ? <div className="text-lg text-neutral-500">{projectMeta.location}</div> : null}
+                    {projectMeta.category ? <div className="text-lg text-neutral-500">{projectMeta.category}</div> : null}
+                    <div className="text-lg text-neutral-500">{year}</div>
                   </div>
-                  <div style={{ color: styles.textColor }}>{projectMeta.location}</div>
-                  <div style={{ color: styles.textColor }}>{projectMeta.category}</div>
-                  <div className="text-right" style={{ color: styles.textColor }}>{year}</div>
                 </div>
               );
             })}

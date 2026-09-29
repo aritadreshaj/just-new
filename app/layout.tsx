@@ -1,4 +1,3 @@
-
 import React from "react";
 import "@/app/globals.css";
 import "@/styles/typography.js";
@@ -6,17 +5,59 @@ import { ThemeProvider } from "@/components/theme-provider";
 import CustomCursor from "@/components/CustomCursor";
 
 export const metadata = {
-  title: "Arita Dreshaj",
-  description: "Discover the projects, news, and articles published by Arita Dreshaj.",
+  metadataBase: new URL("https://www.aritadreshaj.com"),
+
+  title: "Arita Dreshaj — Research & Architecture",
+
+  description:
+    "Engaging with transformation, memory, identity, and the continued life of existing spaces.",
+
+  alternates: {
+    canonical: "/",
+  },
+
   openGraph: {
-    title: "Arita Dreshaj - Research & Architecture",
-    description: "Discover the projects, news, and articles published by Arita Dreshaj.",
-    url: "https://www.aritadreshaj.com/",
+    title: "Arita Dreshaj — Research & Architecture",
+    description:
+      "Engaging with transformation, memory, identity, and the continued life of existing spaces.",
+    url: "/",
+    siteName: "Arita Dreshaj",
     type: "website",
+  },
+
+  icons: {
+    icon: "/icon-web.png",
+    apple: "/icon-web.png",
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://www.aritadreshaj.com/#arita-dreshaj",
+
+  name: "Arita Dreshaj",
+  url: "https://www.aritadreshaj.com/",
+
+  jobTitle: "Architect and Researcher",
+
+  description:
+    "Arita Dreshaj is an architect and researcher working across transformation, memory, identity, and the continued life of existing spaces.",
+
+  sameAs: [
+    // Add ONLY profiles that belong to you:
+    // "https://www.instagram.com/aritadreshaj/",
+    // "https://www.linkedin.com/in/YOUR_PROFILE/",
+    // "https://lina.community/projects/5c811c36-53e4-428d-a244-12d46becf099/L",
+    // "https://www.competitionline.com/de/personen/arita-dreshaj-272192",
+  ],
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <head>
@@ -24,37 +65,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         />
-        {/* Favicon and Apple Touch Icon */}
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="icon" href="/icon-web.png" sizes="any" />
-        <link rel="apple-touch-icon" href="/icon-web.png" />
-        {/* Structured Data for Person and Key Projects */}
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              "name": "Arita Dreshaj",
-              "url": "https://www.aritadreshaj.com/",
-              "jobTitle": "Architect",
-              "hasPart": [
-                {
-                  "@type": "CreativeWork",
-                  "name": "Actual Projects",
-                  "url": "https://www.aritadreshaj.com/actual"
-                },
-                {
-                  "@type": "CreativeWork",
-                  "name": "A Home, A Way (Research)",
-                  "url": "https://www.aritadreshaj.com/research/a-home-a-way"
-                }
-              ]
-            })
+            __html: JSON.stringify(personSchema),
           }}
         />
-        <title>Arita Dreshaj - Architect and Urban Designer</title>
       </head>
+
       <body>
         <CustomCursor />
         {children}

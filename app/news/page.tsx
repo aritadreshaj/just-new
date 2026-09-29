@@ -126,7 +126,7 @@ export default function NewsPage() {
 			<CustomCursor />
 			<Header />
 			<div className="margin-rule">
-				<main className="pt-40 pb-24" style={{ minHeight: 0, overflowY: "auto" }}>
+				<main className="page-main-offset pb-24" style={{ minHeight: 0, overflowY: "auto" }}>
 					<ul className="space-y-20">
 						{sortedNewsItems.map((item, idx) => (
 							<li key={idx}>

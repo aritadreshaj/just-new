@@ -41,18 +41,18 @@ const isRoutableLink = (value: string) => value.startsWith("/") || value.startsW
 export default function Home() {
   const projects = (mainPageProjects as MainPageProject[]) || [];
 
-  // Strict gaps (desktop): 4 - 2 - 4 - 4
-  const OUTER_GAP = "4rem";         // far left + far right
-  const LEFT_MIDDLE_GAP = "2rem";   // left image -> middle text
-  const MIDDLE_RIGHT_GAP = "4rem";  // middle text -> right column
-
-  // Manual size controls
-  const LEFT_IMAGE_WIDTH = "65%";   // in left area row
-  const RIGHT_COLUMN_WIDTH = "25%"; // right column width (image fills this)
+  // Strict desktop layout + softer mobile spacing
+  const OUTER_GAP_DESKTOP = "4rem";
+  const OUTER_GAP_MOBILE = "1rem";
+  const LEFT_MIDDLE_GAP_DESKTOP = "2rem";
+  const MIDDLE_RIGHT_GAP_DESKTOP = "4rem";
+  const LEFT_IMAGE_WIDTH_DESKTOP = "65%";
+  const RIGHT_COLUMN_WIDTH_DESKTOP = "25%";
 
   const [headerHeight, setHeaderHeight] = useState(80);
   const [hoveredLeftIndex, setHoveredLeftIndex] = useState<number | null>(null);
   const [isRightPanelHovered, setIsRightPanelHovered] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   const architectureByTitle = useMemo(() => {
     const items = (architectureProjects as ArchitectureProject[]) || [];
@@ -68,12 +68,14 @@ export default function Home() {
     const matchedSlug = architectureByTitle.get(normalizeText(project.title || ""));
     return matchedSlug ? `/architecture/${matchedSlug}` : null;
   };
-  const topOffset = `calc(${headerHeight}px + ${OUTER_GAP})`;
+  const outerGap = isDesktop ? OUTER_GAP_DESKTOP : OUTER_GAP_MOBILE;
+  const topOffset = `calc(${headerHeight}px + ${outerGap})`;
 
   useEffect(() => {
     const updateHeaderHeight = () => {
       const header = document.querySelector("header");
       if (header) setHeaderHeight(Math.round(header.getBoundingClientRect().height));
+      setIsDesktop(window.innerWidth >= 768);
     };
     updateHeaderHeight();
     window.addEventListener("resize", updateHeaderHeight);
@@ -85,8 +87,8 @@ export default function Home() {
       <CustomCursor />
       <Header />
 
-      <main className="flex-1" style={{ paddingInline: OUTER_GAP }}>
-        <div className="flex flex-col md:flex-row" style={{ marginTop: topOffset, columnGap: MIDDLE_RIGHT_GAP }}>
+      <main className="flex-1" style={{ paddingInline: outerGap }}>
+        <div className="flex flex-col md:flex-row" style={{ marginTop: topOffset, columnGap: isDesktop ? MIDDLE_RIGHT_GAP_DESKTOP : "1.25rem" }}>
           <div className="flex-1">
             {leftProjects.map((p: MainPageProject, idx: number) => {
               const projectLink = getProjectLink(p);
@@ -96,8 +98,10 @@ export default function Home() {
                   key={p.id}
                   className="grid"
                   style={{
-                    marginBottom: OUTER_GAP,
-                    gridTemplateColumns: `minmax(0, ${LEFT_IMAGE_WIDTH}) ${LEFT_MIDDLE_GAP} minmax(0, 1fr)`,
+                    marginBottom: outerGap,
+                    gridTemplateColumns: isDesktop
+                      ? `minmax(0, ${LEFT_IMAGE_WIDTH_DESKTOP}) ${LEFT_MIDDLE_GAP_DESKTOP} minmax(0, 1fr)`
+                      : "minmax(0, 1fr)",
                   }}
                 >
                   <div style={{ gridColumn: "1" }}>
@@ -114,27 +118,36 @@ export default function Home() {
                         <img src={p.heroImage} alt={p.alt?.hero || p.title} className="absolute inset-0 w-full h-full object-cover object-center" />
                       )}
                     </div>
-                    <div className="pt-4">
-                      {projectLink ? (
-                        <Link href={projectLink}>
-                          <h2 className="text-xl font-semibold cursor-pointer">{p.title || ""}</h2>
-                        </Link>
-                      ) : (
-                        <h2 className="text-xl font-semibold">{p.title || ""}</h2>
-                      )}
-                      <p className="text-lg text-neutral-700">{p.excerpt || p.credits || ""}</p>
-                    </div>
+                    {isDesktop ? (
+                      <div className="pt-4">
+                        {projectLink ? (
+                          <Link href={projectLink}>
+                            <h2 className="text-xl font-semibold cursor-pointer">{p.title || ""}</h2>
+                          </Link>
+                        ) : (
+                          <h2 className="text-xl font-semibold">{p.title || ""}</h2>
+                        )}
+                        <p className="text-lg text-neutral-700">{p.excerpt || p.credits || ""}</p>
+                      </div>
+                    ) : null}
                   </div>
 
-                  <div style={{ gridColumn: "3" }}>
-                    {hoveredLeftIndex === idx ? (
-                      <p className="text-2xl leading-snug">{p.description || p.excerpt || ""}</p>
+                  <div className="mt-3 md:mt-0" style={{ gridColumn: isDesktop ? "3" : "1" }}>
+                    {isDesktop && hoveredLeftIndex === idx ? (
+                      <p className="text-base md:text-2xl leading-snug">{p.description || p.excerpt || ""}</p>
                     ) : (
                       <>
-                        <h3 className="text-2xl font-semibold mb-2">{p.title || ""}</h3>
-                        <div className="text-2xl mb-1 text-neutral-500">{p.location || ""}</div>
-                        {p.collaborator && p.collaborator !== "false" ? <div className="text-2xl mb-1 text-neutral-500">{p.collaborator}</div> : null}
-                        <div className="text-2xl mb-1">{p.theme || ""}</div>
+                        {projectLink ? (
+                          <Link href={projectLink}>
+                            <h3 className="text-lg md:text-2xl font-semibold mb-2 cursor-pointer">{p.title || ""}</h3>
+                          </Link>
+                        ) : (
+                          <h3 className="text-lg md:text-2xl font-semibold mb-2">{p.title || ""}</h3>
+                        )}
+                        {p.description ? <p className="text-base md:text-2xl mb-2 leading-snug">{p.description}</p> : null}
+                        {p.collaborator && p.collaborator !== "false" ? <div className="text-base md:text-2xl mb-1 text-neutral-500">{p.collaborator}</div> : null}
+                        {p.location ? <div className="text-base md:text-2xl mb-1 text-neutral-500">{p.location}</div> : null}
+                        {isDesktop ? <div className="text-base md:text-2xl mb-1">{p.theme || ""}</div> : null}
                       </>
                     )}
                   </div>
@@ -144,15 +157,15 @@ export default function Home() {
           </div>
 
           <div
-            className="w-full md:flex-none"
+            className="w-full md:flex-none mt-2 md:mt-0"
             style={{
-              width: RIGHT_COLUMN_WIDTH,
-              minWidth: RIGHT_COLUMN_WIDTH,
-              position: "sticky",
-              top: topOffset,
+              width: isDesktop ? RIGHT_COLUMN_WIDTH_DESKTOP : "100%",
+              minWidth: isDesktop ? RIGHT_COLUMN_WIDTH_DESKTOP : "100%",
+              position: isDesktop ? "sticky" : "static",
+              top: isDesktop ? topOffset : undefined,
               alignSelf: "flex-start",
-              maxHeight: `calc(100vh - ${topOffset})`,
-              overflowY: isRightPanelHovered ? "auto" : "hidden",
+              maxHeight: isDesktop ? `calc(100vh - ${topOffset})` : undefined,
+              overflowY: isDesktop && isRightPanelHovered ? "auto" : "visible",
               scrollbarWidth: "none",
             }}
             onMouseEnter={() => setIsRightPanelHovered(true)}
@@ -165,7 +178,7 @@ export default function Home() {
                 const projectLink = getProjectLink(p);
 
                 return (
-                  <div key={p.id} style={{ marginBottom: OUTER_GAP }}>
+                  <div key={p.id} style={{ marginBottom: outerGap }}>
                     <div className="w-full">
                       <div className="aspect-[3/4] bg-neutral-100 relative overflow-hidden">
                         {projectLink ? (

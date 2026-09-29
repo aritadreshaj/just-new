@@ -28,6 +28,16 @@ body {
       padding-right: 1rem;
     }
   }
+
+  .page-main-offset {
+    padding-top: calc(80px + 1rem);
+  }
+
+  @media (min-width: 768px) {
+    .page-main-offset {
+      padding-top: calc(80px + 4rem);
+    }
+  }
 }
 
 /* Fade-in animation */
@@ -54,7 +64,15 @@ body {
   body {
     @apply bg-background text-foreground;
     font-family: 'Poppins', Arial, Helvetica, sans-serif !important;
-    cursor: none;
+    cursor: auto;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  @layer base {
+    body {
+      cursor: none;
+    }
   }
 }
 

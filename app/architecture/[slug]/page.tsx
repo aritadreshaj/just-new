@@ -69,7 +69,7 @@ export default function ArchitectureProjectPage() {
       <Header />
 
       <div className="margin-rule flex-1">
-        <main className="pt-40 pb-24">
+        <main className="page-main-offset pb-24">
           <h1
             className="font-bold text-black mb-10"
             style={{ fontSize: titleFontSize, lineHeight: 1.15 }}
