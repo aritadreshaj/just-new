@@ -18,7 +18,7 @@ const styles = {
 };
 const columnLayoutClass = "md:grid-cols-[3fr_1.6fr_1.6fr_0.6fr]";
 type ArchitectureProject = {
-  slug?: string;
+  slug: string;
   isPublished?: boolean;
   sections?: Array<{ type?: string; fields?: Record<string, unknown> }>;
   theme?: string;
