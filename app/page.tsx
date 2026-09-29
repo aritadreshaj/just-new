@@ -53,9 +53,8 @@ export default function Home() {
   const [headerHeight, setHeaderHeight] = useState(80);
   const [hoveredLeftIndex, setHoveredLeftIndex] = useState<number | null>(null);
   const [isRightPanelHovered, setIsRightPanelHovered] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(
-    typeof window !== "undefined" ? window.innerWidth >= 768 : false,
-  );
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [isReady, setIsReady] = useState(false);
 
   const { architectureByTitle, publishedArchitectureSlugs } = useMemo(() => {
     const items = (architectureProjects as ArchitectureProject[]) || [];
@@ -87,9 +86,23 @@ export default function Home() {
       setIsDesktop(window.innerWidth >= 768);
     };
     updateHeaderHeight();
+    setIsReady(true);
     window.addEventListener("resize", updateHeaderHeight);
     return () => window.removeEventListener("resize", updateHeaderHeight);
   }, []);
+
+  if (!isReady) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <CustomCursor />
+        <Header />
+        <main className="flex-1" style={{ paddingInline: OUTER_GAP_MOBILE }}>
+          <div style={{ marginTop: `calc(${headerHeight}px + ${OUTER_GAP_MOBILE})` }} />
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col">
