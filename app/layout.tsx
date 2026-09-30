@@ -3,11 +3,12 @@ import "@/app/globals.css";
 import "@/styles/typography.js";
 import { ThemeProvider } from "@/components/theme-provider";
 import CustomCursor from "@/components/CustomCursor";
+import type { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: new URL("https://www.aritadreshaj.com"),
 
-  title: "Arita Dreshaj — Research & Architecture",
+  title: "Arita Dreshaj | Research & Architecture",
 
   description:
     "Engaging with transformation, memory, identity, and the continued life of existing spaces.",
@@ -17,12 +18,19 @@ export const metadata = {
   },
 
   openGraph: {
-    title: "Arita Dreshaj — Research & Architecture",
+    title: "Arita Dreshaj | Research & Architecture",
     description:
       "Engaging with transformation, memory, identity, and the continued life of existing spaces.",
     url: "/",
     siteName: "Arita Dreshaj",
     type: "website",
+  },
+
+  twitter: {
+    card: "summary",
+    title: "Arita Dreshaj | Research & Architecture",
+    description:
+      "Engaging with transformation, memory, identity, and the continued life of existing spaces.",
   },
 
   icons: {

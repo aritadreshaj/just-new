@@ -398,8 +398,8 @@
     "visible": false
   },
   {
-    "title": "Box Box Box",
-    "slug": "box-box-box",
+    "title": "Boxes and Colors",
+    "slug": "boxes-and-colors",
     "theme": "Housing",
     "sections": [
       { "type": "hero", "image": "/images/box-shadow-study.gif" },

@@ -9,7 +9,7 @@ export default function Footer({ className, fixed = false }: { className?: strin
     >
       <div className="container mx-auto text-center">
         <p className={`${typography.sizes.xs} ${typography.colors.darkGray}`}>
-          © 2024 Arita Dreshaj. All rights reserved.
+          © 2026 Arita Dreshaj. All rights reserved.
         </p>
       </div>
     </footer>

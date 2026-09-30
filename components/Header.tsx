@@ -26,8 +26,7 @@ export default function Header() {
             className={`${typography.sizes.xxl} ${typography.weights.medium} tracking-wide ${typography.colors.orange} pl-4 sm:pl-8`}
             style={{lineHeight: 'normal'}}
           >
-            <span className="sm:hidden">arita dreshaj</span>
-            <span className="hidden sm:inline">a r i t a d r e s h a j</span>
+            <span>a r i t a d r e s h a j</span>
           </Link>
           <div className="flex items-center gap-4 sm:gap-6 pr-4 sm:pr-6 relative" style={{height: '100%'}}>
             {/* Hamburger Button (only visible when menu is closed) */}

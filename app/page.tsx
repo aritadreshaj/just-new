@@ -39,6 +39,15 @@ type ArchitectureProject = {
 const normalizeText = (value: string) => value.trim().toLowerCase().replace(/\s+/g, " ");
 const isRoutableLink = (value: string) => value.startsWith("/") || value.startsWith("http://") || value.startsWith("https://");
 
+const shuffleProjects = <T,>(items: T[]) => {
+  const shuffled = items.slice();
+  for (let index = shuffled.length - 1; index > 0; index--) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
+  }
+  return shuffled;
+};
+
 export default function Home() {
   const projects = (mainPageProjects as MainPageProject[]) || [];
 
@@ -55,6 +64,7 @@ export default function Home() {
   const [isRightPanelHovered, setIsRightPanelHovered] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
   const [isReady, setIsReady] = useState(false);
+  const [shuffledProjects, setShuffledProjects] = useState<MainPageProject[] | null>(null);
 
   const { architectureByTitle, publishedArchitectureSlugs } = useMemo(() => {
     const items = (architectureProjects as ArchitectureProject[]) || [];
@@ -65,9 +75,8 @@ export default function Home() {
     };
   }, []);
 
-  const sorted = projects.slice().sort((a, b) => new Date((b as any).date || 0).getTime() - new Date((a as any).date || 0).getTime());
-  const leftProjects = sorted.filter((p) => p.column === "left" || p.side === "left");
-  const rightProjects = sorted.filter((p) => p.column === "right" || p.side === "right");
+  const leftProjects = (shuffledProjects ?? []).filter((p) => p.column === "left" || p.side === "left");
+  const rightProjects = (shuffledProjects ?? []).filter((p) => p.column === "right" || p.side === "right");
   const getProjectLink = (project: MainPageProject) => {
     if (project.link && project.link !== "false" && isRoutableLink(project.link)) return project.link;
     if (project.architectureSlug && publishedArchitectureSlugs.has(project.architectureSlug)) {
@@ -86,12 +95,13 @@ export default function Home() {
       setIsDesktop(window.innerWidth >= 768);
     };
     updateHeaderHeight();
+    setShuffledProjects(shuffleProjects(projects));
     setIsReady(true);
     window.addEventListener("resize", updateHeaderHeight);
     return () => window.removeEventListener("resize", updateHeaderHeight);
   }, []);
 
-  if (!isReady) {
+  if (!isReady || !shuffledProjects) {
     return (
       <div className="min-h-screen flex flex-col">
         <CustomCursor />

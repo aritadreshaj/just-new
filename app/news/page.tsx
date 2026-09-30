@@ -36,7 +36,7 @@ const newsItems = [
 		date: "2025-01-20",
 		title: "1st Place in Paris Social Housing Competition",
 		summary:
-			"173 apartments and 4 commercial spaces, with an amazing courtyard at Avenue de France. Contributed to the project as part of the team at LIN, in collaboration with Catherine Trabaljar and CSA Architects.",
+			"173 apartments and 4 commercial spaces, organized around a shared courtyard at Avenue de France. Contributed to the project as part of the team at LIN, in collaboration with Catherine Trabaljar and CSA Architects.",
 		projectLink: "https://trebeljahr-architecte.net/projet.html?id=6DMdF1Xb5OvSBVqDu0xp",
 		place: "Paris, France",
 	},
@@ -52,7 +52,7 @@ const newsItems = [
 		date: "2025-01-15",
 		title: "Awarded 3rd place for the new U5 Arenen design competition in Hamburg",
 		summary:
-			"The competition called for the architectural and landscape design of the U5 “Arenen” event station in Hamburg, aiming to create a distinctive, crowd-optimized station and public space near major venues. Contributed to the project as part of the team at LIN, in collaboration with Bollinger + Grohman for the structure.",
+			"The competition called for the architectural and landscape design of the U5 “Arenen” event station in Hamburg, aiming to create a distinctive, crowd-optimized station and public space near major venues. Contributed to the project as part of the team at LIN, in collaboration with Bollinger+Grohmann for the structure.",
 		projectLink: "",
 		place: "Hamburg, Germany",
 	},
