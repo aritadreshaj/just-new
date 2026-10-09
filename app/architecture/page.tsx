@@ -8,52 +8,73 @@ import Link from "next/link";
 import projects from "@/data/architecture-prj.json";
 import "@/styles/globals.css";
 
-type SortKey = "name" | "location" | "type" | "year";
+type SortKey = "project" | "typology" | "intervention" | "place" | "year" | "status";
 type SortDirection = "asc" | "desc";
 
-const styles = {
-  fontFamily: "'Poppins', sans-serif",
-  fontSize: "1.5rem",
-  textColor: "#9ca3af",
-};
-const columnLayoutClass = "md:grid-cols-[3fr_1.6fr_1.6fr_0.6fr]";
 type ArchitectureProject = {
   slug: string;
   isPublished?: boolean;
   sections?: Array<{ type?: string; fields?: Record<string, unknown> }>;
   theme?: string;
   title: string;
+  subtitle?: string;
+  number?: string | number;
+  intervention?: string;
+  status?: string;
 };
+
+type ProjectMeta = {
+  project: ArchitectureProject;
+  index: number;
+  number: string;
+  yearValue: number | null;
+  yearText: string;
+  typology: string;
+  intervention: string;
+  place: string;
+  status: string;
+  subtitle: string;
+  isLinkable: boolean;
+};
+
+const getFieldText = (fields: Record<string, unknown>, key: string) =>
+  typeof fields[key] === "string" ? fields[key].trim() : "";
+
+const parseYear = (yearText: string) => {
+  const match = yearText.match(/\d{4}/);
+  return match ? Number.parseInt(match[0], 10) : null;
+};
+
+const getDefaultDirection = (key: SortKey): SortDirection => (key === "year" ? "desc" : "asc");
 
 export default function ArchitecturePage() {
   const [sortKey, setSortKey] = useState<SortKey | null>(null);
   const [sortDirection, setSortDirection] = useState<SortDirection | null>(null);
 
-  const getDefaultDirection = (key: SortKey): SortDirection => (key === "year" ? "desc" : "asc");
-
-  const parseYear = (yearText: string | undefined) => {
-    if (!yearText) return null;
-    const match = yearText.match(/\d{4}/);
-    if (!match) return null;
-    return Number.parseInt(match[0], 10);
-  };
-
   const projectsWithMeta = useMemo(
     () =>
-      (projects as ArchitectureProject[]).map((project, index) => {
+      (projects as ArchitectureProject[]).map((project, index): ProjectMeta => {
         const infoSection = project.sections?.find((section) => section.type === "info");
-        const fields = (infoSection?.fields ?? {}) as Record<string, unknown>;
-        const yearText = fields["Year"] as string | undefined;
-        const yearValue = parseYear(yearText);
+        const fields = infoSection?.fields ?? {};
+        const yearText = getFieldText(fields, "Year");
 
         return {
           project,
           index,
-          yearValue,
+          yearValue: parseYear(yearText),
           yearText,
-          location: (fields["Location"] as string) ?? "",
-          category: (fields["Type"] as string) ?? project.theme ?? "",
-          isLinkable: project.isPublished === true && typeof project.slug === "string" && project.slug.length > 0,
+          typology: getFieldText(fields, "Type") || project.theme || "",
+          number: String(project.number ?? "").trim(),
+          intervention: project.intervention?.trim() || getFieldText(fields, "Intervention"),
+          place: getFieldText(fields, "Location"),
+          status: project.status?.trim() || getFieldText(fields, "Status"),
+          subtitle:
+            project.subtitle?.trim() ||
+            ["Subtitle", "Developed at", "Collaborators", "Collaborator", "Institution", "Client"]
+              .map((key) => getFieldText(fields, key))
+              .find((value) => value && value.toLowerCase() !== "false") ||
+            "",
+          isLinkable: project.isPublished === true && project.slug.length > 0,
         };
       }),
     [],
@@ -77,125 +98,143 @@ export default function ArchitecturePage() {
   };
 
   const sortedProjects = useMemo(() => {
+    const byYearDesc = (a: ProjectMeta, b: ProjectMeta) => {
+      if (a.yearValue !== b.yearValue) {
+        if (a.yearValue === null) return 1;
+        if (b.yearValue === null) return -1;
+        return b.yearValue - a.yearValue;
+      }
+      return a.index - b.index;
+    };
+
     if (!sortKey || !sortDirection) {
-      return [...projectsWithMeta]
-        .sort((a, b) => {
-          if (a.yearValue !== b.yearValue) {
-            if (a.yearValue === null) return 1;
-            if (b.yearValue === null) return -1;
-            return b.yearValue - a.yearValue;
-          }
-          return a.index - b.index;
-        })
-        .map(({ project }) => project);
+      return [...projectsWithMeta].sort((a, b) => {
+        const left = Number.parseInt(a.number, 10);
+        const right = Number.parseInt(b.number, 10);
+        const leftValid = !Number.isNaN(left);
+        const rightValid = !Number.isNaN(right);
+
+        if (leftValid && rightValid && left !== right) return right - left;
+        if (leftValid !== rightValid) return leftValid ? -1 : 1;
+        return byYearDesc(a, b);
+      });
     }
 
-    return [...projectsWithMeta]
-      .sort((a, b) => {
-        if (sortKey === "year") {
-          if (a.yearValue !== b.yearValue) {
-            if (a.yearValue === null) return 1;
-            if (b.yearValue === null) return -1;
-            return sortDirection === "asc" ? a.yearValue - b.yearValue : b.yearValue - a.yearValue;
-          }
-          return a.index - b.index;
+    const direction = sortDirection;
+    const key = sortKey;
+
+    return [...projectsWithMeta].sort((a, b) => {
+      if (key === "year") {
+        if (a.yearValue !== b.yearValue) {
+          if (a.yearValue === null) return 1;
+          if (b.yearValue === null) return -1;
+          return direction === "asc" ? a.yearValue - b.yearValue : b.yearValue - a.yearValue;
         }
-
-        const left =
-          sortKey === "name"
-            ? a.project.title.toLowerCase()
-            : sortKey === "location"
-              ? a.location.toLowerCase()
-              : a.category.toLowerCase();
-        const right =
-          sortKey === "name"
-            ? b.project.title.toLowerCase()
-            : sortKey === "location"
-              ? b.location.toLowerCase()
-              : b.category.toLowerCase();
-
-        if (left < right) return sortDirection === "asc" ? -1 : 1;
-        if (left > right) return sortDirection === "asc" ? 1 : -1;
         return a.index - b.index;
-      })
-      .map(({ project }) => project);
+      }
+
+      const values: Record<Exclude<SortKey, "year">, (project: ProjectMeta) => string> = {
+        project: (project) => project.project.title,
+        typology: (project) => project.typology,
+        intervention: (project) => project.intervention,
+        place: (project) => project.place,
+        status: (project) => project.status,
+      };
+      const left = values[key](a).toLowerCase();
+      const right = values[key](b).toLowerCase();
+
+      if (left < right) return direction === "asc" ? -1 : 1;
+      if (left > right) return direction === "asc" ? 1 : -1;
+      return a.index - b.index;
+    });
   }, [projectsWithMeta, sortDirection, sortKey]);
 
-  const projectMetaBySlug = useMemo(
-    () => Object.fromEntries(projectsWithMeta.map((projectMeta) => [projectMeta.project.slug, projectMeta])),
-    [projectsWithMeta],
-  );
+  const columns: Array<{ key: SortKey; label: string }> = [
+    { key: "project", label: "Project" },
+    { key: "typology", label: "Typology" },
+    { key: "intervention", label: "Intervention" },
+    { key: "place", label: "Place" },
+    { key: "year", label: "Year" },
+    { key: "status", label: "Status" },
+  ];
 
   return (
     <div className="min-h-screen flex flex-col relative">
       <CustomCursor />
       <Header />
 
-      <main className="flex flex-1 pt-[calc(80px+1rem)] md:pt-[calc(80px+4rem)]">
-        <div className="margin-rule">
-          <div className="mb-6 pb-2 text-lg hidden md:block" style={{ fontFamily: styles.fontFamily }}>
-            <div className={`grid grid-cols-1 ${columnLayoutClass} gap-4 uppercase tracking-[0.02em]`}>
-              <button type="button" onClick={() => { handleSortClick("name"); }} className="text-left cursor-pointer hover:text-black" style={{ color: styles.textColor, fontWeight: sortKey === "name" ? 600 : 400 }}>
-                Name
-              </button>
-              <button type="button" onClick={() => { handleSortClick("location"); }} className="text-left cursor-pointer hover:text-black" style={{ color: styles.textColor, fontWeight: sortKey === "location" ? 600 : 400 }}>
-                Venue
-              </button>
-              <button type="button" onClick={() => { handleSortClick("type"); }} className="text-left cursor-pointer hover:text-black" style={{ color: styles.textColor, fontWeight: sortKey === "type" ? 600 : 400 }}>
-                Type
-              </button>
-              <button type="button" onClick={() => { handleSortClick("year"); }} className="text-left cursor-pointer hover:text-black text-right" style={{ color: styles.textColor, fontWeight: sortKey === "year" ? 600 : 400 }}>
-                Year
-              </button>
-            </div>
-          </div>
-
-          <div className="space-y-1 md:space-y-2" style={{ fontFamily: styles.fontFamily, fontWeight: 400, color: styles.textColor }}>
-            {sortedProjects.map((project) => {
-              const projectMeta = projectMetaBySlug[project.slug];
-              const year = projectMeta.yearValue !== null ? String(projectMeta.yearValue) : projectMeta.yearText ?? "-";
-
-              return (
-                <div key={project.slug} className="py-3">
-                  <div className={`hidden md:grid grid-cols-1 ${columnLayoutClass} gap-4`} style={{ fontSize: styles.fontSize }}>
-                    <div className="min-w-0">
-                      {projectMeta.isLinkable ? (
-                        <Link
-                          href={`/architecture/${project.slug}`}
-                          className="inline-block max-w-full truncate font-bold text-black transition-colors duration-200 hover:text-[#ff5a00] focus:text-[#ff5a00] active:text-[#ff0000]"
-                        >
-                          {project.title}
-                        </Link>
-                      ) : (
-                        <span className="inline-block max-w-full truncate font-bold text-black">
-                          {project.title}
-                        </span>
-                      )}
-                    </div>
-                    <div className="truncate" style={{ color: styles.textColor }}>{projectMeta.location}</div>
-                    <div className="truncate" style={{ color: styles.textColor }}>{projectMeta.category}</div>
-                    <div className="text-right" style={{ color: styles.textColor }}>{year}</div>
-                  </div>
-                  <div className="md:hidden space-y-1">
-                    {projectMeta.isLinkable ? (
-                      <Link
-                        href={`/architecture/${project.slug}`}
-                        className="inline-block text-3xl font-bold text-black leading-tight transition-colors duration-200 hover:text-[#ff5a00] focus:text-[#ff5a00] active:text-[#ff0000]"
+      <main className="page-main-offset flex flex-1 bg-[#e7e7e7]       text-black">
+        <div className="w-full px-4 pb-12 md:px-16">
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[1000px] table-fixed border-collapse font-mono text-base leading-snug md:text-xl">
+              <colgroup>
+                <col className="w-[4%]" />
+                <col className="w-[38%]" />
+                <col className="w-[12%]" />
+                <col className="w-[14%]" />
+                <col className="w-[16%]" />
+                <col className="w-[6%]" />
+                <col className="w-[10%]" />
+              </colgroup>
+              <thead>
+                <tr className="border-b border-neutral-900/15                 text-left font-sans text-base font-bold uppercase leading-none text-black md:text-xl">
+                                  <th scope="col" className="pb-3 pr-3 pt-0 font-bold">No.</th>
+                  {columns.map(({ key, label }) => (
+                    <th
+                      key={key}
+                      scope="col"
+                      aria-sort={sortKey === key ? (sortDirection === "asc" ? "ascending" : "descending") : undefined}
+                      className={`pb-3 pr-3 pt-0 font-bold ${key === "year" ? "text-right" : ""}`}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => handleSortClick(key)}
+                        className="cursor-pointer text-left transition-colors hover:text-[#ff6000] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-black"
                       >
-                        {project.title}
-                      </Link>
-                    ) : (
-                      <span className="inline-block text-3xl font-bold text-black leading-tight">
-                        {project.title}
-                      </span>
-                    )}
-                    {projectMeta.location ? <div className="text-lg text-neutral-500">{projectMeta.location}</div> : null}
-                    {projectMeta.category ? <div className="text-lg text-neutral-500">{projectMeta.category}</div> : null}
-                    <div className="text-lg text-neutral-500">{year}</div>
-                  </div>
-                </div>
-              );
-            })}
+                        {label}
+                        {sortKey === key && sortDirection ? (sortDirection === "asc" ? " ↑" : " ↓") : ""}
+                      </button>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {sortedProjects.map((projectMeta, index) => {
+                  const { project } = projectMeta;
+                  const year = projectMeta.yearText || "—";
+                  const number = (projectMeta.number || String(sortedProjects.length + 10 - index)).padStart(3, "0");
+
+                  return (
+                    <tr
+                      key={project.slug}
+                      className={`border-b border-neutral-900/10 align-top last:border-b-0 ${projectMeta.isLinkable ? "hover:font-bold" : ""}`}
+                    >
+                      <td className="py-3 pr-3 font-bold">{number}</td>
+                      <td className="py-3 pr-3">
+                        {projectMeta.isLinkable ? (
+                          <Link
+                            href={`/architecture/${project.slug}`}
+                            className="block transition-colors hover:text-[#ff6000] focus-visible:text-[#ff6000]"
+                          >
+                            {project.title}
+                          </Link>
+                        ) : (
+                          <span className="block">{project.title}</span>
+                        )}
+                        {projectMeta.subtitle ? (
+                          <span className="block font-normal text-neutral-500">{projectMeta.subtitle}</span>
+                        ) : null}
+                      </td>
+                      <td className="py-3 pr-3">{projectMeta.typology || "—"}</td>
+                      <td className="py-3 pr-3">{projectMeta.intervention || "—"}</td>
+                      <td className="py-3 pr-3">{projectMeta.place || "—"}</td>
+                      <td className="py-3 pr-3 text-right">{year}</td>
+                      <td className="py-3 uppercase">{projectMeta.status || "—"}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
         </div>
       </main>

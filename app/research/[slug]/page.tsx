@@ -25,6 +25,7 @@ type Project = {
   content: string;
   layout: string;
   category: string;
+  role?: string;
   images: string[];
   collaborator?: string;
   private?: boolean;
@@ -111,6 +112,9 @@ export default function ProjectPage() {
             {/* Text underneath the image */}
             <div className="w-full mt-8">
               <h1 className="text-3xl font-bold mb-4">{project.title}</h1>
+              {project.role?.trim() && (
+                <p className="text-neutral-700 mb-2"><span className="font-semibold">Role:</span> {project.role}</p>
+              )}
               <p className="text-neutral-700 mb-2"><span className="font-semibold">Publisher:</span> {project.publisher || 'N/A'}</p>
               <p className="text-neutral-700 mb-2"><span className="font-semibold">Institute:</span> {project.institute || 'N/A'}</p>
               <p className="text-neutral-700 mb-2"><span className="font-semibold">Location:</span> {project.location}</p>

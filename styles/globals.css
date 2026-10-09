@@ -4,6 +4,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Single secondary gray for all text; every gray text utility resolves to it. */
+:root {
+  --text-gray: #737373;
+}
+html .text-gray-400,
+html .text-gray-500,
+html .text-gray-600,
+html .text-gray-700,
+html .text-neutral-400,
+html .text-neutral-500,
+html .text-neutral-600,
+html .text-neutral-700 {
+  color: var(--text-gray);
+}
+
 /* Remove body, * selector. Only set font-family on body and inherit everywhere else. */
 body {
   font-family: 'Poppins', Arial, Helvetica, sans-serif;

@@ -5,40 +5,56 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import Link from "next/link";
-import projects from '@/data/research-prj.json';
+import projects from "@/data/research-prj.json";
 import "@/styles/globals.css";
 
-type SortKey = "name" | "location" | "type" | "year";
+type SortKey = "project" | "format" | "role" | "place" | "year";
 type SortDirection = "asc" | "desc";
 
-const styles = {
-  fontFamily: "'Poppins', sans-serif",
-  fontSize: "1.5rem",
-  textColor: "#9ca3af",
-  titleColor: "#000000",
+type ResearchProject = {
+  slug: string;
+  title: string;
+  date?: string;
+  location?: string;
+  publisher?: string;
+  institute?: string;
+  category?: string;
+  role?: string;
 };
-const columnLayoutClass = "md:grid-cols-[3fr_1.6fr_1.6fr_0.6fr]";
+
+type ProjectMeta = {
+  project: ResearchProject;
+  index: number;
+  dateValue: number | null;
+  yearText: string;
+  format: string;
+  role: string;
+  place: string;
+  subtitle: string;
+  isLinkable: boolean;
+};
+
+const getDefaultDirection = (key: SortKey): SortDirection => (key === "year" ? "desc" : "asc");
 
 export default function ResearchPage() {
   const [sortKey, setSortKey] = useState<SortKey | null>(null);
   const [sortDirection, setSortDirection] = useState<SortDirection | null>(null);
 
-  const getDefaultDirection = (key: SortKey): SortDirection =>
-    key === "year" ? "desc" : "asc";
-
   const projectsWithMeta = useMemo(
     () =>
-      projects.map((project, index) => {
-        const dateValue = new Date(project.date).getTime();
-        const yearValue = Number.isNaN(dateValue) ? null : new Date(project.date).getFullYear();
+      (projects as ResearchProject[]).map((project, index): ProjectMeta => {
+        const time = new Date(project.date ?? "").getTime();
+        const dateValue = Number.isNaN(time) ? null : time;
 
         return {
           project,
           index,
           dateValue,
-          yearValue,
-          location: project.location ?? "",
-          category: project.category ?? "",
+          yearText: dateValue !== null ? String(new Date(dateValue).getFullYear()) : "",
+          format: project.category?.trim() ?? "",
+          role: project.role?.trim() ?? "",
+          place: project.location?.trim() ?? "",
+          subtitle: project.publisher?.trim() || project.institute?.trim() || "",
           isLinkable: !project.private,
         };
       }),
@@ -62,141 +78,135 @@ export default function ResearchPage() {
     setSortDirection(null);
   };
 
-  const sortedProjects = useMemo(() => {
-    if (!sortKey || !sortDirection) {
-      return [...projectsWithMeta]
-        .sort((a, b) => {
-          if (a.dateValue !== b.dateValue) {
-            if (Number.isNaN(a.dateValue)) return 1;
-            if (Number.isNaN(b.dateValue)) return -1;
-            return b.dateValue - a.dateValue;
-          }
-          return a.index - b.index;
-        })
-        .map(({ project }) => project);
+  const byDateDesc = (a: ProjectMeta, b: ProjectMeta) => {
+    if (a.dateValue !== b.dateValue) {
+      if (a.dateValue === null) return 1;
+      if (b.dateValue === null) return -1;
+      return b.dateValue - a.dateValue;
     }
+    return a.index - b.index;
+  };
 
-    return [...projectsWithMeta]
-      .sort((a, b) => {
-      if (sortKey === "year") {
-        if (a.yearValue !== b.yearValue) {
-          if (a.yearValue === null) return 1;
-          if (b.yearValue === null) return -1;
-          return sortDirection === "asc"
-            ? a.yearValue - b.yearValue
-            : b.yearValue - a.yearValue;
-        }
+  const numberById = useMemo(() => {
+    const ordered = [...projectsWithMeta].sort(byDateDesc);
+    return new Map(ordered.map((meta, position) => [meta.project.slug, ordered.length - position]));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [projectsWithMeta]);
 
+  const sortedProjects = useMemo(() => {
+    if (!sortKey || !sortDirection) return [...projectsWithMeta].sort(byDateDesc);
+
+    const direction = sortDirection;
+    const key = sortKey;
+
+    return [...projectsWithMeta].sort((a, b) => {
+      if (key === "year") {
         if (a.dateValue !== b.dateValue) {
-          if (Number.isNaN(a.dateValue)) return 1;
-          if (Number.isNaN(b.dateValue)) return -1;
-          return sortDirection === "asc"
-            ? a.dateValue - b.dateValue
-            : b.dateValue - a.dateValue;
+          if (a.dateValue === null) return 1;
+          if (b.dateValue === null) return -1;
+          return direction === "asc" ? a.dateValue - b.dateValue : b.dateValue - a.dateValue;
         }
-
         return a.index - b.index;
       }
 
-      const left =
-        sortKey === "name"
-          ? a.project.title.toLowerCase()
-          : sortKey === "location"
-            ? a.location.toLowerCase()
-            : a.category.toLowerCase();
+      const values: Record<Exclude<SortKey, "year">, (project: ProjectMeta) => string> = {
+        project: (project) => project.project.title,
+        format: (project) => project.format,
+        role: (project) => project.role,
+        place: (project) => project.place,
+      };
+      const left = values[key](a).toLowerCase();
+      const right = values[key](b).toLowerCase();
 
-      const right =
-        sortKey === "name"
-          ? b.project.title.toLowerCase()
-          : sortKey === "location"
-            ? b.location.toLowerCase()
-            : b.category.toLowerCase();
-
-      if (left < right) return sortDirection === "asc" ? -1 : 1;
-      if (left > right) return sortDirection === "asc" ? 1 : -1;
+      if (left < right) return direction === "asc" ? -1 : 1;
+      if (left > right) return direction === "asc" ? 1 : -1;
       return a.index - b.index;
-    })
-      .map(({ project }) => project);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [projectsWithMeta, sortDirection, sortKey]);
 
-  const projectMetaBySlug = useMemo(
-    () =>
-      Object.fromEntries(
-        projectsWithMeta.map((projectMeta) => [projectMeta.project.slug, projectMeta]),
-      ),
-    [projectsWithMeta],
-  );
+  const columns: Array<{ key: SortKey; label: string }> = [
+    { key: "project", label: "Project" },
+    { key: "format", label: "Format" },
+    { key: "role", label: "Role" },
+    { key: "place", label: "Place" },
+    { key: "year", label: "Year" },
+  ];
 
   return (
     <div className="min-h-screen flex flex-col relative">
       <CustomCursor />
       <Header />
 
-      <main className="flex flex-1 pt-[calc(80px+1rem)] md:pt-[calc(80px+4rem)]">
-        <div className="margin-rule">
-          <div className="mb-6 pb-2 text-lg hidden md:block" style={{ fontFamily: styles.fontFamily }}>
-            <div className={`grid grid-cols-1 ${columnLayoutClass} gap-4 uppercase tracking-[0.02em]`}>
-              <button type="button" onClick={() => { handleSortClick("name"); }} className="text-left cursor-pointer hover:text-black" style={{ color: styles.textColor, fontWeight: sortKey === "name" ? 600 : 400 }}>
-                Name
-              </button>
-              <button type="button" onClick={() => { handleSortClick("location"); }} className="text-left cursor-pointer hover:text-black" style={{ color: styles.textColor, fontWeight: sortKey === "location" ? 600 : 400 }}>
-                Venue
-              </button>
-              <button type="button" onClick={() => { handleSortClick("type"); }} className="text-left cursor-pointer hover:text-black" style={{ color: styles.textColor, fontWeight: sortKey === "type" ? 600 : 400 }}>
-                Type
-              </button>
-              <button type="button" onClick={() => { handleSortClick("year"); }} className="text-left cursor-pointer hover:text-black text-right" style={{ color: styles.textColor, fontWeight: sortKey === "year" ? 600 : 400 }}>
-                Year
-              </button>
-            </div>
-          </div>
-
-          <div className="space-y-1 md:space-y-2" style={{ fontFamily: styles.fontFamily, fontWeight: 400, color: styles.textColor }}>
-            {sortedProjects.map((project) => {
-              const projectMeta = projectMetaBySlug[project.slug];
-              const year = projectMeta.yearValue !== null ? String(projectMeta.yearValue) : "-";
-
-              return (
-                <div key={project.slug} className="py-3">
-                  <div className={`hidden md:grid grid-cols-1 ${columnLayoutClass} gap-4`} style={{ fontSize: styles.fontSize }}>
-                    <div className="min-w-0">
-                      {projectMeta.isLinkable ? (
-                        <Link
-                          href={`/research/${project.slug}`}
-                          className="inline-block max-w-full truncate font-bold text-black transition-colors duration-200 hover:text-[#ff5a00] focus:text-[#ff5a00] active:text-[#ff0000]"
-                        >
-                          {project.title}
-                        </Link>
-                      ) : (
-                        <span className="inline-block max-w-full truncate font-bold text-black">
-                          {project.title}
-                        </span>
-                      )}
-                    </div>
-                    <div className="truncate" style={{ color: styles.textColor }}>{projectMeta.location}</div>
-                    <div className="truncate" style={{ color: styles.textColor }}>{projectMeta.category}</div>
-                    <div className="text-right" style={{ color: styles.textColor }}>{year}</div>
-                  </div>
-                  <div className="md:hidden space-y-1">
-                    {projectMeta.isLinkable ? (
-                      <Link
-                        href={`/research/${project.slug}`}
-                        className="inline-block text-3xl font-bold text-black leading-tight transition-colors duration-200 hover:text-[#ff5a00] focus:text-[#ff5a00] active:text-[#ff0000]"
+      <main className="page-main-offset flex flex-1 bg-[#e7e7e7] text-black">
+        <div className="w-full px-4 pb-12 md:px-16">
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[900px] table-fixed border-collapse font-mono text-base leading-snug md:text-xl">
+              <colgroup>
+                <col className="w-[4%]" />
+                <col className="w-[40%]" />
+                <col className="w-[14%]" />
+                <col className="w-[16%]" />
+                <col className="w-[17%]" />
+                <col className="w-[9%]" />
+              </colgroup>
+              <thead>
+                <tr className="border-b border-neutral-900/15 text-left font-sans text-base font-bold uppercase leading-none text-black md:text-xl">
+                  <th scope="col" className="pb-3 pr-3 pt-0 font-bold">No.</th>
+                  {columns.map(({ key, label }) => (
+                    <th
+                      key={key}
+                      scope="col"
+                      aria-sort={sortKey === key ? (sortDirection === "asc" ? "ascending" : "descending") : undefined}
+                      className={`pb-3 pr-3 pt-0 font-bold ${key === "year" ? "text-right" : ""}`}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => handleSortClick(key)}
+                        className="cursor-pointer text-left transition-colors hover:text-[#ff6000] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-black"
                       >
-                        {project.title}
-                      </Link>
-                    ) : (
-                      <span className="inline-block text-3xl font-bold text-black leading-tight">
-                        {project.title}
-                      </span>
-                    )}
-                    {projectMeta.location ? <div className="text-lg text-neutral-500">{projectMeta.location}</div> : null}
-                    {projectMeta.category ? <div className="text-lg text-neutral-500">{projectMeta.category}</div> : null}
-                    <div className="text-lg text-neutral-500">{year}</div>
-                  </div>
-                </div>
-              );
-            })}
+                        {label}
+                        {sortKey === key && sortDirection ? (sortDirection === "asc" ? " ↑" : " ↓") : ""}
+                      </button>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {sortedProjects.map((projectMeta) => {
+                  const { project } = projectMeta;
+                  const number = String(numberById.get(project.slug) ?? "").padStart(3, "0");
+
+                  return (
+                    <tr
+                      key={project.slug}
+                      className={`border-b border-neutral-900/10 align-top last:border-b-0 ${projectMeta.isLinkable ? "hover:font-bold" : ""}`}
+                    >
+                      <td className="py-3 pr-3 font-bold">{number}</td>
+                      <td className="py-3 pr-3">
+                        {projectMeta.isLinkable ? (
+                          <Link
+                            href={`/research/${project.slug}`}
+                            className="block transition-colors hover:text-[#ff6000] focus-visible:text-[#ff6000]"
+                          >
+                            {project.title}
+                          </Link>
+                        ) : (
+                          <span className="block">{project.title}</span>
+                        )}
+                        {projectMeta.subtitle ? (
+                          <span className="block font-normal text-neutral-500">{projectMeta.subtitle}</span>
+                        ) : null}
+                      </td>
+                      <td className="py-3 pr-3">{projectMeta.format || "—"}</td>
+                      <td className="py-3 pr-3">{projectMeta.role || "—"}</td>
+                      <td className="py-3 pr-3">{projectMeta.place || "—"}</td>
+                      <td className="py-3 text-right">{projectMeta.yearText || "—"}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
         </div>
       </main>

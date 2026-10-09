@@ -2,6 +2,7 @@
   {
     "title": "Unbounded Spaces: Rethinking Belonging and Imagination",
     "slug": "atlantis",
+    "role": "Author",
     "date": "2025-04-16",
     "location": "Delft, Netherlands",
     "publisher": "Atlantis Magazine Issue #35.2",
@@ -16,6 +17,7 @@
   {
     "title": "Estrangement: Home Then and Now",
     "slug": "dus",
+    "role": "Author",
     "date": "2025-04-03",
     "location": "London, UK",
     "publisher": "BA Hons International Architectural Conference 25",
@@ -30,6 +32,7 @@
     {
     "title": "The Grammar of the Unbuilt",
     "slug": "awc",
+    "role": "Author",
     "date": "2025-09-10",
     "location": "Berlin, Germany",
     "publisher": "Arts of The Working Class",
@@ -44,6 +47,7 @@
   {
     "title": "The Trajectory of Avant-Gardism: Non-Conscious Expressions In The Post-Conflict Balkans",
     "slug": "eam",
+    "role": "Co-Author",
     "date": "2024-09-17",
     "location": "Kraków, Poland",
     "publisher": "European Network for Avant-Garde and Modernism Studies",
@@ -59,6 +63,7 @@
   {
     "title": "Rebuilding to Last",
     "slug": "teh",
+    "role": "Participant",
     "date": "2024-06-12",
     "location": "Aarhus, Denmark",
     "publisher": "Trans Europe Halles",
@@ -73,6 +78,7 @@
   {
     "title": "Rilindja Revealed: The Intersection of Modernism and Local Identity in Prishtina",
     "slug": "rilindja-revealed",
+    "role": "Author",
     "date": "2023-07-12",
     "location": "Berlin, Germany",
     "publisher": "Fachgebiet für Bau- und Stadtbaugeschichte",
@@ -87,10 +93,11 @@
   {
     "title": "A Home, A Way",
     "slug": "a-home-a-way",
+    "role": "Collector",
     "date": "2019-09-19",
     "location": "Prishtina, Kosova",
     "publisher": "",
-    "institute": " Established with University of Prishtina 19/20",
+    "institute": " Established with University of Prishtina, 2019",
     "theme": "Historical Empathy and Architecture",
     "content": "Rooted in a legacy of collective suffering and resilience, this project begins with the act of listening. Stories passed down through generations, fragments of memory, trauma, and endurance, are carefully gathered and documented. This process is not merely archival; it is a deliberate, empathetic act of recognition. Each narrative, once spoken, is written and translated into abstract forms or spatial impressions; not to depict events literally, but to distill their emotional essence. The intention is to transform oral histories into a language that transcends words: one that speaks through atmosphere, rhythm, and absence. By interpreting these stories into abstract gestures or spatial concepts, the project seeks to evoke the emotional depth of lived experiences: grief, fear, resistance, and hope. This translation allows others, especially those who have not directly lived through war or displacement, to sense the psychological and emotional weight of these histories. The purpose is not only to remember, but to understand. To create a medium through which memory becomes active, felt, not just known. In doing so, the project aims to preserve the integrity of these stories while enabling new generations to engage with them intimately, reflectively, and empathetically.",
     "layout": "gallery",
@@ -106,6 +113,7 @@
   {
     "title": "Term Home",
     "slug": "home",
+    "role": "Author",
     "date": "2021-04-01",
     "location": "Berlin, Germany",
     "publisher": "Technical University of Berlin",
@@ -120,6 +128,7 @@
   {
     "title": "Maloula Manual: Reclaiming the City ",
     "slug": "reconstructing-maloula",
+    "role": "Co-Author",
     "date": "2021-06-01",
     "location": "Berlin, Germany",
     "publisher": "Technical University of Berlin",
@@ -135,10 +144,11 @@
   {
     "title": "A Way Forward, A Way Back ",
     "slug": "a-way-forward-a-way-back",
+    "role": "Author",
     "date": "2022-01-01",
     "location": "Berlin, Germany",
     "publisher": "",
-    "institute": "Established with Technische Universität Berlin 22/23",
+    "institute": "Established with Technische Universität Berlin, 2022",
     "theme": "Reha Heritage after Armed Conflicts",
     "content": "One of the world's oldest towns, Maalula dates back to the 10th century BC. Famous for its unique heritage, architecture, and way of life, it remains a place every Syrian and visitor feels compelled to experience. Since 2019, however, reconstruction efforts have introduced modern materials and methods, risking the loss of Maalula’s historic character. Through urban morphology and visual analysis, using maps, surveys, and field studies, we explore Maalula’s evolution, its cultural layers, and the deep connection between its people, landscape, and architecture. Join us in preserving and understanding the true spirit of Maalula.",
     "layout": "text",

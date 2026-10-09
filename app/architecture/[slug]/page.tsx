@@ -33,10 +33,62 @@ type Project = {
   title: string;
   slug: string;
   isPublished?: boolean;
+  status?: string;
+  intervention?: string;
   sections?: Section[];
 };
 
 const titleFontSize = "1.875rem";
+
+const FIELD_ORDER = [
+  "Year",
+  "Type",
+  "Location",
+  "Status",
+  "Intervention",
+  "Institution",
+  "Developed at",
+  "Client",
+  "Collaborators",
+  "Contractors",
+];
+
+const FIELD_ALIASES: Record<string, string> = {
+  collaborator: "Collaborators",
+  contractor: "Contractors",
+};
+
+const canonicalLabel = (label: string) => {
+  const key = label.trim().toLowerCase();
+  const alias = FIELD_ALIASES[key];
+  if (alias) return alias;
+  return FIELD_ORDER.find((name) => name.toLowerCase() === key) ?? label.trim();
+};
+
+const isFilled = (value: unknown): value is string =>
+  typeof value === "string" && value.trim() !== "" && value.trim().toLowerCase() !== "false";
+
+function getInfoFields(project: Project, fields: Record<string, string> = {}) {
+  const merged = new Map<string, string>();
+
+  Object.entries(fields).forEach(([label, value]) => {
+    const name = canonicalLabel(label);
+    if (isFilled(value) && !merged.has(name)) merged.set(name, value.trim());
+  });
+
+  if (isFilled(project.status)) merged.set("Status", project.status.trim());
+  if (isFilled(project.intervention)) merged.set("Intervention", project.intervention.trim());
+
+  const rank = (label: string) => {
+    const index = FIELD_ORDER.indexOf(label);
+    return index === -1 ? FIELD_ORDER.length : index;
+  };
+
+  return [...merged.entries()]
+    .map((entry, position) => ({ entry, position }))
+    .sort((a, b) => rank(a.entry[0]) - rank(b.entry[0]) || a.position - b.position)
+    .map(({ entry }) => entry);
+}
 
 function renderParagraphs(text?: string, className = "") {
   if (!text) return null;
@@ -90,7 +142,7 @@ export default function ArchitectureProjectPage() {
                       className="w-full h-auto object-cover"
                     />
                     {section.caption && (
-                      <div className="mt-3 text-sm text-neutral-600">
+                      <div className="mt-3 text-sm text-neutral-500">
                         {renderParagraphs(section.caption)}
                       </div>
                     )}
@@ -109,7 +161,7 @@ export default function ArchitectureProjectPage() {
                       />
                     </div>
                     {section.caption && (
-                      <div className="mt-3 text-sm text-neutral-600">
+                      <div className="mt-3 text-sm text-neutral-500">
                         {renderParagraphs(section.caption)}
                       </div>
                     )}
@@ -129,7 +181,7 @@ export default function ArchitectureProjectPage() {
                             className="w-full h-auto object-cover"
                           />
                           {image.caption && (
-                            <div className="mt-2 text-sm text-neutral-600">
+                            <div className="mt-2 text-sm text-neutral-500">
                               {renderParagraphs(image.caption)}
                             </div>
                           )}
@@ -144,7 +196,7 @@ export default function ArchitectureProjectPage() {
                 return (
                   <section key={index} className="w-full grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div className="space-y-2 text-neutral-700">
-                      {Object.entries(section.fields || {}).map(([label, value]) => (
+                      {getInfoFields(project, section.fields).map(([label, value]) => (
                         <p key={label}>
                           <span className="font-semibold text-black">{label}:</span> {value}
                         </p>

@@ -21,6 +21,9 @@ type MainPageProject = {
   description?: string;
   location?: string;
   collaborator?: string;
+  type?: string;
+  institution?: string;
+  collaborators?: string;
   theme?: string;
   link?: string;
   architectureSlug?: string;
@@ -38,6 +41,8 @@ type ArchitectureProject = {
 
 const normalizeText = (value: string) => value.trim().toLowerCase().replace(/\s+/g, " ");
 const isRoutableLink = (value: string) => value.startsWith("/") || value.startsWith("http://") || value.startsWith("https://");
+const getProjectCollaborators = (project: MainPageProject) =>
+  [project.collaborators, project.collaborator].find((value) => value?.trim() && value !== "false")?.trim();
 
 const shuffleProjects = <T,>(items: T[]) => {
   const shuffled = items.slice();
@@ -177,7 +182,7 @@ export default function Home() {
                           <h3 className="text-lg md:text-2xl font-semibold mb-2">{p.title || ""}</h3>
                         )}
                         {!isDesktop && p.description ? <p className="text-base md:text-2xl mb-2 leading-snug">{p.description}</p> : null}
-                        {p.collaborator && p.collaborator !== "false" ? <div className="text-base md:text-2xl mb-1 text-neutral-500">{p.collaborator}</div> : null}
+                        {getProjectCollaborators(p) ? <div className="text-base md:text-2xl mb-1 text-neutral-500">{getProjectCollaborators(p)}</div> : null}
                         {p.location ? <div className="text-base md:text-2xl mb-1 text-neutral-500">{p.location}</div> : null}
                         {isDesktop ? <div className="text-base md:text-2xl mb-1">{p.theme || ""}</div> : null}
                       </>
@@ -229,7 +234,16 @@ export default function Home() {
                         ) : (
                           <h4 className="text-lg font-semibold">{p.title || ""}</h4>
                         )}
-                        <p className="text-lg text-neutral-700">{p.excerpt || p.credits || ""}</p>
+                        {[
+                          p.type,
+                          p.institution,
+                          getProjectCollaborators(p),
+                        ].map((value) =>
+                          value?.trim() && value !== "false" ? (
+                            <p key={value} className="text-lg text-neutral-500">{value}</p>
+                          ) : null
+                        )}
+                        <p className="text-lg text-black">{p.excerpt || p.credits || ""}</p>
                       </div>
                     </div>
                   </div>

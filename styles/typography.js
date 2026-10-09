@@ -19,8 +19,8 @@ const typography = {
       black: "text-black",
       white: "text-white",
       orange: "text-[#ff6000]",
-      lightGray: "text-neutral-400",
-      darkGray: "text-neutral-600",
+      lightGray: "text-neutral-500",
+      darkGray: "text-neutral-500",
     },
   };
   

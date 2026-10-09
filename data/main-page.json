@@ -1,5 +1,19 @@
 [
       {
+    "id": "brickhouse",
+    "title": "Brick House",
+    "side": "left",
+    "heroImage": "/mainpage/arita-dreshaj-brickhouse.png",
+    "excerpt": "Perforated brick screens filter light and cast shifting shadows across the entrance.",
+    "location": "Burim, Kosova",
+    "theme": "Brick as Structure and Screen",
+    "description": "Brick House is a compact family house organized through varying degrees of enclosure. Solid brick walls define the main volume, while perforated brick screens filter light, views, and privacy around transitional spaces. The project uses a limited material language to create a house that feels both protected and open.",
+    "link": "false",
+    "collaborator": "false",
+    "alt": {
+      "hero": "Left Project - hero image"
+    }
+  },      {
     "id": "stan",
     "title": "Stani",
     "side": "left",
@@ -153,6 +167,19 @@
       "hero": "Left Project - hero image"
     }
   },
+    {
+    "id": "awc-schaufenster",
+    "title": "Schaufenster at Leipziger Straße 61",
+    "side": "right",
+    "heroImage": "/mainpage/arita-dreshaj-schaufenster.JPG",
+    "excerpt": "Part of a temporary Schaufenster installation by Architects4THF, presenting the magazine in a public street-facing setting and giving passersby closer access to the materials and discussions behind the work.",
+    "link": "/research/awc-schaufenster",
+    "type": "Window Exhibition, 2025",
+    "institution": "AWC & Architects4THF",
+    "alt": {
+      "hero": "Right Project - hero image"
+    }
+  },
   {
     "id": "awc",
     "title": "The Grammar of The Unbuilt",
@@ -160,7 +187,8 @@
     "heroImage": "/mainpage/awc-screen.JPG",
     "excerpt": "AWC #38 distributed in 50,000 copies across Berlin featuring “The Grammar of the Unbuilt” on page 19.",
     "link": "/research/awc",
-    "collaborator": " with AWC & Architects4THF",
+    "type": "Article, 2025",
+    "institution": "AWC & Architects4THF",
     "alt": {
       "hero": "Right Project - hero image"
     }
@@ -172,7 +200,8 @@
     "heroImage": "/mainpage/arita-dreshaj-dus-3.jpg",
     "excerpt": "A reflection presented at the Domesticity Under Siege International Architectural Conference on how commodification, estrangement, and crisis reshape the meaning of home, questioning whether domestic space can be reclaimed through labor, memory, individuality, and everyday acts of creation.",
     "link": "/research/awc",
-    "collaborator": "University of Brighton, International Architecture Conference 25",
+    "type": "International Architectural Conference, 2025",
+    "institution": "University of Brighton, Brighton, UK",
     "alt": {
       "hero": "Right Project - hero image"
     }
@@ -184,7 +213,9 @@
     "heroImage": "/images/eam-1.jpeg",
     "excerpt": "A reflection presented at the EAHN Biennial Conference on how artistic expression in the post-conflict Balkans emerges from the tension between oppression and freedom, revealing an avant-garde shaped by constraint yet seeking to reshape architectural and cultural history.",
     "link": "false",
-    "collaborator": "with Edmond Drenogllava",
+    "collaborator": "Collaboration with Edmond Drenogllava",
+    "type": "9th Biennial Conference of the European Network for Avant-Garde and Modernism Studies (EAM), 2024",
+    "institution": "Jagiellonian University, Cracow, Poland",
     "alt": {
       "hero": "Right Project - hero image"
     }
@@ -195,6 +226,8 @@
     "side": "right",
     "heroImage": "/mainpage/atlantis.gif",
     "excerpt": "A reflection on how artistng to reshape architectural and cultural history.",
+    "type": "Atlantis Magazine, 2024",
+    "institution": "Atlantis by Polis, TU Delft, ARGUS, & BouT",
     "link": "false",
     "collaborator": "false",
     "alt": {
@@ -208,7 +241,7 @@
     "heroImage": "/mainpage/galerie.JPG",
     "excerpt": "Image © Piet Nieder",
     "link": "false",
-    "collaborator": "Technical University of Berlin",
+    "institution": "Technical University of Berlin",
     "alt": {
       "hero": "Right Project - hero image"
     }
@@ -220,6 +253,8 @@
     "heroImage": "/mainpage/new.jpg",
     "excerpt": "New Archipelago proposes an alternative to tabula-rasa urban development by preserving post-industrial open land as a vital ecological resource. Instead of replacing the site with generic, market-driven construction, the project imagines a minimal architectural intervention that protects and amplifies the emerging landscape. Drawing on and reinterpreting Ungers’ idea of the “Green Archipelago,” it argues for a contemporary urban model where growth is balanced by the safeguarding of open spaces that form a resilient, city-wide network.",
     "link": "false",
+    "type": "Presentation, 2023",
+    "institution": "Technical University of Berlin, Plattformnachwuchsarchitekten",
     "collaborator": "with Hänsch, Lee, Schock & Stahlschmidt",
     "alt": {
       "hero": "Right Project - hero image"
@@ -230,6 +265,8 @@
     "title": "Dancing Volume - Triadic Porcelain with Carl Constantin Weber",
     "side": "right",
     "heroImage": "/mainpage/arita-dreshaj-dvp.jpg",
+    "type": "Exhibition, 2019",
+    "institution": "DIA Dessau",
     "excerpt": "This porcelain piece translates a movement from traditional southern Albanian dance into an abstract three-dimensional form. Responding to the studio’s exploration of the Triadic Ballet, the work captures the body in motion through geometry, volume, and color, transforming an ephemeral cultural gesture into a static object.",
     "link": "https://carlconstantinweber.de/portfolio/porzellanladen-4-0-dancing-volume-triadic-porcelain/",
     "collaborator": "false",

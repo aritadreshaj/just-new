@@ -1,62 +1,187 @@
 [
-    {
-    "title": "Stani",
-    "slug": "Stani",
-    "theme": "RESIDENTIAL",
+  {
+    "title": "Burimi Tennis Academy",
+    "slug": "burimi-tennis-academy",
+    "number": "027",
+    "intervention": "Study",
+    "status": "Proposal",
+    "theme": "Sports",
     "sections": [
-      { "type": "hero", "image": "/images/arita-dreshaj-stan-1.jpg" },
+      { "type": "hero", "image": "/images/arita-dreshaj-bta-1.jpg" },
+      {
+        "type": "info",
+        "fields": {
+          "Year": "2025",
+          "Location": "Burim, Kosova",
+          "Client": "Astrit Bujupaj",
+          "Award": "false"
+        },
+        "text": "Pataphysics informs a critical perspective on art and scientific voids, which are placed into angular forms to shape the Learning Center. Each angle corresponds to a specific function and aligns proportionally with the site’s natural topography and lighting conditions. <p> The Learning Center is set amidst mature trees and several surrounding cultural institutions. While the former parking deck hindered connectivity within the site, the new building and its integrated landscape introduce a renewed sense of urban cohesion. The original café located atop the former parking structure, an important social hub for the local community, has been preserved in its original position, maintaining its historical and cultural significance. <p> Comprising both a Public and an Academic Library, the building is elevated on a platform and framed by a porous architectural envelope that unifies the two volumes. These gaps form a shaded corridor that opens toward a green horizon, encouraging visual and physical continuity with the natural surroundings. Upon entry, visitors pass through a front garden lined with large trees and follow a gentle slope leading into the site. <p> To enable free flow of people and views, the design incorporates a structure of irregularly placed concrete cubes, creating the impression that the sloped ground and garden scenery extend into the interior. The intersections of these cubes introduce fluid circulation and spatial flexibility. Glass façades along the library promote transparency and engagement, fostering interaction between different parts of the building and reinforcing its role as a social and educational hub."
+      },
+      { "type": "image", "image": "/images/arita-dreshaj-bta-2.jpg", "caption": "Master plan" },
+      { "type": "image", "image": "/images/arita-dreshaj-bta-3.jpg", "caption": "View from the backyard." }
+    ],
+    "visible": false
+  },
+  {
+    "title": "Ga8",
+    "slug": "gallusanlage-ga8",
+    "number": "025",
+    "intervention": "New Build",
+    "theme": "Offices & Housing",
+    "status": "Competition",
+    "sections": [
+      { "type": "hero", "image": "/images/arita-dreshaj-bar-1.jpg" },
+      {
+        "type": "info",
+        "fields": {
+          "Year": "2025",
+          "Location": "Frankfurt am Main, Germany",
+          "Collaborators": "Developed at Barkow Leibinger, 2nd Prize",
+          "Award": "2nd Prize"
+        },
+        "text": "Pataphysics informs a critical perspective on art and scientific voids, which are placed into angular forms to shape the Learning Center. Each angle corresponds to a specific function and aligns proportionally with the site’s natural topography and lighting conditions. <p> The Learning Center is set amidst mature trees and several surrounding cultural institutions. While the former parking deck hindered connectivity within the site, the new building and its integrated landscape introduce a renewed sense of urban cohesion. The original café located atop the former parking structure, an important social hub for the local community, has been preserved in its original position, maintaining its historical and cultural significance. <p> Comprising both a Public and an Academic Library, the building is elevated on a platform and framed by a porous architectural envelope that unifies the two volumes. These gaps form a shaded corridor that opens toward a green horizon, encouraging visual and physical continuity with the natural surroundings. Upon entry, visitors pass through a front garden lined with large trees and follow a gentle slope leading into the site. <p> To enable free flow of people and views, the design incorporates a structure of irregularly placed concrete cubes, creating the impression that the sloped ground and garden scenery extend into the interior. The intersections of these cubes introduce fluid circulation and spatial flexibility. Glass façades along the library promote transparency and engagement, fostering interaction between different parts of the building and reinforcing its role as a social and educational hub."
+      },
+      { "type": "image", "image": "/images/arita-dreshaj-bar-4.png", "caption": "Ground Floor plan." },
+      { "type": "image", "image": "/images/arita-dreshaj-bar-3.png", "caption": "Typological apartment floor plan." },
+      { "type": "chapter", "title": "Planimetries" },
+      { "type": "image", "image": "/images/arita-dreshaj-bar-5.png", "size": "L", "caption": "Floorplans." },
+      { "type": "image", "image": "/images/dia-plans.jpg", "size": "L", "caption": "Plans and Sections." },
+      { "type": "chapter", "title": "Axonometry" },
+      { "type": "image", "image": "/images/arita-dreshaj-bar-7.pdf", "size": "L", "caption": "Hand Model." }
+    ],
+    "visible": false
+  },
+  {
+    "title": "La Plaza del Barri",
+    "slug": "la-plaza-del-barri",
+    "number": "024",
+    "intervention": "New Build",
+    "status": "Competition",
+    "theme": "Housing",
+    "sections": [
+      { "type": "hero", "image": "/images/arita-dreshaj-bar-1.jpg" },
+      {
+        "type": "info",
+        "fields": {
+          "Year": "2025",
+          "Location": "Barcelona, Spain",
+          "Institution": "Europan 18",
+          "Collaborators": "Collaboration with Amir Sheykhan & Antonio Verni",
+          "Award": "false"
+        },
+        "text": "Pataphysics informs a critical perspective on art and scientific voids, which are placed into angular forms to shape the Learning Center. Each angle corresponds to a specific function and aligns proportionally with the site’s natural topography and lighting conditions. <p> The Learning Center is set amidst mature trees and several surrounding cultural institutions. While the former parking deck hindered connectivity within the site, the new building and its integrated landscape introduce a renewed sense of urban cohesion. The original café located atop the former parking structure, an important social hub for the local community, has been preserved in its original position, maintaining its historical and cultural significance. <p> Comprising both a Public and an Academic Library, the building is elevated on a platform and framed by a porous architectural envelope that unifies the two volumes. These gaps form a shaded corridor that opens toward a green horizon, encouraging visual and physical continuity with the natural surroundings. Upon entry, visitors pass through a front garden lined with large trees and follow a gentle slope leading into the site. <p> To enable free flow of people and views, the design incorporates a structure of irregularly placed concrete cubes, creating the impression that the sloped ground and garden scenery extend into the interior. The intersections of these cubes introduce fluid circulation and spatial flexibility. Glass façades along the library promote transparency and engagement, fostering interaction between different parts of the building and reinforcing its role as a social and educational hub."
+      },
+      { "type": "image", "image": "/images/arita-dreshaj-bar-4.png", "caption": "Ground Floor plan." },
+      { "type": "image", "image": "/images/arita-dreshaj-bar-3.png", "caption": "Typological apartment floor plan." },
+      { "type": "chapter", "title": "Planimetries" },
+      { "type": "image", "image": "/images/arita-dreshaj-bar-5.png", "size": "L", "caption": "Floorplans." },
+      { "type": "image", "image": "/images/dia-plans.jpg", "size": "L", "caption": "Plans and Sections." },
+      { "type": "chapter", "title": "Axonometry" },
+      { "type": "image", "image": "/images/arita-dreshaj-bar-7.pdf", "size": "L", "caption": "Hand Model." }
+    ],
+    "visible": false
+  },
+  {
+    "title": "Hall to Home",
+    "slug": "a-residential-conversion",
+    "number": "023",
+    "intervention": "Adaptation",
+    "status": "Completed",
+    "theme": "Residential",
+    "sections": [
+      { "type": "hero", "image": "/images/arita-dreshaj-h2h-2.jpg" },
+      {
+        "type": "info",
+        "fields": {
+          "Year": "2025",
+          "Client": "Private Client",
+          "Location": "Burim, Kosova",
+          "Collaborators": "Private Client",
+          "Budget": "10 000 EUR",
+          "Phase": "LPH 01-07"
+        },
+        "text": "Sed porttitor lectus nibh. Pellentesque in ipsum id orci porta dapibus."
+      },
+      { "type": "image", "image": "/images/placeholder.jpeg", "caption": "Placeholder caption for Adapting a Wedding Hall." },
+      { "type": "chapter", "title": "Transformation", "text": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae." },
+      { "type": "text", "text": "Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem." },
+      { "type": "fullscreenImage", "image": "/images/placeholder.jpeg", "caption": "Fullscreen placeholder image." }
+    ],
+    "visible": false
+  },
+  {
+    "title": "Microhome",
+    "slug": "microhome",
+    "number": "022",
+    "intervention": "Adaptation",
+    "status": "Proposal",
+    "theme": "Residential",
+    "sections": [
+      { "type": "hero", "image": "/images/mic-section.png" },
       {
         "type": "info",
         "fields": {
           "Year": "2024",
-          "Client": "Private Client",
-          "Type": "Residential",
-          "Location": "Burim, Kosova",
-          "Status": "Completed",
-          "Collaborator": "Ar Decor SH. P . K.",
-          "Budget": "15 000 EUR",
-          "Phase": "LPH 01-07"
+          "Client": "Ndrecaj Family",
+          "Location": "Plave, Montenegro",
+          "Budget": "15 000 EUR"
         },
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum."
+        "text": "In an era where recognizing the limits of energy resources and the unsustainable consumption of territory is crucial, Home&More believes refurbishing abandoned historical heritage is a primary challenge. <p> Beyond aesthetics, this project reshapes the design process, anchoring it in a more grounded reality. It advocates for thoughtful study and investment in specific families and sites. Thus, by revitalizing Ms. & Mr. Ndrecaj’s abandoned property in Plave, Montenegro, the project pursues two main objectives: <p> 1. Reusing existing footprints.<p> 2. Reconstructing spaces with individuality.<p>The intention is clear: to reduce CO2 emissions, honor the historical narratives of locations, and create spaces that meet the unique needs and desires of their inhabitants. Engaging local communities, employing sustainable materials, and fostering biodiversity conservation, our project prioritizes social responsibility. <p>Thus, at the peak of a new age of consumerism, this home is defined through its domestic paraphernalia—the furniture, fixtures, and accessories are the main characters of the space. The new social conditions are tied to the ownership and personal value attributed to space, ensuring an individualistic design. <p>Through this approach, Home&More encodes domestic spaces as social and cultural features through which we represent our nature—and live with it."
       },
-      { "type": "image", "image": "/images/arita-dreshaj-stan-2.jpg", "caption": "Placeholder caption for Whisperpine." },
-      { "type": "chapter", "title": "Design Approach", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." },
-      { "type": "text", "text": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam." },
-      { "type": "fullscreenImage", "image": "/images/arita-dreshaj-stan-3.jpg", "caption": "The kitchenette." }
+      { "type": "image", "image": "/images/mic-interior.jpg", "caption": "The Art Class. Perspective Section." },
+      { "type": "chapter", "title": "Plan Adaptation" },
+      {
+        "type": "imageRow",
+        "images": [
+          { "src": "/images/mic-pl-00.png", "size": "XL" },
+          { "src": "/images/mic-pl-01.png", "size": "XL" }
+        ]
+      },
+      { "type": "chapter", "title": "Structure and Materials" },
+      { "type": "image", "image": "/images/mic-structure.png", "caption": "Intersection of existing and new materials." },
+      { "type": "text", "text": "Except for a 3% stone work needed for the revitalization of the existing walls (46m² of the facade), the remaining walls will be connected with KINGSPAN insulated walls (30m²), attached to an inner wooden structure, and covered with a KINGSPAN insulated roof (24m² in surface). The rest of the design will also be made of wood elements, all produced in the city of Plave." },
+      { "type": "image", "image": "/images/mic-pl-material-01.png", "caption": "Technical detail." },
+      { "type": "image", "image": "/images/mic-materials.jpg", "caption": "Application." }
     ],
-    "visible": true
+    "visible": false
   },
   {
-    "title": "Whisperpine",
-    "slug": "whisperpine",
-    "theme": "RESIDENTIAL",
+    "title": "U5 Arenen",
+    "slug": "u5-arenen",
+    "number": "021",
+    "intervention": "New Build",
+    "status": "Competition",
+    "theme": "Infrastructure",
     "sections": [
       { "type": "hero", "image": "/images/placeholder.jpeg" },
       {
         "type": "info",
         "fields": {
-          "Year": "2025",
-          "Client": "Dren Rugova",
-          "Type": "Residential",
-          "Location": "Prishtina, Kosova",
-          "Status": "On-Going",
-          "Collaborator": "Jetoni Comerce",
-          "Budget": "40 000 EUR",
-          "Phase": "LPH 01-07"
+          "Year": "2024",
+          "Client": "Hamburg Municipality",
+          "Location": "Hamburg, Germany",
+          "Collaborators": "Developed at LIN Architects and Urbanists, 3rd Prize",
+          "Structure": "Bollinger and Grohmann, Berlin",
+          "Budget": "",
+          "Phase": "LPH 01-02"
         },
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum."
+        "text": "Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus."
       },
-      { "type": "image", "image": "/images/placeholder.jpeg", "caption": "Placeholder caption for Whisperpine." },
-      { "type": "chapter", "title": "Design Approach", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." },
-      { "type": "text", "text": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam." },
+      { "type": "image", "image": "/images/placeholder.jpeg", "caption": "Placeholder caption for U5 Arenen." },
+      { "type": "chapter", "title": "Mobility Solutions", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." },
+      { "type": "text", "text": "Praesent sapien massa, convallis a pellentesque nec, egestas non nisi." },
       { "type": "fullscreenImage", "image": "/images/placeholder.jpeg", "caption": "Fullscreen placeholder image." }
     ],
-    "visible": true
+    "visible": false
   },
   {
-    "title": "Home Above Rails",
-    "slug": "home-above-rails",
-    "theme": "Social-Housing",
+    "title": "PRG",
+    "slug": "prg",
+    "number": "020",
+    "intervention": "New Build",
+    "status": "In Execution",
+    "theme": "Social Housing",
     "sections": [
       { "type": "hero", "image": "/images/har-facade.jpg" },
       {
@@ -66,7 +191,7 @@
           "Location": "Paris, France",
           "Client": "Paris Municipality",
           "Award": "1st Place",
-          "Architecture": "Cathrin Trebeljahr Architecte, Paris, LIN, Berlin, CSA, Geneve",
+          "Collaborators": "Developed at LIN Architects Urbanists, with Cathrin Trebeljahr Architecte & CSA, 1st Prize",
           "Structure": "Atelier Masse, Pairs",
           "Landscape": "Bassinet Turquin Paysage, Paris"
         },
@@ -101,7 +226,10 @@
   {
     "title": "Leverkusen Mitte Quartier",
     "slug": "leverkusen-mitte-quartier",
-    "theme": "Bike Hub, Office",
+    "number": "019",
+    "intervention": "New Build",
+    "status": "Proposal",
+    "theme": "Offices & Mobility",
     "sections": [
       { "type": "hero", "image": "/images/lvq-1.jpg" },
       {
@@ -111,7 +239,7 @@
           "Client": "Leverkusen Municipality",
           "Location": "Leverkusen, Germany",
           "Award": "3rd Place",
-          "Architecture": "LIN Architects and Urbanists, Berlin",
+          "Collaborators": "Developed at LIN Architects and Urbanists, 3rd Prize",
           "Structure": "Bohne Ingenieure, Berlin",
           "Landscape": "Atelier Miething, Paris"
         },
@@ -128,74 +256,49 @@
     "visible": false
   },
   {
-    "title": "Reckler's",
-    "slug": "recklers",
-    "theme": "Adaptation",
+    "title": "Stani",
+    "slug": "Stani",
+    "number": "018",
+    "intervention": "Built",
+    "status": "completed",
+    "theme": "Residential",
     "sections": [
-      { "type": "hero", "image": "/images/placeholder.jpeg" },
+      { "type": "hero", "image": "/images/arita-dreshaj-stan-1.jpg" },
       {
         "type": "info",
         "fields": {
-          "Year": "2019",
-          "Client": "Private",
-          "Type": "Adaptation",
-          "Location": "Hamburg, Germany",
-          "Status": "Completed",
-          "Collaborator": "D&G Sanierung",
-          "Budget": "25 000 EUR",
-          "Phase": "LPH 04-06"
+          "Year": "2025",
+          "Client": "Private Client",
+          "Type": "Residential",
+          "Location": "Burim, Kosova",
+          "Contractor": "Ar Decor SH. P . K.",
+          "Budget": "15 000 EUR",
+          "Phase": "LPH 01-07"
         },
-        "text": "Sed porttitor lectus nibh. Pellentesque in ipsum id orci porta dapibus."
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum."
       },
-      { "type": "image", "image": "/images/placeholder.jpeg", "caption": "Placeholder caption for Reckler's." },
-      { "type": "chapter", "title": "Reconstruction Process", "text": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae." },
-      { "type": "text", "text": "Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem." },
-      { "type": "fullscreenImage", "image": "/images/placeholder.jpeg", "caption": "Fullscreen placeholder image." }
+      { "type": "image", "image": "/images/arita-dreshaj-stan-2.jpg", "caption": "Placeholder caption for Whisperpine." },
+      { "type": "chapter", "title": "Design Approach", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." },
+      { "type": "text", "text": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam." },
+      { "type": "fullscreenImage", "image": "/images/arita-dreshaj-stan-3.jpg", "caption": "The kitchenette." }
     ],
-    "visible": false
-  },
-  {
-    "title": "U5 Arenen",
-    "slug": "u5-arenen",
-    "theme": "Infrastructural Architecture",
-    "sections": [
-      { "type": "hero", "image": "/images/placeholder.jpeg" },
-      {
-        "type": "info",
-        "fields": {
-          "Year": "2024",
-          "Client": "Hamburg Municipality",
-          "Type": "U-Bahn, Urban Design",
-          "Location": "Hamburg, Germany",
-          "Status": "Competition",
-          "Collaborator": "LIN Architects and Urbanists, Bollinger and Grohmann",
-          "Budget": "",
-          "Phase": "LPH 01-02"
-        },
-        "text": "Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus."
-      },
-      { "type": "image", "image": "/images/placeholder.jpeg", "caption": "Placeholder caption for U5 Arenen." },
-      { "type": "chapter", "title": "Mobility Solutions", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." },
-      { "type": "text", "text": "Praesent sapien massa, convallis a pellentesque nec, egestas non nisi." },
-      { "type": "fullscreenImage", "image": "/images/placeholder.jpeg", "caption": "Fullscreen placeholder image." }
-    ],
-    "visible": false
+    "visible": true
   },
   {
     "title": "Theaterwek Rostock",
     "slug": "theaterwerk-rostock",
-    "theme": "THEATER PRODUCTION FACILITY",
+    "number": "017",
+    "intervention": "New Build",
+    "status": "Competition",
+    "theme": "Cultural",
     "sections": [
       { "type": "hero", "image": "/images/placeholder.jpeg" },
       {
         "type": "info",
         "fields": {
           "Year": "2024",
-          "Client": "Hamburg Municipality",
-          "Type": "Theater",
           "Location": "Rostock, Germany",
-          "Status": "Competition",
-          "Collaborator": "LIN Architects and Urbanists, Winter Ingenieure",
+          "Collaborators": "Developed at LIN Architects and Urbanists, with Winter Ingenieure",
           "Budget": "",
           "Phase": "LPH 01-02"
         },
@@ -209,20 +312,76 @@
     "visible": false
   },
   {
-    "title": "Brickwork Reborn",
-    "slug": "brickwork-reborn",
-    "theme": "RESIDENTIAL",
+    "title": "Holiday House",
+    "slug": "holiday-house",
+    "number": "016",
+    "intervention": "Study",
+    "status": "Proposal",
+    "theme": "Residential",
     "sections": [
       { "type": "hero", "image": "/images/placeholder.jpeg" },
       {
         "type": "info",
         "fields": {
-          "Year": "2024",
-          "Client": "Private",
-          "Type": "Residential",
+          "Year": "2025",
+          "Client": "Dren Rugova",
+          "Location": "Prishtina, Kosova",
+          "Contractor": "Jetoni Comerce",
+          "Budget": "40 000 EUR",
+          "Phase": "LPH 01-07"
+        },
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum."
+      },
+      { "type": "image", "image": "/images/placeholder.jpeg", "caption": "Placeholder caption for Whisperpine." },
+      { "type": "chapter", "title": "Design Approach", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." },
+      { "type": "text", "text": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam." },
+      { "type": "fullscreenImage", "image": "/images/placeholder.jpeg", "caption": "Fullscreen placeholder image." }
+    ],
+    "visible": true
+  },
+  {
+    "title": "D House",
+    "slug": "d-house",
+    "number": "015",
+    "intervention": "New Build",
+    "status": "Completed",
+    "theme": "Residential",
+    "sections": [
+      { "type": "hero", "image": "/images/placeholder.jpeg" },
+      {
+        "type": "info",
+        "fields": {
+          "Year": "2023",
+          "Client": "Private Client",
           "Location": "Burim, Kosova",
-          "Status": "Completed",
-          "Collaborator": "Arbeni Comerce",
+          "Budget": "55 000 EUR",
+          "Phase": "LPH 01-07"
+        },
+        "text": "Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Nulla quis lorem ut libero malesuada feugiat."
+      },
+      { "type": "image", "image": "/images/placeholder.jpeg", "caption": "Placeholder caption for Brickwork Reborn." },
+      { "type": "chapter", "title": "Materiality", "text": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae." },
+      { "type": "text", "text": "Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem." },
+      { "type": "fullscreenImage", "image": "/images/placeholder.jpeg", "caption": "Fullscreen placeholder image." }
+    ],
+    "visible": false
+  },
+  {
+    "title": "Brick House",
+    "slug": "brick-house",
+    "number": "014",
+    "intervention": "New Build",
+    "status": "Proposal",
+    "theme": "Residential",
+    "sections": [
+      { "type": "hero", "image": "/images/placeholder.jpeg" },
+      {
+        "type": "info",
+        "fields": {
+          "Year": "2023",
+          "Client": "Private Client",
+          "Location": "Burim, Kosova",
+          "Contractor": "Arbeni Comerce",
           "Budget": "55 000 EUR",
           "Phase": "LPH 01-07"
         },
@@ -238,7 +397,10 @@
   {
     "title": "New Archipelago",
     "slug": "new-archipelago",
-    "theme": "Housing, Urban Design",
+    "number": "010",
+    "intervention": "Study",
+    "status": "Proposal",
+    "theme": "Housing & Urban Design",
     "sections": [
       { "type": "hero", "image": "/images/new-01.jpg" },
       {
@@ -247,8 +409,7 @@
           "Year": "2022",
           "Location": "Berlin, Germany",
           "Institution": "TU Berlin",
-          "Status": "Proposal",
-          "Team": "Gloria Schock, Robert Stahlschmidt, Matti Hänsch, Sungdong Lee",
+          "Collaborators": "Collaboration with Gloria Schock, Robert Stahlschmidt, Matti Hänsch & Sungdong Lee",
           "Award": "1st Annerkenung - Plattform Nachwuchsarchitekt*innen 2022"      
         },
         "text": "This urban development project addresses a long-vacant site along the Spree River in Schöneweide, left unused since 1991. Due to significant soil contamination from its industrial past, redevelopment was stalled until 2012, when a major developer initiated a market-driven approach. Their strategy, demolishing all existing structures to make way for generic new construction, is critically challenged by this counter-project. <p> In contrast, this alternative proposal advocates for the preservation and integration of the site’s ongoing renaturation. It recognizes open urban land as a vital and finite resource, prioritizing ecological balance over excessive land sealing. By concentrating development along a narrow perimeter and opting for vertical density, the design meets local needs while maintaining flexibility and resilience. <p> Sustainability is redefined in this context, not only through materials and energy but also by reconsidering spatial values and long-term urban health. The project’s evolution includes the development of a manifesto and a deeper theoretical foundation that critiques conventional, consumption-driven urbanism. <p> Inspired by O.M. Ungers’ concept of the Green Urban Archipelago, the design envisions a network of dense built zones interspersed with protected green “islands.” This model promotes ecological diversity and fosters a more conscious urban culture. Like a reef within a lagoon, the project serves as a resilient, living structure, preserving space while encouraging renewal."
@@ -262,61 +423,81 @@
     "visible": false
   },
   {
-    "title": "Home&More",
-    "slug": "microhome",
-    "theme": "Microhome",
+    "title": "Ivy Apartment",
+    "slug": "ivy-apartment",
+    "number": "009",
+    "intervention": "Interior Adaptation",
+    "status": "Completed",
+    "theme": "Residential",
     "sections": [
-      { "type": "hero", "image": "/images/mic-section.png" },
+      { "type": "hero", "image": "/images/new-01.jpg" },
       {
         "type": "info",
         "fields": {
-          "Year": "2024",
-          "Client": "Ndrecaj Family",
-          "Location": "Plave, Montenegro",
-          "Status": "On-Going",
-          "Budget": "15 000 EUR"
+          "Year": "2021",
+          "Location": "Prishtina, Kosova",
+          "Client": "Malsore Mehmetaj",
+          "Collaborators": "Collaboration with Ngadhnjim Selmonaj",
+          "Contractor": "Arben Demi, SHkelzen Leci, Ekrem Gashi"      
         },
-        "text": "In an era where recognizing the limits of energy resources and the unsustainable consumption of territory is crucial, Home&More believes refurbishing abandoned historical heritage is a primary challenge. <p> Beyond aesthetics, this project reshapes the design process, anchoring it in a more grounded reality. It advocates for thoughtful study and investment in specific families and sites. Thus, by revitalizing Ms. & Mr. Ndrecaj’s abandoned property in Plave, Montenegro, the project pursues two main objectives: <p> 1. Reusing existing footprints.<p> 2. Reconstructing spaces with individuality.<p>The intention is clear: to reduce CO2 emissions, honor the historical narratives of locations, and create spaces that meet the unique needs and desires of their inhabitants. Engaging local communities, employing sustainable materials, and fostering biodiversity conservation, our project prioritizes social responsibility. <p>Thus, at the peak of a new age of consumerism, this home is defined through its domestic paraphernalia—the furniture, fixtures, and accessories are the main characters of the space. The new social conditions are tied to the ownership and personal value attributed to space, ensuring an individualistic design. <p>Through this approach, Home&More encodes domestic spaces as social and cultural features through which we represent our nature—and live with it."
+        "text": "This urban development project addresses a long-vacant site along the Spree River in Schöneweide, left unused since 1991. Due to significant soil contamination from its industrial past, redevelopment was stalled until 2012, when a major developer initiated a market-driven approach. Their strategy, demolishing all existing structures to make way for generic new construction, is critically challenged by this counter-project. <p> In contrast, this alternative proposal advocates for the preservation and integration of the site’s ongoing renaturation. It recognizes open urban land as a vital and finite resource, prioritizing ecological balance over excessive land sealing. By concentrating development along a narrow perimeter and opting for vertical density, the design meets local needs while maintaining flexibility and resilience. <p> Sustainability is redefined in this context, not only through materials and energy but also by reconsidering spatial values and long-term urban health. The project’s evolution includes the development of a manifesto and a deeper theoretical foundation that critiques conventional, consumption-driven urbanism. <p> Inspired by O.M. Ungers’ concept of the Green Urban Archipelago, the design envisions a network of dense built zones interspersed with protected green “islands.” This model promotes ecological diversity and fosters a more conscious urban culture. Like a reef within a lagoon, the project serves as a resilient, living structure, preserving space while encouraging renewal."
       },
-      { "type": "image", "image": "/images/mic-interior.jpg", "caption": "The Art Class. Perspective Section." },
-      { "type": "chapter", "title": "Plan Adaptation" },
-      {
-        "type": "imageRow",
-        "images": [
-          { "src": "/images/mic-pl-00.png", "size": "XL" },
-          { "src": "/images/mic-pl-01.png", "size": "XL" }
-        ]
-      },
-      { "type": "chapter", "title": "Structure and Materials" },
-      { "type": "image", "image": "/images/mic-structure.png", "caption": "Intersection of existing and new materials." },
-      { "type": "text", "text": "Except for a 3% stone work needed for the revitalization of the existing walls (46m² of the facade), the remaining walls will be connected with KINGSPAN insulated walls (30m²), attached to an inner wooden structure, and covered with a KINGSPAN insulated roof (24m² in surface). The rest of the design will also be made of wood elements, all produced in the city of Plave." },
-      { "type": "image", "image": "/images/mic-pl-material-01.png", "caption": "Technical detail." },
-      { "type": "image", "image": "/images/mic-materials.jpg", "caption": "Application." }    ],
+      { "type": "image", "image": "/images/new-concept-housing.png", "size": "L", "caption": "Housing Concept." },
+      { "type": "image", "image": "/images/new-groundfloor.png", "size": "L", "caption": "Groundfloor plan." },
+      { "type": "chapter", "title": "Urban Voids", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." },
+      { "type": "text", "text": "Praesent sapien massa, convallis a pellentesque nec, egestas non nisi." },
+      { "type": "fullscreenImage", "image": "/images/placeholder.jpeg", "caption": "Fullscreen placeholder image." }
+    ],
     "visible": false
   },
   {
-    "title": "Hall to Home",
-    "slug": "a-residential-conversion",
-    "theme": "Adaptation, Residential",
+    "title": "FK Apartment",
+    "slug": "fk-apartment",
+    "number": "008",
+    "intervention": "Interior Adaptation",
+    "status": "Completed",
+    "theme": "Residential",
     "sections": [
-      { "type": "hero", "image": "/images/arita-dreshaj-h2h-2.jpg" },
+      { "type": "hero", "image": "/images/new-01.jpg" },
       {
         "type": "info",
         "fields": {
-          "Year": "2025",
-          "Client": "Private",
-          "Type": "Adaptation",
-          "Location": "Burim, Kosova",
-          "Status": "On-Going",
-          "Collaborator": "Private",
-          "Budget": "10 000 EUR",
-          "Phase": "LPH 01-07"
+          "Year": "2021",
+          "Location": "Prishtina, Kosova",
+          "Client": "Astrit Bujupaj"    
         },
-        "text": "Sed porttitor lectus nibh. Pellentesque in ipsum id orci porta dapibus."
+        "text": "This urban development project addresses a long-vacant site along the Spree River in Schöneweide, left unused since 1991. Due to significant soil contamination from its industrial past, redevelopment was stalled until 2012, when a major developer initiated a market-driven approach. Their strategy, demolishing all existing structures to make way for generic new construction, is critically challenged by this counter-project. <p> In contrast, this alternative proposal advocates for the preservation and integration of the site’s ongoing renaturation. It recognizes open urban land as a vital and finite resource, prioritizing ecological balance over excessive land sealing. By concentrating development along a narrow perimeter and opting for vertical density, the design meets local needs while maintaining flexibility and resilience. <p> Sustainability is redefined in this context, not only through materials and energy but also by reconsidering spatial values and long-term urban health. The project’s evolution includes the development of a manifesto and a deeper theoretical foundation that critiques conventional, consumption-driven urbanism. <p> Inspired by O.M. Ungers’ concept of the Green Urban Archipelago, the design envisions a network of dense built zones interspersed with protected green “islands.” This model promotes ecological diversity and fosters a more conscious urban culture. Like a reef within a lagoon, the project serves as a resilient, living structure, preserving space while encouraging renewal."
       },
-      { "type": "image", "image": "/images/placeholder.jpeg", "caption": "Placeholder caption for Adapting a Wedding Hall." },
-      { "type": "chapter", "title": "Transformation", "text": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae." },
-      { "type": "text", "text": "Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem." },
+      { "type": "image", "image": "/images/new-concept-housing.png", "size": "L", "caption": "Housing Concept." },
+      { "type": "image", "image": "/images/new-groundfloor.png", "size": "L", "caption": "Groundfloor plan." },
+      { "type": "chapter", "title": "Urban Voids", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." },
+      { "type": "text", "text": "Praesent sapien massa, convallis a pellentesque nec, egestas non nisi." },
+      { "type": "fullscreenImage", "image": "/images/placeholder.jpeg", "caption": "Fullscreen placeholder image." }
+    ],
+    "visible": false
+  },
+  {
+    "title": "War Museum",
+    "slug": "war-museum",
+    "number": "007",
+    "intervention": "Study",
+    "status": "Proposal",
+    "theme": "Cultural",
+    "sections": [
+      { "type": "hero", "image": "/images/new-01.jpg" },
+      {
+        "type": "info",
+        "fields": {
+          "Year": "2020",
+          "Location": "Koshare, Kosova",
+          "Institution": "University of Prishtina"    
+        },
+        "text": "This urban development project addresses a long-vacant site along the Spree River in Schöneweide, left unused since 1991. Due to significant soil contamination from its industrial past, redevelopment was stalled until 2012, when a major developer initiated a market-driven approach. Their strategy, demolishing all existing structures to make way for generic new construction, is critically challenged by this counter-project. <p> In contrast, this alternative proposal advocates for the preservation and integration of the site’s ongoing renaturation. It recognizes open urban land as a vital and finite resource, prioritizing ecological balance over excessive land sealing. By concentrating development along a narrow perimeter and opting for vertical density, the design meets local needs while maintaining flexibility and resilience. <p> Sustainability is redefined in this context, not only through materials and energy but also by reconsidering spatial values and long-term urban health. The project’s evolution includes the development of a manifesto and a deeper theoretical foundation that critiques conventional, consumption-driven urbanism. <p> Inspired by O.M. Ungers’ concept of the Green Urban Archipelago, the design envisions a network of dense built zones interspersed with protected green “islands.” This model promotes ecological diversity and fosters a more conscious urban culture. Like a reef within a lagoon, the project serves as a resilient, living structure, preserving space while encouraging renewal."
+      },
+      { "type": "image", "image": "/images/new-concept-housing.png", "size": "L", "caption": "Housing Concept." },
+      { "type": "image", "image": "/images/new-groundfloor.png", "size": "L", "caption": "Groundfloor plan." },
+      { "type": "chapter", "title": "Urban Voids", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." },
+      { "type": "text", "text": "Praesent sapien massa, convallis a pellentesque nec, egestas non nisi." },
       { "type": "fullscreenImage", "image": "/images/placeholder.jpeg", "caption": "Fullscreen placeholder image." }
     ],
     "visible": false
@@ -324,6 +505,9 @@
   {
     "title": "Island of Angles",
     "slug": "island-of-angles",
+    "number": "004",
+    "intervention": "New Build",
+    "status": "",
     "theme": "Library",
     "sections": [
       { "type": "hero", "image": "/images/dia-01.jpg" },
@@ -348,58 +532,12 @@
     ],
     "visible": false
   },
-    {
-    "title": "Burimi Tennis Academy",
-    "slug": "burimi-tennis-academy",
-    "theme": "Urban Design",
-    "sections": [
-      { "type": "hero", "image": "/images/arita-dreshaj-bta-1.jpg" },
-      {
-        "type": "info",
-        "fields": {
-          "Year": "2025",
-          "Location": "Burim, Kosova",
-          "Status": "Proposal",
-          "Client": "Astrit Bujupaj",
-          "Award": "false"
-        },
-        "text": "Pataphysics informs a critical perspective on art and scientific voids, which are placed into angular forms to shape the Learning Center. Each angle corresponds to a specific function and aligns proportionally with the site’s natural topography and lighting conditions. <p> The Learning Center is set amidst mature trees and several surrounding cultural institutions. While the former parking deck hindered connectivity within the site, the new building and its integrated landscape introduce a renewed sense of urban cohesion. The original café located atop the former parking structure, an important social hub for the local community, has been preserved in its original position, maintaining its historical and cultural significance. <p> Comprising both a Public and an Academic Library, the building is elevated on a platform and framed by a porous architectural envelope that unifies the two volumes. These gaps form a shaded corridor that opens toward a green horizon, encouraging visual and physical continuity with the natural surroundings. Upon entry, visitors pass through a front garden lined with large trees and follow a gentle slope leading into the site. <p> To enable free flow of people and views, the design incorporates a structure of irregularly placed concrete cubes, creating the impression that the sloped ground and garden scenery extend into the interior. The intersections of these cubes introduce fluid circulation and spatial flexibility. Glass façades along the library promote transparency and engagement, fostering interaction between different parts of the building and reinforcing its role as a social and educational hub."
-      },
-      { "type": "image", "image": "/images/arita-dreshaj-bta-2.jpg", "caption": "Master plan" },
-      { "type": "image", "image": "/images/arita-dreshaj-bta-3.jpg", "caption": "View from the backyard." }
-    ],
-    "visible": false
-  },
-      {
-    "title": "La Plaza del Barri",
-    "slug": "la-plaza-del-barri",
-    "theme": "Re-sourcing",
-    "sections": [
-      { "type": "hero", "image": "/images/arita-dreshaj-bar-1.jpg" },
-      {
-        "type": "info",
-        "fields": {
-          "Year": "2025",
-          "Location": "Barcelona, Spain",
-          "Status": "Proposal",
-          "Institution": "Europan 18",
-          "Award": "false"
-        },
-        "text": "Pataphysics informs a critical perspective on art and scientific voids, which are placed into angular forms to shape the Learning Center. Each angle corresponds to a specific function and aligns proportionally with the site’s natural topography and lighting conditions. <p> The Learning Center is set amidst mature trees and several surrounding cultural institutions. While the former parking deck hindered connectivity within the site, the new building and its integrated landscape introduce a renewed sense of urban cohesion. The original café located atop the former parking structure, an important social hub for the local community, has been preserved in its original position, maintaining its historical and cultural significance. <p> Comprising both a Public and an Academic Library, the building is elevated on a platform and framed by a porous architectural envelope that unifies the two volumes. These gaps form a shaded corridor that opens toward a green horizon, encouraging visual and physical continuity with the natural surroundings. Upon entry, visitors pass through a front garden lined with large trees and follow a gentle slope leading into the site. <p> To enable free flow of people and views, the design incorporates a structure of irregularly placed concrete cubes, creating the impression that the sloped ground and garden scenery extend into the interior. The intersections of these cubes introduce fluid circulation and spatial flexibility. Glass façades along the library promote transparency and engagement, fostering interaction between different parts of the building and reinforcing its role as a social and educational hub."
-      },
-      { "type": "image", "image": "/images/arita-dreshaj-bar-4.png", "caption": "Ground Floor plan." },
-      { "type": "image", "image": "/images/arita-dreshaj-bar-3.png", "caption": "Typological apartment floor plan." },
-      { "type": "chapter", "title": "Planimetries" },
-      { "type": "image", "image": "/images/arita-dreshaj-bar-5.png", "size": "L", "caption": "Floorplans." },
-      { "type": "image", "image": "/images/dia-plans.jpg", "size": "L", "caption": "Plans and Sections." },
-      { "type": "chapter", "title": "Axonometry" },
-      { "type": "image", "image": "/images/arita-dreshaj-bar-7.pdf", "size": "L", "caption": "Hand Model." }
-    ],
-    "visible": false
-  },
   {
     "title": "Boxes and Colors",
     "slug": "boxes-and-colors",
+    "number": "001",
+    "intervention": "Adaptation",
+    "status": "Proposal",
     "theme": "Housing",
     "sections": [
       { "type": "hero", "image": "/images/box-shadow-study.gif" },
@@ -408,7 +546,6 @@
         "fields": {
           "Year": "2018",
           "Location": "Prishtina, Kosova",
-          "Status": "Proposal",
           "Institution": "University of Prishtina"
         },
         "text": "This project reimagines a flat, neutral city centre facade into a vibrant architectural landmark that bridges the dynamic urban core and the calm campus behind it. The design introduces bold, modern duplex apartments that offer diverse living experiences through expressive spatial organization, rhythm, and materiality. Serving as a visual mediator between two contrasting urban environments, the building captures the energy of the city across its dual facades. The new design replaces monotony with movement, obliquely arranged balconies in low-impact cementitious material animate the elevation, their textured surfaces softened by warm tones. A geometric play of black metal profiles disrupts the sleek glass, creating a bold, sustainable, and visually dynamic composition."
