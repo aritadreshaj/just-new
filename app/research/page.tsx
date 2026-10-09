@@ -20,6 +20,7 @@ type ResearchProject = {
   institute?: string;
   category?: string;
   role?: string;
+  private?: boolean;
 };
 
 type ProjectMeta = {
