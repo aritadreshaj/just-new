@@ -66,7 +66,6 @@ export default function Home() {
 
   const [headerHeight, setHeaderHeight] = useState(80);
   const [hoveredLeftIndex, setHoveredLeftIndex] = useState<number | null>(null);
-  const [isRightPanelHovered, setIsRightPanelHovered] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
   const [isReady, setIsReady] = useState(false);
   const [shuffledProjects, setShuffledProjects] = useState<MainPageProject[] | null>(null);
@@ -202,12 +201,9 @@ export default function Home() {
               top: isDesktop ? topOffset : undefined,
               alignSelf: "flex-start",
               maxHeight: isDesktop ? `calc(100vh - ${topOffset})` : undefined,
-              overflowY: isDesktop && isRightPanelHovered ? "auto" : "visible",
+              overflowY: isDesktop ? "auto" : "visible",
               scrollbarWidth: "none",
             }}
-            onMouseEnter={() => setIsRightPanelHovered(true)}
-            onMouseLeave={() => setIsRightPanelHovered(false)}
-            onWheelCapture={(e) => isRightPanelHovered && e.stopPropagation()}
           >
             <style>{`.no-scrollbar::-webkit-scrollbar { display: none; }`}</style>
             <div className="no-scrollbar">

@@ -34,8 +34,14 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
             <div className="space-y-6">
               <p>
+                Arita Dreshaj
+                <br />
+                Research, Architecture &amp; Urban Design
+              </p>
+
+              <p>
                 For collaborations, commissions, research and other enquiries, get in touch:
-                                <br />
+                <br />
                 <br />
                 <a href="mailto:info@aritadreshaj.com" className={`break-words ${linkClass}`}>
                   info@aritadreshaj.com

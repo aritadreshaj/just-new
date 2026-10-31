@@ -73,3 +73,43 @@
 .project-page-arrow-right {
   right: 15%;
 }
+
+/* Research description: readable measure, balanced editorial columns on desktop, single column on mobile */
+.research-prose {
+  max-width: 68ch;
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.15rem);
+  line-height: 1.7;
+  text-align: justify;
+  hyphens: manual;
+  overflow-wrap: break-word;
+}
+
+.research-prose-p {
+  margin: 0 0 1.25em;
+  orphans: 3;
+  widows: 3;
+}
+
+.research-prose.research-caption {
+  color: #737373;
+  max-width: none;
+  column-count: 1;
+  text-align: left;
+}
+
+.research-prose > .research-prose-p:last-child {
+  margin-bottom: 0;
+}
+
+.research-prose strong {
+  font-weight: 600;
+}
+
+@media (min-width: 900px) {
+  .research-prose {
+    max-width: 140ch;
+    column-count: 2;
+    column-gap: 3rem;
+    column-fill: balance;
+  }
+}

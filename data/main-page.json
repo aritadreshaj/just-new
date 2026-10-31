@@ -3,7 +3,7 @@
     "id": "brickhouse",
     "title": "Brick House",
     "side": "left",
-    "heroImage": "/mainpage/arita-dreshaj-brickhouse.png",
+    "heroImage": "/mainpage/arita-dreshaj-brick-house-1.jpg",
     "excerpt": "Perforated brick screens filter light and cast shifting shadows across the entrance.",
     "location": "Burim, Kosova",
     "theme": "Brick as Structure and Screen",
@@ -123,8 +123,8 @@
   {
     "id": "ga8",
     "title": "Ga8",
-    "side": "left",
-    "heroImage": "/videos/arita-dreshaj-gallusanlage8.gif",
+    "side": "right",
+    "heroImage": "/mainpage/arita-dreshaj-gallusanlage8-2.gif",
     "excerpt": "Hand-drawn facade studies developed for Gallusanlage 8 Tower",
     "location": "Frankfurt am Main, Germany",
     "theme": "Precise Inconsistencies.",
@@ -132,7 +132,7 @@
     "link": "false",
     "collaborator": "Developed at Barkow Leibinger",
     "alt": {
-      "hero": "Left Project - hero image"
+      "hero": "Right Project - hero image"
     }
   },
     {
@@ -197,7 +197,7 @@
     "id": "dus",
     "title": "Estrangement: Home Then and Now",
     "side": "right",
-    "heroImage": "/mainpage/arita-dreshaj-dus-3.jpg",
+    "heroImage": "/mainpage/arita-dreshaj-poster.jpg",
     "excerpt": "A reflection presented at the Domesticity Under Siege International Architectural Conference on how commodification, estrangement, and crisis reshape the meaning of home, questioning whether domestic space can be reclaimed through labor, memory, individuality, and everyday acts of creation.",
     "link": "/research/awc",
     "type": "International Architectural Conference, 2025",

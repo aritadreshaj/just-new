@@ -9,6 +9,14 @@ import "@/styles/globals.css";
 // Example news data (replace with your own or fetch dynamically)
 const newsItems = [
 	{
+		date: "2026-11-20",
+		title: "The Albanian Tower-House and its Adaptive Longevity to be presented by Dreshaj at the Interational Conference Porouscapes: Architectural Strategies for a Resilient Heritage, University of Coimbra",
+		summary:
+			"Exploring how architectural transformation and changing uses of the Albanian tower-house challenge conventional understandings of heritage and sustainability.",
+		projectLink: "https://porouscapes.uc.pt/",
+		place: "Coimbra, Portugal",
+	},
+		{
 		date: "2025-12-16",
 		title: "2nd Place in Gallusanlage 8 High-Rise Competition",
 		summary:
